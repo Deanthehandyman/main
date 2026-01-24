@@ -187,7 +187,7 @@
             </div>
             
             <div class="lead-card" id="contact" data-aos="fade-left">
-                <h3>Get A Free Quote</h3>
+                <h3>Start Your Project</h3>
                 <form id="quoteForm">
                     <div class="form-group">
                         <label>Service Needed</label>
@@ -421,6 +421,9 @@
         // --- CONFIGURATION ---
         const PUSHBULLET_TOKEN = "o.ZS7JlD9tJxXKORXgsQspxFV5fK7iDFPl"; 
         
+        // THIS IS YOUR ON-SITE BOOKING LINK
+        const CALENDAR_LINK = "https://calendar.app.google/zJTuuvnVncbQg5LT9";
+
         const btn = document.getElementById('submitBtn');
         const originalText = btn.innerText;
         btn.innerText = "Sending...";
@@ -458,8 +461,14 @@ Details: ${details}
         })
         .then(response => {
             if (response.ok) {
-                alert("Quote request sent! Dean will contact you shortly.");
-                document.getElementById('quoteForm').reset();
+                // SUCCESS: Redirect to Calendar
+                if (CALENDAR_LINK && CALENDAR_LINK.startsWith("http")) {
+                     alert("Request Received! Redirecting you to book your appointment time...");
+                     window.location.href = CALENDAR_LINK;
+                } else {
+                     alert("Quote request received! Dean will contact you shortly.");
+                     document.getElementById('quoteForm').reset();
+                }
             } else {
                 alert("Error sending request. Please call (281) 917-9914 directly.");
             }
