@@ -104,6 +104,7 @@
         .nav-links a { color: var(--dark); text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.95rem; }
         .nav-links a:hover { color: var(--primary); }
         
+        /* Venmo Payment Button in Nav */
         .nav-pay-btn { background: var(--venmo-blue); color: white !important; padding: 8px 16px; border-radius: 4px; transition:0.3s; font-weight: 700 !important;}
         .nav-pay-btn:hover { background: #0070cc; transform: translateY(-2px); }
 
@@ -155,8 +156,7 @@
         .virtual-card:hover { background: rgba(255,255,255,0.1); border-color: var(--primary); transform: translateY(-5px); }
         .virtual-icon { font-size: 2.5rem; margin-bottom: 20px; color: var(--accent); }
 
-        /* --- GALLERY (UPDATED FOR MOBILE) --- */
-        /* Changed minmax from 300px to 250px to fit phones better */
+        /* --- GALLERY --- */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
         .gallery-item { height: 260px; border-radius: 8px; overflow: hidden; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: #ddd; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
@@ -170,6 +170,12 @@
         .reviewer { display: flex; align-items: center; margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; }
         .reviewer-icon { width: 40px; height: 40px; background: #2c3e50; color: white; border-radius: 50%; margin-right: 15px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
         
+        /* --- FAQ SECTION --- */
+        .faq-item { background: white; border: 1px solid #eee; padding: 20px; margin-bottom: 15px; border-radius: 6px; transition: 0.3s; }
+        .faq-item:hover { border-color: var(--primary); }
+        .faq-item h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); }
+        .faq-item p { margin-bottom: 0; color: #555; }
+
         /* --- SERVICES --- */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .service-card { background: var(--white); padding: 35px; border-radius: 8px; border: 1px solid #eee; transition: 0.3s; position: relative; overflow: hidden; }
@@ -186,7 +192,7 @@
         .footer-col a { color: #aaa; text-decoration: none; transition: 0.3s; }
         .footer-col a:hover { color: var(--accent); }
 
-        /* --- MOBILE STICKY BAR (UPDATED) --- */
+        /* --- MOBILE STICKY BAR --- */
         .sticky-footer {
             position: fixed;
             bottom: 0;
@@ -337,10 +343,10 @@
             h1 { font-size: 2rem; }
             .logo-text { display: none; }
             .sticky-footer { display: flex; } 
-            body { padding-bottom: 70px; } /* Padding for sticky bar */
-            .chat-widget { bottom: 80px; right: 15px; } /* Chat above sticky bar */
+            body { padding-bottom: 70px; } 
+            .chat-widget { bottom: 80px; right: 15px; }
             .chat-window { width: 300px; height: 400px; }
-            .container { padding: 0 15px; } /* Less padding on small screens */
+            .container { padding: 0 15px; } 
         }
     </style>
 </head>
@@ -548,7 +554,7 @@
     <section class="section" id="faq" style="background-color: var(--white);">
         <div class="container">
             <h2>Common Questions</h2>
-            <p class="section-sub">Answers for Voice Search & AI.</p>
+            <p class="section-sub">Everything you need to know about our services.</p>
             
             <div style="max-width: 800px; margin: 0 auto;">
                 <div class="faq-item" data-aos="fade-up">
@@ -622,128 +628,171 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init({ duration: 800, once: true });
-
-      const PUSHBULLET_TOKEN = "o.ZS7JlD9tJxXKORXgsQspxFV5fK7iDFPl"; 
-      const ONSITE_CALENDAR = "https://calendar.app.google/zJTuuvnVncbQg5LT9";
-      const VIRTUAL_CALENDAR = "https://calendar.app.google/3jvHznREqAbg2WaA8";
-      
-      let chatState = "start"; 
-      let userDetails = { needs: "", info: "" };
-
-      function toggleChat() {
-          var chatWindow = document.getElementById("chatWindow");
-          if (chatWindow.style.display === "flex") {
-              chatWindow.style.display = "none";
-          } else {
-              chatWindow.style.display = "flex";
-              setTimeout(() => document.getElementById("chatInput").focus(), 100);
-          }
-      }
-
-      function handleEnter(e) {
-          if (e.key === 'Enter') sendUserMessage();
-      }
-
-      function addMessage(text, sender) {
-          const div = document.createElement('div');
-          div.className = `msg ${sender}-msg`;
-          div.innerHTML = text;
-          const container = document.getElementById("chatMessages");
-          container.appendChild(div);
-          container.scrollTop = container.scrollHeight; 
-      }
-
-      function quickReply(text) {
-          document.getElementById("chatInput").value = text;
-          sendUserMessage();
-      }
-
-      function sendUserMessage() {
-          const input = document.getElementById("chatInput");
-          const text = input.value.trim();
-          if (text === "") return;
-
-          addMessage(text, 'user');
-          input.value = "";
-
-          setTimeout(() => { botReply(text.toLowerCase()); }, 600);
-      }
-
-      function botReply(text) {
-          if (chatState === "start") {
-              userDetails.needs = text;
-              addMessage("I can definitely help with that. Would you prefer to <b>save money and fix it yourself</b> with my expert guidance over video, or do you want me to <b>come out and handle it?</b>", "bot");
-              const choices = `<div style="margin-top:5px;">
-                  <span class="choice-btn" onclick="quickReply('DIY / Video Consult')">🔧 DIY (Video Consult)</span>
-                  <span class="choice-btn" onclick="quickReply('Come fix it for me')">🚚 Come fix it (Pro)</span>
-              </div>`;
-              addMessage(choices, "bot");
-              chatState = "check_preference";
-          } 
-          else if (chatState === "check_preference") {
-              if (text.includes("diy") || text.includes("video") || text.includes("myself") || text.includes("own")) {
-                  addMessage("Great choice! You can book a Virtual Tech Session. I'll get on a video call and walk you through the fix step-by-step.", "bot");
-                  addMessage(`Click here to book a time:<br><a href="${VIRTUAL_CALENDAR}" target="_blank" style="display:inline-block; margin-top:5px; background:#008bd2; color:white; padding:8px 12px; border-radius:5px; text-decoration:none;">📅 Book Video Consult</a>`, "bot");
-                  chatState = "done";
-              } else {
-                  addMessage("Understood. I can head out there and get it done right. Please enter your <b>Phone Number</b> so Dean can text you to confirm.", "bot");
-                  chatState = "get_phone";
-              }
-          }
-          else if (chatState === "get_phone") {
-              addMessage("Perfect. Sending your info to Dean now...", "bot");
-              const noteBody = `CHAT LEAD (PRO JOB)\nIssue: ${userDetails.needs}\nPhone: ${text}`;
-              fetch('https://api.pushbullet.com/v2/pushes', {
-                  method: 'POST',
-                  headers: { 'Access-Token': PUSHBULLET_TOKEN, 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ type: 'note', title: '🤖 New Chat Lead', body: noteBody })
-              }).then(() => {
-                  addMessage("Request sent! You can also lock in your appointment time right now:", "bot");
-                  addMessage(`<a href="${ONSITE_CALENDAR}" target="_blank" style="display:inline-block; margin-top:5px; background:#008bd2; color:white; padding:8px 12px; border-radius:5px; text-decoration:none;">📅 Book On-Site Time</a>`, "bot");
-              });
-              chatState = "done";
-          }
-      }
-
-      document.getElementById('quoteForm').addEventListener('submit', function(e) {
-          e.preventDefault();
-          const btn = document.getElementById('submitBtn');
-          const originalText = btn.innerText;
-          btn.innerText = "Sending...";
-          btn.disabled = true;
-
-          const service = document.getElementById('service').value;
-          const details = document.getElementById('details').value;
-          const address = document.getElementById('address').value;
-          const email = document.getElementById('email').value;
-          const phone = document.getElementById('phone').value;
-
-          const noteBody = `New Website Lead!\nService: ${service}\nPhone: ${phone}\nEmail: ${email}\nAddress: ${address}\nDetails: ${details}`;
-
-          fetch('https://api.pushbullet.com/v2/pushes', {
-              method: 'POST',
-              headers: { 'Access-Token': PUSHBULLET_TOKEN, 'Content-Type': 'application/json' },
-              body: JSON.stringify({ type: 'note', title: '🛠️ New Handyman Lead', body: noteBody })
-          })
-          .then(response => {
-              if (response.ok) {
-                  if (ONSITE_CALENDAR && ONSITE_CALENDAR.startsWith("http")) {
-                       alert("Request Received! Redirecting you to book your appointment time...");
-                       window.location.href = ONSITE_CALENDAR;
-                  } else {
-                       alert("Quote request received! Dean will contact you shortly.");
-                       document.getElementById('quoteForm').reset();
-                  }
-              } else {
-                  alert("Error sending request. Please call (281) 917-9914 directly.");
-              }
-          })
-          .finally(() => {
-              btn.innerText = originalText;
-              btn.disabled = false;
-          });
+      AOS.init({
+        duration: 800,
+        once: true
       });
     </script>
+    
+    <script>
+    // --- GLOBAL VARIABLES ---
+    const PUSHBULLET_TOKEN = "o.ZS7JlD9tJxXKORXgsQspxFV5fK7iDFPl"; 
+    const ONSITE_CALENDAR = "https://calendar.app.google/zJTuuvnVncbQg5LT9";
+    const VIRTUAL_CALENDAR = "https://calendar.app.google/3jvHznREqAbg2WaA8";
+    
+    // --- CHAT BOT LOGIC ---
+    let chatState = "start"; 
+    let userDetails = { needs: "", info: "" };
+
+    function toggleChat() {
+        var chatWindow = document.getElementById("chatWindow");
+        if (chatWindow.style.display === "flex") {
+            chatWindow.style.display = "none";
+        } else {
+            chatWindow.style.display = "flex";
+            setTimeout(() => document.getElementById("chatInput").focus(), 100);
+        }
+    }
+
+    function handleEnter(e) {
+        if (e.key === 'Enter') sendUserMessage();
+    }
+
+    function addMessage(text, sender) {
+        const div = document.createElement('div');
+        div.className = `msg ${sender}-msg`;
+        div.innerHTML = text; // Allow HTML for buttons/links
+        const container = document.getElementById("chatMessages");
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight; 
+    }
+
+    // Function for clicking suggested buttons in chat
+    function quickReply(text) {
+        document.getElementById("chatInput").value = text;
+        sendUserMessage();
+    }
+
+    function sendUserMessage() {
+        const input = document.getElementById("chatInput");
+        const text = input.value.trim();
+        if (text === "") return;
+
+        addMessage(text, 'user');
+        input.value = "";
+
+        setTimeout(() => {
+            botReply(text.toLowerCase());
+        }, 600);
+    }
+
+    function botReply(text) {
+        // STATE: START (Identify the problem)
+        if (chatState === "start") {
+            userDetails.needs = text;
+            addMessage("I can definitely help with that. Would you prefer to <b>save money and fix it yourself</b> with my expert guidance over video, or do you want me to <b>come out and handle it?</b>", "bot");
+            
+            // Add Choice Buttons
+            const choices = `<div style="margin-top:5px;">
+                <span class="choice-btn" onclick="quickReply('DIY / Video Consult')">🔧 DIY (Video Consult)</span>
+                <span class="choice-btn" onclick="quickReply('Come fix it for me')">🚚 Come fix it (Pro)</span>
+            </div>`;
+            addMessage(choices, "bot");
+            
+            chatState = "check_preference";
+        } 
+        
+        // STATE: PREFERENCE (DIY vs PRO)
+        else if (chatState === "check_preference") {
+            if (text.includes("diy") || text.includes("video") || text.includes("myself") || text.includes("own")) {
+                // PITCH VIRTUAL SERVICE
+                addMessage("Great choice! You can book a Virtual Tech Session. I'll get on a video call and walk you through the fix step-by-step using your own tools.", "bot");
+                addMessage(`Click here to book a time:<br><a href="${VIRTUAL_CALENDAR}" target="_blank" style="display:inline-block; margin-top:5px; background:#008bd2; color:white; padding:8px 12px; border-radius:5px; text-decoration:none;">📅 Book Video Consult</a>`, "bot");
+                chatState = "done";
+            } else {
+                // PITCH PHYSICAL SERVICE
+                addMessage("Understood. I can head out there and get it done right. Please enter your <b>Phone Number</b> so Dean can text you to confirm.", "bot");
+                chatState = "get_phone";
+            }
+        }
+        
+        // STATE: GET PHONE (For Pro Service)
+        else if (chatState === "get_phone") {
+            addMessage("Perfect. Sending your info to Dean now...", "bot");
+            
+            // SEND TO PUSHBULLET
+            const noteBody = `
+CHAT LEAD (PRO JOB)
+-------------------
+Issue: ${userDetails.needs}
+Phone: ${text}
+            `;
+            
+            fetch('https://api.pushbullet.com/v2/pushes', {
+                method: 'POST',
+                headers: { 'Access-Token': PUSHBULLET_TOKEN, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ type: 'note', title: '🤖 New Chat Lead', body: noteBody })
+            }).then(() => {
+                addMessage("Request sent! You can also lock in your appointment time right now:", "bot");
+                addMessage(`<a href="${ONSITE_CALENDAR}" target="_blank" style="display:inline-block; margin-top:5px; background:#008bd2; color:white; padding:8px 12px; border-radius:5px; text-decoration:none;">📅 Book On-Site Time</a>`, "bot");
+            });
+            
+            chatState = "done";
+        }
+    }
+
+    // --- MAIN FORM LOGIC ---
+    document.getElementById('quoteForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        const originalText = btn.innerText;
+        btn.innerText = "Sending...";
+        btn.disabled = true;
+
+        const service = document.getElementById('service').value;
+        const details = document.getElementById('details').value;
+        const address = document.getElementById('address').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+
+        const noteBody = `
+New Website Lead!
+------------------
+Service: ${service}
+Phone: ${phone}
+Email: ${email}
+Address: ${address}
+Details: ${details}
+        `;
+
+        fetch('https://api.pushbullet.com/v2/pushes', {
+            method: 'POST',
+            headers: { 'Access-Token': PUSHBULLET_TOKEN, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ type: 'note', title: '🛠️ New Handyman Lead', body: noteBody })
+        })
+        .then(response => {
+            if (response.ok) {
+                if (ONSITE_CALENDAR && ONSITE_CALENDAR.startsWith("http")) {
+                     alert("Request Received! Redirecting you to book your appointment time...");
+                     window.location.href = ONSITE_CALENDAR;
+                } else {
+                     alert("Quote request received! Dean will contact you shortly.");
+                     document.getElementById('quoteForm').reset();
+                }
+            } else {
+                alert("Error sending request. Please call (281) 917-9914 directly.");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Connection error. Please call (281) 917-9914.");
+        })
+        .finally(() => {
+            btn.innerText = originalText;
+            btn.disabled = false;
+        });
+    });
+    </script>
+
 </body>
 </html>
