@@ -28,7 +28,16 @@
       "image": "https://i.postimg.cc/4NzfWL81/20251230-113812.jpg",
       "priceRange": "$$$",
       "telephone": "+1-281-917-9914",
-      "address": { "@type": "PostalAddress", "addressLocality": "Pittsburg", "addressRegion": "TX", "postalCode": "75686" }
+      "address": { "@type": "PostalAddress", "addressLocality": "Pittsburg", "addressRegion": "TX", "postalCode": "75686" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Technical Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starlink Installation", "description": "White-glove roof mount and setup" }, "price": "350.00", "priceCurrency": "USD" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Handyman Service Call", "description": "Minimum service call fee" }, "price": "100.00", "priceCurrency": "USD" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "RV Electrical Repair", "description": "Mobile RV tech service" }, "price": "125.00", "priceCurrency": "USD" }
+        ]
+      }
     }
     </script>
 
@@ -38,7 +47,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #fdfdfd; overflow-x: hidden; padding-bottom: 70px; }
         img { max-width: 100%; height: auto; }
-        /* COLOR PALETTE */
         :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --dark: #1a1a1a; --light: #f4f7f6; --white: #ffffff; --tech-bg: #0f172a; --venmo-blue: #008CFF; }
         
         /* --- TYPOGRAPHY --- */
@@ -288,7 +296,7 @@
                     </div>
 
                     <div id="tab-form" class="hidden-tab">
-                        <form id="quoteForm">
+                        <form id="quoteForm" action="https://formspree.io/f/xzdgkqnp" method="POST">
                             <div class="form-group">
                                 <label>Service Needed</label>
                                 <select id="form-service" name="service">
@@ -305,18 +313,18 @@
                             </div>
                             <div class="form-group">
                                 <label>Project Scope</label>
-                                <textarea id="details" name="details" rows="2" placeholder="Briefly describe your needs..."></textarea>
+                                <textarea id="details" name="message" rows="2" placeholder="Briefly describe your needs..."></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Location</label>
-                                <input type="text" id="address" name="address" placeholder="Street Address & Zip Code" required>
+                                <input type="text" id="address" name="location" placeholder="Street Address & Zip Code" required>
                             </div>
                             <div class="form-group">
                                 <label>Contact Info</label>
                                 <input type="email" id="email" name="email" placeholder="Email Address" required>
                                 <input type="tel" id="phone" name="phone" placeholder="Phone Number" style="margin-top:10px;" required>
                             </div>
-                            <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Check Availability</button>
+                            <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Send to Dean</button>
                             <div style="font-size:0.75rem; color:#777; text-align:center; margin-top:15px; font-weight:600;">🔒 Secure Professional Inquiry</div>
                         </form>
                     </div>
@@ -354,19 +362,19 @@
                             </tr>
                             <tr>
                                 <td><strong>General Handyman & Carpentry</strong><span class="price-desc">Repairs, Drywall, Fence, Assembly</span></td>
-                                <td class="price-cost">$125.00 <small>/ hr</small></td>
+                                <td class="price-cost">$100.00 <small>/ hr</small></td>
                             </tr>
                             <tr>
                                 <td><strong>Electrical (Home & Shop)</strong><span class="price-desc">Outlets, Breakers, Fixtures, RV Pedestals</span></td>
-                                <td class="price-cost">$150.00 <small>/ hr</small></td>
+                                <td class="price-cost">$125.00 <small>/ hr</small></td>
                             </tr>
                             <tr>
                                 <td><strong>RV Mobile Tech</strong><span class="price-desc">AC Units, Water Heaters, Slide-outs</span></td>
-                                <td class="price-cost">$150.00 <small>/ hr</small></td>
+                                <td class="price-cost">$125.00 <small>/ hr</small></td>
                             </tr>
                             <tr>
                                 <td><strong>Structural Mounting</strong><span class="price-desc">Gate Brackets, Heavy Mounts</span></td>
-                                <td class="price-cost">$175.00 <small>/ hr</small></td>
+                                <td class="price-cost">$150.00 <small>/ hr</small></td>
                             </tr>
                             <tr>
                                 <td><strong>Smart Home / Network</strong><span class="price-desc">Wi-Fi Mesh, Cameras, TV Mounting</span></td>
@@ -505,14 +513,14 @@
     <section class="section" id="faq" style="background-color: var(--light);">
         <div class="container">
             <h2>Client Inquiries</h2>
-            <p class="section-sub">Understanding our premium service model.</p>
+            <p class="section-sub">Answers to common questions about Starlink, Electrical, and Handyman services.</p>
             <div class="faq-container">
-                <details data-aos="fade-up"><summary>1. Why are your prices higher than others?</summary><div class="faq-answer">We are a "White Glove" technical service. We don't just "make it work"; we install to industrial standards using premium waterproofing, conduit, and mounting hardware. We also carry specialized insurance and travel region-wide.</div></details>
-                <details data-aos="fade-up"><summary>2. How far do you travel?</summary><div class="faq-answer">We serve the entire 4-State Ark-La-Tex region. The first 100 miles from Pittsburg, TX (75686) includes NO trip fee. Beyond that, we charge a mileage rate to cover travel time and fuel.</div></details>
-                <details data-aos="fade-up"><summary>3. What is "White Glove" setup?</summary><div class="faq-answer">It means we handle everything. We unbox, install, conceal wires, set up your Wi-Fi name/password, connect your devices, and demonstrate the system before we leave. You don't lift a finger.</div></details>
-                <details data-aos="fade-up"><summary>4. Do you work on RVs and Off-Grid?</summary><div class="faq-answer">Yes, this is a specialty. We can fabricate custom mounts and convert systems to run on 12v DC power for solar/battery setups.</div></details>
-                <details data-aos="fade-up"><summary>5. Do you handle large property/ranch Wi-Fi?</summary><div class="faq-answer">Yes. We specialize in Point-to-Point (PTP) wireless bridges. This allows us to beam high-speed internet from your main house to a barn, shop, or gate up to several miles away without digging trenches.</div></details>
-                <details data-aos="fade-up"><summary>6. Can you help if I am outside your area?</summary><div class="faq-answer">Absolutely. We offer Virtual Video Consulting for $50/session. We can walk you through repairs or troubleshooting remotely via video call.</div></details>
+                <details data-aos="fade-up"><summary>1. Do you provide Starlink installation near me?</summary><div class="faq-answer">Yes. We serve the entire Ark-La-Tex region, specifically Pittsburg, Mt Pleasant, Broken Bow, and Shreveport. We offer professional, leak-proof Starlink installation for homes, ranches, and RVs.</div></details>
+                <details data-aos="fade-up"><summary>2. My Starlink is slow or not working. Can you help?</summary><div class="faq-answer">Absolutely. We offer troubleshooting services to diagnose obstructions, cable failures, or router issues. We can often fix connection drops and speed issues in a single visit.</div></details>
+                <details data-aos="fade-up"><summary>3. Do you do electrical repairs for homes and shops?</summary><div class="faq-answer">Yes. We handle residential and industrial electrical work, including panel upgrades, adding outlets for shops/welding, and troubleshooting dead circuits.</div></details>
+                <details data-aos="fade-up"><summary>4. Can you fix my RV air conditioner or water heater?</summary><div class="faq-answer">Yes, we are mobile RV technicians. We repair AC units, water heaters, slide-outs, and 12v electrical systems right at your campsite or home.</div></details>
+                <details data-aos="fade-up"><summary>5. Do you offer TV mounting and cable concealment?</summary><div class="faq-answer">Yes. As part of our handyman services, we professionally mount TVs and hide wires inside the wall for a clean, modern look.</div></details>
+                <details data-aos="fade-up"><summary>6. How far do you travel?</summary><div class="faq-answer">We serve a 100-mile radius from Pittsburg, TX with NO trip fee. Beyond that, we charge a small mileage rate to cover fuel.</div></details>
                 <details data-aos="fade-up"><summary>7. What if I need a custom mount?</summary><div class="faq-answer">We offer custom fabrication for difficult mounting situations, including gates, poles, and unique roof lines where standard kits fail.</div></details>
             </div>
         </div>
@@ -649,20 +657,20 @@
           }
       }
 
-      // --- INSTANT ESTIMATOR LOGIC (UPDATED FOR ALL SERVICES) ---
+      // --- INSTANT ESTIMATOR LOGIC (UPDATED FOR NEW PRICES) ---
       function runEstimate() {
           const service = document.getElementById('est-service').value;
           const type = document.getElementById('est-type').value;
           let range = "$0 - $0";
 
           if(service === "Starlink Install") {
-              range = (type === "standard") ? "$350 - $450" : "$550 - $800+";
+              range = (type === "standard") ? "$350 (Flat Rate)" : "$550 - $800+";
           } else if (service === "Industrial Electrical" || service === "RV Repair") {
-              range = (type === "standard") ? "$150 - $300 (1-2 Hours)" : "Project Quote";
+              range = (type === "standard") ? "$125 - $250 (1-2 Hours)" : "Project Quote";
           } else if (service === "Residential Electrical") {
               range = (type === "standard") ? "$125 - $250 (Troubleshoot)" : "Project Quote";
           } else if (service === "General Handyman" || service === "Carpentry") {
-              range = (type === "standard") ? "$125 - $250" : "$400+";
+              range = (type === "standard") ? "$100 - $200" : "$400+ (Day Rate Available)";
           } else {
               range = "Contact for Quote"; 
           }
@@ -690,24 +698,39 @@
 
       const REFERRAL_LINK = "https://starlink.com/residential?referral=RC-2034578-19016-61&app_source=share"; 
 
+      // --- SUBMIT FUNCTION (FORMSPREE AJAX) ---
       document.getElementById('quoteForm').addEventListener('submit', function(e) {
           e.preventDefault();
           const btn = document.getElementById('submitBtn');
           const originalText = btn.innerText;
-          btn.innerText = "Processing...";
+          btn.innerText = "Sending...";
           btn.disabled = true;
 
-          const service = document.getElementById('form-service').value;
-          if (service === "Starlink Install") {
-               if(confirm("Inquiry Received!\n\nPro Tip: Have you ordered your Starlink Kit yet?\n\nClick OK to use our link and get 1 MONTH FREE.")) {
-                   window.open(REFERRAL_LINK, '_blank');
-               }
-          } else {
-              alert("Inquiry received! Dean will review your project scope and contact you shortly.");
-          }
-          btn.innerText = originalText;
-          btn.disabled = false;
-          document.getElementById('quoteForm').reset();
+          // Collect Data
+          var formData = new FormData(this);
+          
+          // SEND TO YOUR FORMSPREE ID
+          fetch("https://formspree.io/f/xzdgkqnp", {
+              method: "POST",
+              body: formData,
+              headers: {
+                  'Accept': 'application/json'
+              }
+          }).then(response => {
+              if (response.ok) {
+                  // Success
+                  alert("Message Sent! Dean has been notified via Email.");
+                  document.getElementById('quoteForm').reset();
+              } else {
+                  alert("Oops! There was a problem submitting your form. Please check your internet.");
+              }
+              btn.innerText = originalText;
+              btn.disabled = false;
+          }).catch(error => {
+              alert("Error: " + error.message);
+              btn.innerText = originalText;
+              btn.disabled = false;
+          });
       });
     </script>
 </body>
