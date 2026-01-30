@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dean's Handyman Service - AI Guide</title>
+    <style>
+        :root { --primary: #25D366; --danger: #ff4444; --bg: #121212; --card: #1e1e1e; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: white; margin: 0; display: flex; justify-content: center; }
+        #chat-box { width: 100%; max-width: 500px; background: var(--card); height: 100vh; display: flex; flex-direction: column; border-left: 1px solid #333; border-right: 1px solid #333; }
+        #header { padding: 15px; background: #222; border-bottom: 1px solid #333; text-align: center; }
+        #messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+        .bot-msg { background: #2c2c2c; padding: 12px; border-radius: 15px 15px 15px 0; align-self: flex-start; max-width: 85%; line-height: 1.5; border: 1px solid #444; }
+        .warning { border-left: 4px solid var(--danger); background: #331a1a; font-weight: bold; }
+        .options { display: flex; flex-direction: column; gap: 8px; }
+        .btn { background: #3d3d3d; border: 1px solid #555; padding: 12px; border-radius: 8px; cursor: pointer; color: white; font-size: 14px; transition: 0.2s; text-align: left; }
+        .btn:hover { background: #505050; border-color: #888; }
+        .whatsapp-btn { background: var(--primary); color: white; font-weight: bold; border: none; text-align: center; }
+        input { background: #2c2c2c; border: 1px solid #555; color: white; padding: 12px; border-radius: 8px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<div id="chat-box">
+    <div id="header">
+        <strong>Dean's Handyman Service LLC</strong><br>
+        <small style="color: #888;">Pittsburg, TX & Surrounding Areas</small>
+    </div>
+    <div id="messages"></div>
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=BAAy9tb8K7YLIFkRATKENXVH7y-7Uc1Au3XwHxzdf5VXxCV0tD5xZw7S6dgRFaBCHZlHfd5S4NgDvWRCLo&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
+
+<script>
+    let userData = { name: "", location: "", issue: "" };
+
+    const chatData = {
+        "start": {
+            "text": "Welcome! I'm Dean's AI assistant. To provide the best help, are you looking for a DIY guide or do you need a professional service call in East Texas?",
+            "options": [
+                { "text": "🛠️ DIY Troubleshooting", "next": "diy_menu" },
+                { "text": "🚐 Request Service Call", "next": "collect_info" }
+            ]
+        },
+        "diy_menu": {
+            "text": "Select your project category:",
+            "options": [
+                { "text": "🛰️ Starlink / Wi-Fi", "next": "starlink_1" },
+                { "text": "⚡ Electrical (Warning)", "next": "elec_warn" },
+                { "text": "🚰 RV Plumbing", "next": "plumb_1" }
+            ]
+        },
+        "elec_warn": {
+            "text": "⚠️ SAFETY WARNING: Electrical work can be fatal if done incorrectly. Always turn off the main breaker before touching wires. Do you have a multimeter and feel comfortable proceeding?",
+            "isWarning": true,
+            "options": [
+                { "text": "Yes, I have tools", "next": "elec_1" },
+                { "text": "No, I'd rather Dean do it", "next": "collect_info" }
+            ]
+        },
+        "starlink_1": {
+            "text": "Common Fix: Check the 'Starlink' app. Is it 'Searching' or 'Offline'?",
+            "options": [
+                { "text": "Searching/Obstructions", "next": "starlink_pole" },
+                { "text": "Offline/Cable Issues", "next": "collect_info" }
+            ]
+        },
+        "starlink_pole": {
+            "text": "Obstructions usually require a roof or pole mount. I specialize in custom Starlink mounts. Want to see my options?",
+            "options": [
+                { "text": "Yes, let's talk mounts", "next": "collect_info" },
+                { "text": "No thanks", "next": "success" }
+            ]
+        },
+        "collect_info": {
+            "text": "I'm passing this to Dean. First, what is your name and what city are you in?",
+            "isInput": true,
+            "next": "live_help"
+        },
+        "live_help": {
+            "text": "Thanks! Click below to send your details to Dean's WhatsApp. Feel free to attach a photo of the issue once the chat opens.",
+            "options": [
+                { "text": "🚀 Start Live WhatsApp Chat", "next": "whatsapp_action" }
+            ]
+        },
+        "success": {
+            "text": "Glad I could help! If I saved you a service fee today, consider a 'Pay What You Want' tip to support the shop.",
+            "showPay": true,
+            "options": [{ "text": "Start Over", "next": "start" }]
+        }
+    };
+
+    const msgContainer = document.getElementById('messages');
+
+    function render(id) {
+        if (id === 'whatsapp_action') {
+            const phone = "12819179914"; 
+            const text = encodeURIComponent(`Hi Dean! My name is ${userData.name} from ${userData.location}. I need help with a project: ${userData.issue}`);
+            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+            return;
+        }
+
+        const step = chatData[id];
+        const m = document.createElement('div');
+        m.className = 'bot-msg' + (step.isWarning ? ' warning' : '');
+        m.innerText = step.text;
+        msgContainer.appendChild(m);
+
+        if (step.isInput) {
+            const inputName = document.createElement('input');
+            inputName.placeholder = "Your Name";
+            const inputLoc = document.createElement('input');
+            inputLoc.placeholder = "Your City (e.g. Pittsburg)";
+            const confirmBtn = document.createElement('button');
+            confirmBtn.className = 'btn whatsapp-btn';
+            confirmBtn.innerText = "Confirm Details";
+            
+            confirmBtn.onclick = () => {
+                userData.name = inputName.value;
+                userData.location = inputLoc.value;
+                inputName.remove(); inputLoc.remove(); confirmBtn.remove();
+                render(step.next);
+            };
+            msgContainer.appendChild(inputName);
+            msgContainer.appendChild(inputLoc);
+            msgContainer.appendChild(confirmBtn);
+        } else {
+            const optContainer = document.createElement('div');
+            optContainer.className = 'options';
+            step.options.forEach(o => {
+                const b = document.createElement('button');
+                b.className = 'btn' + (id === 'live_help' ? ' whatsapp-btn' : '');
+                b.innerText = o.text;
+                b.onclick = () => { 
+                    userData.issue = o.text;
+                    optContainer.remove(); 
+                    render(o.next); 
+                };
+                optContainer.appendChild(b);
+            });
+            msgContainer.appendChild(optContainer);
+        }
+
+        if (step.showPay) {
+            const p = document.createElement('div');
+            p.id = 'paypal-container-5K2C7REPQDQVU';
+            msgContainer.appendChild(p);
+            paypal.HostedButtons({ hostedButtonId: "5K2C7REPQDQVU" }).render("#" + p.id);
+        }
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+    }
+
+    render('start');
+</script>
+
+</body>
+</html>
