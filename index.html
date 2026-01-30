@@ -26,7 +26,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; overflow-x: hidden; padding-bottom: 70px; }
         img { max-width: 100%; height: auto; }
-        :root { --primary: #008bd2; --primary-dark: #006fa8; --accent: #f0a500; --dark: #111; --light: #f4f7f6; --white: #ffffff; --tech-bg: #1e293b; --venmo-blue: #008CFF; }
+        :root { --primary: #008bd2; --primary-dark: #006fa8; --accent: #f0a500; --dark: #111; --light: #f4f7f6; --white: #ffffff; --tech-bg: #1e293b; --venmo-blue: #008CFF; --success: #28a745; }
         
         /* --- TYPOGRAPHY --- */
         h1, h2, h3 { color: var(--dark); font-weight: 700; }
@@ -53,13 +53,21 @@
         header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; height: 80px; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
         .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--dark); }
-        /* Logo sizing */
         .logo-img { height: 65px; width: auto; border-radius: 4px; }
         .logo-text { font-weight: 800; font-size: 1.3rem; line-height: 1.1; text-transform: uppercase; }
         .logo-text span { color: var(--primary); display: block; font-size: 0.75rem; letter-spacing: 1px; font-weight: 600; }
         .nav-links { display: flex; align-items: center; }
         .nav-links a { color: var(--dark); text-decoration: none; margin-left: 20px; font-weight: 600; }
         .nav-pay-btn { background: var(--venmo-blue); color: white !important; padding: 8px 16px; border-radius: 4px; }
+        
+        /* --- ESTIMATOR BOT STYLES --- */
+        .estimator-box { background: var(--tech-bg); color: white; padding: 30px; border-radius: 8px; margin-bottom: 40px; border: 2px solid var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; overflow: hidden; }
+        .estimator-box::before { content: "Profit Estimator"; position: absolute; top: 0; right: 0; background: var(--accent); color: var(--dark); padding: 5px 10px; font-size: 0.7rem; font-weight: bold; border-bottom-left-radius: 8px; }
+        .est-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .est-input label { display: block; font-size: 0.85rem; margin-bottom: 5px; color: #ccc; }
+        .est-input select, .est-input input { width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #555; background: #334155; color: white; }
+        .est-result { background: rgba(0,0,0,0.3); padding: 20px; text-align: center; border-radius: 6px; margin-top: 20px; display: none; border: 1px solid var(--success); }
+        .est-price { font-size: 2.5rem; font-weight: 800; color: var(--accent); display: block; margin: 10px 0; }
         
         /* --- HERO --- */
         .hero { background: linear-gradient(135deg, #005a8d 0%, #008bd2 100%); color: var(--white); padding: 60px 0; }
@@ -143,10 +151,10 @@
             <nav class="nav-links">
                 <a href="#starlink-landing">Starlink</a>
                 <a href="#projects">My Work</a>
-                <a href="#virtual">Virtual</a>
+                <a href="#estimator">Cost Estimator</a>
                 <a href="#gear">Shop Gear</a>
                 <a href="#reviews">Reviews</a>
-                <a href="#faq">FAQ</a>
+                <a href="#contact">Get Quote</a>
                 <a href="#payment" class="nav-pay-btn">Pay Invoice</a>
                 <a href="tel:2819179914" class="btn btn-primary" style="margin-left: 20px;">(281) 917-9914</a>
             </nav>
@@ -156,10 +164,8 @@
         
         <div class="mobile-nav-overlay" id="mobileMenu">
             <a href="#starlink-landing" onclick="toggleMenu()">Starlink Install</a>
+            <a href="#estimator" onclick="toggleMenu()">Get Estimate</a>
             <a href="#projects" onclick="toggleMenu()">Real Project Photos</a>
-            <a href="#virtual" onclick="toggleMenu()">Virtual Services</a>
-            <a href="#gear" onclick="toggleMenu()">Shop Gear</a>
-            <a href="#reviews" onclick="toggleMenu()">Reviews</a>
             <a href="#contact" onclick="toggleMenu()">Get Quote</a>
             <a href="#payment" style="color:var(--venmo-blue);">Pay Invoice</a>
         </div>
@@ -176,7 +182,48 @@
                     <li>Licensed-Level Experience (Electrical/Hydraulics)</li>
                     <li>Insured, Local, and Professional</li>
                 </ul>
-            </div>
+                
+                <div id="estimator" class="estimator-box" style="margin-top: 30px;">
+                    <h3>🤖 Instant Quote Bot</h3>
+                    <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 15px;">Get an estimate in seconds. (Includes parts, labor, and safety buffer).</p>
+                    
+                    <div class="est-grid">
+                        <div class="est-input">
+                            <label>Service Type</label>
+                            <select id="est-service">
+                                <option value="125">General Handyman ($125/hr)</option>
+                                <option value="150">Electrical/Tech ($150/hr)</option>
+                                <option value="175">Custom Fabrication ($175/hr)</option>
+                                <option value="350">Starlink Flat Rate ($350 Base)</option>
+                            </select>
+                        </div>
+                        <div class="est-input">
+                            <label>Estimated Hours</label>
+                            <input type="number" id="est-hours" value="2" min="1">
+                        </div>
+                        <div class="est-input">
+                            <label>Miles from Pittsburg, TX</label>
+                            <input type="number" id="est-miles" value="50" placeholder="0 if local">
+                        </div>
+                        <div class="est-input">
+                            <label>Job Difficulty</label>
+                            <select id="est-diff">
+                                <option value="1">Standard</option>
+                                <option value="1.3">Complex / Hard to Access</option>
+                                <option value="1.5">Emergency / After Hours</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button onclick="calculateEstimate()" class="btn btn-accent" style="width:100%">Calculate My Estimate</button>
+                    
+                    <div id="est-result" class="est-result">
+                        <span style="font-size:0.9rem;">Estimated Total (Includes all fees + safety margin):</span>
+                        <span id="est-total" class="est-price">$0.00</span>
+                        <button onclick="lockInQuote()" class="btn btn-primary" style="font-size:0.9rem;">Lock In This Price & Book Now</button>
+                    </div>
+                </div>
+                </div>
             
             <div class="lead-card" id="contact" data-aos="fade-left">
                 <h3>Start Your Project</h3>
@@ -402,6 +449,55 @@
           serviceSelect.value = "Starlink Install";
           const detailsArea = document.getElementById('details');
           detailsArea.value = "I am interested in the " + packageName + " package.";
+      }
+
+      // --- PROFIT-ENGINE ESTIMATOR LOGIC ---
+      function calculateEstimate() {
+          // 1. Get Base Variables
+          const rate = parseFloat(document.getElementById('est-service').value);
+          const hours = parseFloat(document.getElementById('est-hours').value);
+          const miles = parseFloat(document.getElementById('est-miles').value) || 0;
+          const difficultyMultiplier = parseFloat(document.getElementById('est-diff').value);
+          
+          // 2. Calculate Base Cost (Labor)
+          let total = 0;
+          if(rate === 350) { 
+              total = rate; // Flat rate for Starlink
+          } else {
+              total = rate * hours; // Hourly for others
+          }
+          
+          // 3. Add Distance Fee (Profit Protection for 4-State Travel)
+          // First 100 miles are free, $2.00 per mile after that
+          let travelCost = 0;
+          if (miles > 100) {
+              travelCost = (miles - 100) * 2.00;
+          }
+          total = total + travelCost;
+
+          // 4. Apply Difficulty Multiplier (For complex jobs)
+          total = total * difficultyMultiplier;
+          
+          // 5. THE "GEM" LOGIC: The 25% Profit Buffer
+          // We multiply the ENTIRE thing by 1.25 to guarantee profit and cover extras.
+          var finalTotal = total * 1.25;
+          
+          // Display Result
+          document.getElementById('est-total').innerText = "$" + finalTotal.toFixed(2);
+          document.getElementById('est-result').style.display = "block";
+      }
+
+      function lockInQuote() {
+          const price = document.getElementById('est-total').innerText;
+          const service = document.getElementById('est-service').options[document.getElementById('est-service').selectedIndex].text;
+          const miles = document.getElementById('est-miles').value;
+          
+          // Scroll to form
+          const formSection = document.getElementById('contact');
+          formSection.scrollIntoView({ behavior: 'smooth' });
+          
+          // Pre-fill form
+          document.getElementById('details').value = "ESTIMATOR QUOTE: " + service + ". Distance: " + miles + " miles. Estimated Price: " + price + ". I would like to book this.";
       }
 
       paypal.HostedButtons({
