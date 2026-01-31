@@ -104,18 +104,19 @@
         .est-title { font-size: 1.2rem; margin-bottom: 15px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         .est-input-group { margin-bottom: 15px; }
         .est-input-group label { display: block; font-size: 0.8rem; margin-bottom: 5px; color: #ccc; }
+        .est-input-group select { width: 100%; padding: 10px; background: #334155; border: 1px solid #555; color: white; border-radius: 4px; }
         .est-result { background: rgba(0,255,0,0.1); border: 1px solid #28a745; padding: 15px; text-align: center; border-radius: 4px; display: none; margin-top: 15px; }
         .est-price { font-size: 1.8rem; font-weight: 800; color: #28a745; display: block; margin: 5px 0; }
         .est-book-btn { background: #28a745; color: white; border:none; padding:10px; width:100%; font-weight:bold; cursor:pointer; border-radius:4px; margin-top:10px; font-size:0.9rem; text-transform:uppercase; transition:0.3s; }
         .est-book-btn:hover { background: #218838; }
 
         /* MULTI-SELECT SCROLL BOX */
-        .checklist-container { height: 180px; overflow-y: auto; background: #f8fafc; border: 1px solid #ddd; padding: 10px; border-radius: 4px; }
+        .checklist-container { height: 250px; overflow-y: auto; background: #f8fafc; border: 1px solid #ddd; padding: 10px; border-radius: 4px; }
         .checklist-item { display: flex; align-items: center; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
         .checklist-item:last-child { border-bottom: none; }
         .checklist-item input { margin-right: 10px; width: 18px; height: 18px; accent-color: var(--primary); }
-        .checklist-item label { font-size: 0.9rem; color: #333; cursor: pointer; flex: 1; margin:0; text-transform: none; font-weight: 500;}
-        .checklist-category { font-size: 0.75rem; font-weight: 800; color: var(--primary); margin-top: 10px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .checklist-item label { font-size: 0.85rem; color: #333; cursor: pointer; flex: 1; margin:0; text-transform: none; font-weight: 500;}
+        .checklist-category { font-size: 0.75rem; font-weight: 800; color: var(--primary); margin-top: 12px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #ddd; padding-bottom: 3px; }
 
         /* --- SMART ACTION CARD (TABS) --- */
         .action-card { background: var(--white); border-radius: 8px; width: 100%; max-width: 450px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); color: var(--dark); overflow: hidden; }
@@ -281,22 +282,28 @@
                 
                 <div class="card-content">
                     <div id="tab-bot">
-                        <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">Select all the services you need:</p>
+                        <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">Select services (scroll for more):</p>
                         
                         <div class="checklist-container">
-                            <div class="checklist-category">Starlink Services</div>
-                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="300" data-name="Basic Residential Starlink"> Basic Residential Install</label></div>
-                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="499" data-name="Premium Residential Starlink"> Premium Residential Install</label></div>
-                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="350" data-name="Basic RV Starlink"> Basic RV/Mobile Install</label></div>
-                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="550" data-name="Premium RV Starlink"> Premium RV/Mobile Install</label></div>
-                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="500" data-name="Business Standard Starlink"> Business Standard Install</label></div>
-                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="1200" data-name="Business Premium Starlink"> Business Premium Install</label></div>
-                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="800" data-name="Marine Starlink"> Marine Starlink Install</label></div>
-                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="200" data-name="Starlink Uninstall"> Starlink Uninstall</label></div>
-                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="300" data-name="PTP Bridge"> Point-to-Point Bridge</label></div>
-                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="75" data-name="Mesh WiFi"> Mesh WiFi Setup</label></div>
+                            <div class="checklist-category">📡 Starlink Services (Labor)</div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="300" data-name="Residential Starlink Install"> Residential Install (House)</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="350" data-name="RV/Mobile Starlink Install"> RV / Mobile Install</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="500" data-name="Business Starlink Install"> Business / High-Perf Install</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="200" data-name="Starlink Uninstall"> Starlink Uninstall / Relocate</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="300" data-name="PTP Bridge"> Point-to-Point Wireless Bridge</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="75" data-name="Mesh WiFi"> Mesh WiFi Setup (Labor)</label></div>
                             
-                            <div class="checklist-category">Electrical & Tech</div>
+                            <div class="checklist-category">🛠️ Hardware Costs (Approx Market Price)</div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="349" data-name="Starlink Standard Kit"> Starlink Standard Kit (Est. $349)</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="2500" data-name="Starlink High-Perf Kit"> High-Perf Business Kit (Est. $2500)</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="40" data-name="Ethernet Adapter"> Ethernet Adapter ($40)</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="75" data-name="Universal J-Mount"> Universal J-Mount ($75)</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="375" data-name="Non-Penetrating Mount"> Non-Penetrating Roof Mount ($375)</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="65" data-name="Pipe Adapter"> Pipe Adapter ($65)</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="120" data-name="75ft Cable"> 75ft Starlink Cable ($120)</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="180" data-name="150ft Cable"> 150ft Starlink Cable ($180)</label></div>
+
+                            <div class="checklist-category">⚡ Electrical & Tech (Labor)</div>
                             <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="125" data-name="Light Fixture"> Light Fixture Install</label></div>
                             <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="175" data-name="Ceiling Fan"> Ceiling Fan Install</label></div>
                             <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="75" data-name="Outlet/Switch"> Outlet or Switch Replace</label></div>
@@ -304,8 +311,8 @@
                             <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="65" data-name="Smart Home Setup"> Smart Home Setup</label></div>
                             <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="100" data-name="Cable Run"> Low Voltage Cable Run</label></div>
                             
-                            <div class="checklist-category">General Repair</div>
-                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="150" data-name="Service Call"> On-Site Service Call</label></div>
+                            <div class="checklist-category">🏠 General Repair (Labor)</div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="150" data-name="Service Call"> On-Site Service Call (Includes 1st Hr)</label></div>
                             <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="120" data-name="Faucet Repair"> Leaky Faucet Repair</label></div>
                             <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="160" data-name="Toilet Repair"> Toilet Repair/Rebuild</label></div>
                             <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="185" data-name="Garbage Disposal"> Garbage Disposal Replace</label></div>
@@ -314,6 +321,15 @@
                             <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="150" data-name="Gutter Clean 1"> Gutter Cleaning (1 Story)</label></div>
                             <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="250" data-name="Gutter Clean 2"> Gutter Cleaning (2 Story)</label></div>
                             <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="125" data-name="Dish Removal"> Old Satellite Dish Removal</label></div>
+                        </div>
+
+                        <div style="margin-top:15px; border-top:1px solid #eee; padding-top:10px;">
+                            <label style="font-size:0.85rem; color:#333; font-weight:bold;">Trip Fee Calculator (Over 100 Miles)</label>
+                            <div style="display:flex; gap:10px; align-items:center; margin-top:5px;">
+                                <input type="number" id="trip-distance" placeholder="Miles from 75686" style="padding:8px; border:1px solid #ddd; border-radius:4px; flex:1;">
+                                <span id="trip-fee-display" style="font-weight:bold; color:var(--primary); font-size:0.9rem;">$0.00</span>
+                            </div>
+                            <small style="color:#666; font-size:0.75rem;">First 100 miles are FREE. $1.50/mile after.</small>
                         </div>
 
                         <button onclick="runEstimate()" class="btn btn-accent" style="width:100%; margin-top:15px;">Calculate Total</button>
@@ -349,6 +365,52 @@
                             <div style="font-size:0.75rem; color:#777; text-align:center; margin-top:15px; font-weight:600;">🔒 Secure Professional Inquiry</div>
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="rates" style="background: var(--light);">
+        <div class="container">
+            <div style="display:flex; flex-wrap:wrap; gap:40px;">
+                <div style="flex:1; min-width:300px;">
+                    <h2>Transparent Service Menu</h2>
+                    <p style="color:#666;">We believe in honest, upfront pricing. No hidden fees. We do the job right the first time.</p>
+                    
+                    <ul class="price-features" style="margin-top:20px;">
+                        <li><strong>100 Mile Radius:</strong> No trip charge within 100 miles of Pittsburg, TX.</li>
+                        <li><strong>Warranty:</strong> 30-Day Workmanship Guarantee.</li>
+                        <li><strong>Insured:</strong> Fully insured for residential & commercial.</li>
+                    </ul>
+                </div>
+                
+                <div style="flex:1.5; min-width:300px;">
+                    <table class="price-menu">
+                        <thead>
+                            <tr>
+                                <th>Top Requested Services</th>
+                                <th style="text-align:right;">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Residential Starlink Install</strong><span class="price-desc">Basic Roof Mount & Setup</span></td>
+                                <td class="price-cost">$300.00</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Light Fixture Installation</strong><span class="price-desc">Standard Height</span></td>
+                                <td class="price-cost">$125.00</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Toilet Repair / Rebuild</strong><span class="price-desc">Includes Parts & Labor</span></td>
+                                <td class="price-cost">$160.00</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Service Call</strong><span class="price-desc">Diagnostic / First Hour</span></td>
+                                <td class="price-cost">$150.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -622,10 +684,21 @@
               selectedServices.push(checkbox.getAttribute('data-name'));
           });
 
+          // Trip Fee Logic
+          const distance = parseFloat(document.getElementById('trip-distance').value) || 0;
+          let tripFee = 0;
+          if(distance > 100) {
+              tripFee = (distance - 100) * 1.50; // $1.50 per mile over 100
+              total += tripFee;
+              document.getElementById('trip-fee-display').innerText = "$" + tripFee.toFixed(2);
+          } else {
+              document.getElementById('trip-fee-display').innerText = "$0.00";
+          }
+
           let range = "$0.00";
           if (total > 0) {
               range = "$" + total.toFixed(2);
-              if(checkboxes.length > 1) {
+              if(checkboxes.length > 1 || tripFee > 0) {
                   range += " (Combined)";
               }
           } else {
@@ -646,8 +719,15 @@
               selectedServices.push(checkbox.getAttribute('data-name'));
           });
 
-          if(selectedServices.length === 0) {
-              alert("Please select at least one service to book.");
+          const distance = parseFloat(document.getElementById('trip-distance').value) || 0;
+          let tripFee = 0;
+          if(distance > 100) {
+              tripFee = (distance - 100) * 1.50;
+              total += tripFee;
+          }
+
+          if(selectedServices.length === 0 && tripFee === 0) {
+              alert("Please select at least one service or enter mileage to book.");
               return;
           }
 
@@ -656,9 +736,11 @@
           switchTab('form', formTabBtn);
           
           // Auto-Fill Form
-          const serviceListString = selectedServices.join(", ");
+          let serviceListString = selectedServices.join(", ");
+          if(tripFee > 0) serviceListString += " + Trip Fee ($" + tripFee.toFixed(2) + ")";
+          
           document.getElementById('form-service').value = "Custom Estimate Bundle"; 
-          document.getElementById('details').value = "I selected these services: " + serviceListString + ". Estimated Total: $" + total + ". Please contact me to schedule.";
+          document.getElementById('details').value = "I selected: " + serviceListString + ". Est Total: $" + total.toFixed(2) + ". Distance: " + distance + " miles.";
       }
 
       paypal.HostedButtons({
