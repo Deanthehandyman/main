@@ -51,7 +51,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #fdfdfd; overflow-x: hidden; padding-bottom: 70px; }
         img { max-width: 100%; height: auto; }
-        :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --dark: #1a1a1a; --light: #f4f7f6; --white: #ffffff; --tech-bg: #0f172a; --venmo-blue: #008CFF; --google-blue: #4285F4; }
+        :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --dark: #1a1a1a; --light: #f4f7f6; --white: #ffffff; --tech-bg: #0f172a; --venmo-blue: #008CFF; --google-blue: #4285F4; --whatsapp-green: #25D366; }
         
         /* --- TYPOGRAPHY --- */
         h1, h2, h3 { color: var(--primary-dark); font-weight: 800; letter-spacing: -0.5px; }
@@ -118,7 +118,8 @@
         /* FORM STYLES INSIDE CARD */
         .form-group label { display: block; margin-bottom: 6px; font-size: 0.8rem; font-weight: 700; color: #555; text-transform: uppercase; }
         .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 15px; background: #f8fafc; transition: 0.3s; }
-        .form-submit { width: 100%; margin-top: 15px; padding: 14px; font-size: 1rem; }
+        .form-submit { width: 100%; margin-top: 15px; padding: 14px; font-size: 1rem; background-color: var(--whatsapp-green); color:white; border:none; cursor:pointer; font-weight:bold; text-transform:uppercase;}
+        .form-submit:hover { background-color: #1ebc57; }
 
         /* --- PRICE MENU TABLE --- */
         .price-menu { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
@@ -127,6 +128,17 @@
         .price-menu tr:last-child td { border-bottom: none; }
         .price-cost { font-weight: 800; color: var(--primary); text-align: right; }
         .price-desc { font-size: 0.85rem; color: #666; display: block; margin-top: 4px; }
+
+        /* --- SINGLE PREMIUM CARD --- */
+        .premium-card { background: white; border: 2px solid var(--accent); border-radius: 12px; padding: 40px; text-align: center; max-width: 700px; margin: 0 auto; box-shadow: 0 20px 60px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+        .premium-card::before { content: "Gold Standard Service"; position: absolute; top: 0; left: 0; width: 100%; background: var(--accent); color: white; font-weight: bold; padding: 8px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .premium-price { font-size: 3.5rem; font-weight: 800; color: var(--primary); margin: 20px 0 10px 0; }
+        .premium-price span { font-size: 1rem; color: #888; font-weight: 400; }
+        .premium-features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; margin: 30px 0; }
+        .premium-features li { list-style: none; display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 600; color: #444; }
+        .premium-features li::before { content: "★"; color: var(--accent); font-size: 1.2rem; }
+        
+        @media(max-width: 600px) { .premium-features { grid-template-columns: 1fr; } }
 
         /* --- PROOF OF WORK (GRID) --- */
         .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
@@ -166,26 +178,6 @@
         .btn-google:hover { background: #f0f0f0; border-color: #ccc; color: #333; }
         .btn-write { background: var(--google-blue); color: white; border: none; padding: 12px 20px; text-decoration: none; border-radius: 4px; font-weight: bold; }
         .btn-write:hover { background: #3367d6; transform: translateY(-2px); }
-
-        /* --- COMPARISON TABLE --- */
-        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0 5px 20px rgba(0,0,0,0.05); font-size: 0.9rem; }
-        .comparison-table th, .comparison-table td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
-        .comparison-table th { background: var(--primary-dark); color: white; text-transform: uppercase; font-size: 0.85rem; }
-        .comparison-table .check { color: green; font-weight: bold; }
-        .highlight-col { background: #f0f9ff; border-left: 2px solid var(--primary); border-right: 2px solid var(--primary); font-weight: 600; }
-
-        /* --- PRICING GRID --- */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
-        .price-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 30px 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; position: relative; }
-        .price-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .price-card.popular { border: 2px solid var(--accent); transform: scale(1.03); z-index: 10; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
-        .price-card.popular::before { content: 'Best Value / White Glove'; position: absolute; top: 0; left: 0; width: 100%; background: var(--accent); color: var(--white); padding: 5px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
-        .price-title { font-size: 1.3rem; font-weight: 800; color: #333; margin-bottom: 10px; margin-top: 10px; }
-        .price-tag { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
-        .price-tag span { font-size: 0.9rem; color: #999; font-weight: 400; }
-        .price-features { list-style: none; margin-bottom: 25px; text-align: left; padding: 0 10px; font-size: 0.9rem;}
-        .price-features li { padding: 10px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: flex-start; gap: 10px; }
-        .price-features li::before { content: '✓'; color: green; font-weight: bold; }
 
         /* --- FAQ --- */
         details { background: #fff; margin-bottom: 10px; border-radius: 6px; border: 1px solid #e0e0e0; overflow: hidden; }
@@ -277,7 +269,7 @@
             <div class="action-card" id="contact" data-aos="fade-left">
                 <div class="card-tabs">
                     <button class="card-tab active" onclick="switchTab('bot', this)">🤖 Instant Estimate</button>
-                    <button class="card-tab" onclick="switchTab('form', this)">📧 Send Message</button>
+                    <button class="card-tab" onclick="switchTab('form', this)">💬 WhatsApp</button>
                 </div>
                 
                 <div class="card-content">
@@ -312,7 +304,7 @@
                     </div>
 
                     <div id="tab-form" class="hidden-tab">
-                        <form id="quoteForm" action="https://formspree.io/f/xzdgkqnp" method="POST">
+                        <form id="quoteForm">
                             <div class="form-group">
                                 <label>Service Needed</label>
                                 <select id="form-service" name="service">
@@ -335,12 +327,11 @@
                                 <input type="text" id="address" name="location" placeholder="Street Address & Zip Code" required>
                             </div>
                             <div class="form-group">
-                                <label>Contact Info</label>
-                                <input type="email" id="email" name="email" placeholder="Email Address" required>
-                                <input type="tel" id="phone" name="phone" placeholder="Phone Number" style="margin-top:10px;" required>
+                                <label>Contact Info (Optional)</label>
+                                <input type="email" id="email" name="email" placeholder="Your Name or Email">
                             </div>
-                            <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Send to Dean</button>
-                            <div style="font-size:0.75rem; color:#777; text-align:center; margin-top:15px; font-weight:600;">🔒 Secure Professional Inquiry</div>
+                            <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Start WhatsApp Chat 💬</button>
+                            <div style="font-size:0.75rem; color:#777; text-align:center; margin-top:15px; font-weight:600;">🔒 Direct Secure Chat</div>
                         </form>
                     </div>
                 </div>
@@ -410,42 +401,21 @@
                 <a href="https://starlink.com/residential?referral=RC-2034578-19016-61&app_source=share" target="_blank" class="btn btn-outline" style="font-size: 0.85rem;">Have you ordered your kit yet? (Click here for 1 Month Free)</a>
             </div>
 
-            <div class="pricing-grid">
-                <div class="price-card" data-aos="fade-up">
-                    <div class="price-title">The Essential</div>
-                    <div class="price-tag">$350</div>
-                    <ul class="price-features">
-                        <li><strong>Precision Roof/Wall Mount</strong><br><small>Leak-proof penetration guaranteed.</small></li>
-                        <li><strong>Standard Cable Routing</strong><br><small>Clean exterior clipping.</small></li>
-                        <li><strong>Obstruction Analysis</strong><br><small>Ensuring clear signal path.</small></li>
-                        <li><strong>System Activation</strong><br><small>Software update & speed test.</small></li>
-                    </ul>
-                    <button onclick="selectPackage('Starlink Standard - $350')" class="btn btn-outline" style="width:100%">Select Plan</button>
-                </div>
-
-                <div class="price-card popular" data-aos="fade-up" data-aos-delay="100">
-                    <div class="price-title">The "White Glove"</div>
-                    <div class="price-tag">$550<span>+ hardware</span></div>
-                    <ul class="price-features">
-                        <li><strong>Everything in Essential</strong></li>
-                        <li><strong>Whole-Home Mesh Setup</strong><br><small>Eliminate all dead zones.</small></li>
-                        <li><strong>Interior Cable Concealment</strong><br><small>No visible wires inside.</small></li>
-                        <li><strong>Device Connection Concierge</strong><br><small>We connect your TVs, Phones, & PC.</small></li>
-                    </ul>
-                    <button onclick="selectPackage('Starlink Mesh Pkg - $550')" class="btn btn-primary" style="width:100%">Select Premium Plan</button>
-                </div>
-
-                <div class="price-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="price-title">Off-Grid / RV</div>
-                    <div class="price-tag">$750<span>+</span></div>
-                    <ul class="price-features">
-                        <li><strong>Specialized Mounting</strong><br><small>Pole mounts or custom brackets.</small></li>
-                        <li><strong>12v DC Conversion</strong><br><small>Run Starlink directly off batteries.</small></li>
-                        <li><strong>Flat Mount Modification</strong><br><small>Aerodynamic for travel.</small></li>
-                        <li><strong>Mobile Network Integration</strong></li>
-                    </ul>
-                    <button onclick="selectPackage('Starlink Custom RV - $750')" class="btn btn-outline" style="width:100%">Select Custom Plan</button>
-                </div>
+            <div class="premium-card" data-aos="fade-up">
+                <h3>Complete White-Glove Installation</h3>
+                <div class="premium-price">$350<span>+</span></div>
+                <p>Every installation includes premium waterproofing, professional cable routing, and full network optimization. We don't leave until you're streaming.</p>
+                
+                <ul class="premium-features">
+                   <li>✅ Leak-Proof Roof Mount</li>
+                   <li>✅ Cable Routing & Concealment</li>
+                   <li>✅ Obstruction Analysis</li>
+                   <li>✅ Wi-Fi Network Setup</li>
+                   <li>✅ Client App Training</li>
+                   <li>✅ 30-Day Workmanship Warranty</li>
+                </ul>
+                
+                <button onclick="selectPackage('Starlink White Glove')" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">Schedule Now</button>
             </div>
         </div>
     </section>
@@ -701,39 +671,31 @@
 
       const REFERRAL_LINK = "https://starlink.com/residential?referral=RC-2034578-19016-61&app_source=share"; 
 
-      // --- SUBMIT FUNCTION (FORMSPREE AJAX) ---
+      // --- SUBMIT FUNCTION (WHATSAPP REDIRECT) ---
       document.getElementById('quoteForm').addEventListener('submit', function(e) {
           e.preventDefault();
-          const btn = document.getElementById('submitBtn');
-          const originalText = btn.innerText;
-          btn.innerText = "Sending...";
-          btn.disabled = true;
-
-          // Collect Data
-          var formData = new FormData(this);
           
-          // SEND TO YOUR FORMSPREE ID
-          fetch("https://formspree.io/f/xzdgkqnp", {
-              method: "POST",
-              body: formData,
-              headers: {
-                  'Accept': 'application/json'
-              }
-          }).then(response => {
-              if (response.ok) {
-                  // Success
-                  alert("Message Sent! Dean has been notified via Email.");
-                  document.getElementById('quoteForm').reset();
-              } else {
-                  alert("Oops! There was a problem submitting your form. Please check your internet.");
-              }
-              btn.innerText = originalText;
-              btn.disabled = false;
-          }).catch(error => {
-              alert("Error: " + error.message);
-              btn.innerText = originalText;
-              btn.disabled = false;
-          });
+          const service = document.getElementById('form-service').value;
+          const details = document.getElementById('details').value;
+          const address = document.getElementById('address').value;
+          const email = document.getElementById('email').value; // Optional
+          const phone = document.getElementById('phone').value; // Optional but good to have in text
+          
+          // Construct WhatsApp Message
+          let message = "Hi Dean, I'm interested in: " + service + ".\n\n";
+          if(details) message += "Details: " + details + "\n";
+          if(address) message += "Location: " + address + "\n";
+          if(email) message += "My Email: " + email + "\n";
+          if(phone) message += "My Phone: " + phone;
+          
+          // Encode for URL
+          const encodedMessage = encodeURIComponent(message);
+          
+          // Open WhatsApp
+          // Using your direct number
+          const whatsappURL = "https://wa.me/12819179914?text=" + encodedMessage;
+          
+          window.open(whatsappURL, '_blank');
       });
     </script>
 </body>
