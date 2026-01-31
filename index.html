@@ -51,7 +51,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #fdfdfd; overflow-x: hidden; padding-bottom: 70px; }
         img { max-width: 100%; height: auto; }
-        :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --dark: #1a1a1a; --light: #f4f7f6; --white: #ffffff; --tech-bg: #0f172a; --venmo-blue: #008CFF; --google-blue: #4285F4; --sms-green: #34b7f1; }
+        :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --dark: #1a1a1a; --light: #f4f7f6; --white: #ffffff; --tech-bg: #0f172a; --venmo-blue: #008CFF; --google-blue: #4285F4; }
         
         /* --- TYPOGRAPHY --- */
         h1, h2, h3 { color: var(--primary-dark); font-weight: 800; letter-spacing: -0.5px; }
@@ -313,7 +313,7 @@
                     </div>
 
                     <div id="tab-form" class="hidden-tab">
-                        <form id="quoteForm">
+                        <form id="quoteForm" action="https://formspree.io/f/xzdgkqnp" method="POST">
                             <div class="form-group">
                                 <label>Service Needed</label>
                                 <select id="form-service" name="service">
@@ -336,16 +336,12 @@
                                 <input type="text" id="address" name="location" placeholder="Street Address & Zip Code" required>
                             </div>
                             <div class="form-group">
-                                <label>Contact Info (Optional)</label>
-                                <input type="email" id="email" name="email" placeholder="Your Name or Email">
+                                <label>Contact Info</label>
+                                <input type="email" id="email" name="email" placeholder="Email Address" required>
+                                <input type="tel" id="phone" name="phone" placeholder="Phone Number" style="margin-top:10px;" required>
                             </div>
-                            <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
-                                💬 Send Text Message (SMS)
-                            </button>
-                            
-                            <a href="tel:2819179914" class="form-call-btn">📞 Or Call (281) 917-9914</a>
-                            
-                            <div style="font-size:0.75rem; color:#777; text-align:center; margin-top:15px; font-weight:600;">🔒 Direct Secure Phone</div>
+                            <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Send to Dean</button>
+                            <div style="font-size:0.75rem; color:#777; text-align:center; margin-top:15px; font-weight:600;">🔒 Secure Professional Inquiry</div>
                         </form>
                     </div>
                 </div>
@@ -485,13 +481,13 @@
                     <div class="virtual-icon">💻</div>
                     <h3 style="color:white;">Remote Starlink Support</h3>
                     <p>Slow speeds? App issues? We can log in remotely or guide you through settings optimization over a video call.</p>
-                    <a href="javascript:void(0)" onclick="bookViaText('Remote Starlink Support')" class="btn btn-primary" style="margin-top:15px; width:100%;">Text to Book</a>
+                    <a href="javascript:void(0)" onclick="selectPackage('Remote Starlink Support')" class="btn btn-primary" style="margin-top:15px; width:100%;">Schedule Session</a>
                 </div>
                 <div class="virtual-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="virtual-icon">📹</div>
                     <h3 style="color:white;">DIY Video Consult</h3>
                     <p>Stuck on a repair? Video call us. Show us the problem, and we'll walk you through the fix step-by-step.</p>
-                    <a href="javascript:void(0)" onclick="bookViaText('DIY Video Consult')" class="btn btn-primary" style="margin-top:15px; width:100%;">Text to Book</a>
+                    <a href="javascript:void(0)" onclick="selectPackage('DIY Video Consult')" class="btn btn-primary" style="margin-top:15px; width:100%;">Schedule Session</a>
                 </div>
             </div>
         </div>
@@ -592,7 +588,7 @@
         </div>
     </footer>
 
-    <div class="sticky-footer">
+    <div class="sticky-footer" style="z-index: 9999;">
         <a href="tel:2819179914" class="sticky-btn sticky-call">📞 Call Dean</a>
         <a href="#contact" class="sticky-btn sticky-book">📅 Book Premium</a>
     </div>
@@ -679,59 +675,45 @@
           document.getElementById('details').value = "I used the estimator for " + service + ". I accept the estimated range of " + price + ". Please contact me to schedule.";
       }
 
-      // --- NEW FUNCTION FOR VIRTUAL SERVICES (VIA SMS) ---
-      function bookViaText(serviceName) {
-          let message = "Hi Dean, I'd like to book a " + serviceName + " session.";
-          let encodedMessage = encodeURIComponent(message);
-          
-          // Smart SMS Link Generator
-          var ua = navigator.userAgent.toLowerCase();
-          var url;
-          if (ua.indexOf("iphone") > -1 || ua.indexOf("ipad") > -1) {
-              url = "sms:2819179914&body=" + encodedMessage;
-          } else {
-              url = "sms:2819179914?body=" + encodedMessage;
-          }
-          window.location.href = url;
-      }
-
       paypal.HostedButtons({
         hostedButtonId: "5K2C7REPQDQVU",
       }).render("#paypal-container-5K2C7REPQDQVU");
 
       const REFERRAL_LINK = "https://starlink.com/residential?referral=RC-2034578-19016-61&app_source=share"; 
 
-      // --- SUBMIT FUNCTION (SMS REDIRECT - DEVICE SMART) ---
+      // --- SUBMIT FUNCTION (FORMSPREE AJAX RESTORED) ---
       document.getElementById('quoteForm').addEventListener('submit', function(e) {
           e.preventDefault();
+          const btn = document.getElementById('submitBtn');
+          const originalText = btn.innerText;
+          btn.innerText = "Sending...";
+          btn.disabled = true;
+
+          // Collect Data
+          var formData = new FormData(this);
           
-          const service = document.getElementById('form-service').value;
-          const details = document.getElementById('details').value;
-          const address = document.getElementById('address').value;
-          const email = document.getElementById('email').value; // Optional
-          const phone = document.getElementById('phone').value; // Optional
-          
-          // Construct SMS Message
-          let message = "Hi Dean, interested in: " + service + ". ";
-          if(details) message += "Details: " + details + ". ";
-          if(address) message += "Loc: " + address + ". ";
-          if(email) message += "Email: " + email + ". ";
-          if(phone) message += "Phone: " + phone;
-          
-          const encodedMessage = encodeURIComponent(message);
-          
-          // DEVICE DETECTION FOR SMS LINK
-          var ua = navigator.userAgent.toLowerCase();
-          var url;
-          
-          // iPhone needs '&', Android needs '?'
-          if (ua.indexOf("iphone") > -1 || ua.indexOf("ipad") > -1) {
-              url = "sms:2819179914&body=" + encodedMessage;
-          } else {
-              url = "sms:2819179914?body=" + encodedMessage;
-          }
-          
-          window.location.href = url;
+          // SEND TO YOUR FORMSPREE ID
+          fetch("https://formspree.io/f/xzdgkqnp", {
+              method: "POST",
+              body: formData,
+              headers: {
+                  'Accept': 'application/json'
+              }
+          }).then(response => {
+              if (response.ok) {
+                  // Success
+                  alert("Message Sent! Dean has been notified via Email.");
+                  document.getElementById('quoteForm').reset();
+              } else {
+                  alert("Oops! There was a problem submitting your form. Please check your internet.");
+              }
+              btn.innerText = originalText;
+              btn.disabled = false;
+          }).catch(error => {
+              alert("Error: " + error.message);
+              btn.innerText = originalText;
+              btn.disabled = false;
+          });
       });
     </script>
 </body>
