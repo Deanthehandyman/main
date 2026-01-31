@@ -278,7 +278,7 @@
             <div class="action-card" id="contact" data-aos="fade-left">
                 <div class="card-tabs">
                     <button class="card-tab active" onclick="switchTab('bot', this)">🤖 Instant Estimate</button>
-                    <button class="card-tab" onclick="switchTab('form', this)">📧 Text / Call</button>
+                    <button class="card-tab" onclick="switchTab('form', this)">📧 Send Message</button>
                 </div>
                 
                 <div class="card-content">
@@ -679,11 +679,20 @@
           document.getElementById('details').value = "I used the estimator for " + service + ". I accept the estimated range of " + price + ". Please contact me to schedule.";
       }
 
-      // --- NEW FUNCTION FOR VIRTUAL SERVICES ---
+      // --- NEW FUNCTION FOR VIRTUAL SERVICES (VIA SMS) ---
       function bookViaText(serviceName) {
           let message = "Hi Dean, I'd like to book a " + serviceName + " session.";
           let encodedMessage = encodeURIComponent(message);
-          window.location.href = "sms:2819179914?body=" + encodedMessage;
+          
+          // Smart SMS Link Generator
+          var ua = navigator.userAgent.toLowerCase();
+          var url;
+          if (ua.indexOf("iphone") > -1 || ua.indexOf("ipad") > -1) {
+              url = "sms:2819179914&body=" + encodedMessage;
+          } else {
+              url = "sms:2819179914?body=" + encodedMessage;
+          }
+          window.location.href = url;
       }
 
       paypal.HostedButtons({
@@ -692,7 +701,7 @@
 
       const REFERRAL_LINK = "https://starlink.com/residential?referral=RC-2034578-19016-61&app_source=share"; 
 
-      // --- SUBMIT FUNCTION (SMS REDIRECT) ---
+      // --- SUBMIT FUNCTION (SMS REDIRECT - DEVICE SMART) ---
       document.getElementById('quoteForm').addEventListener('submit', function(e) {
           e.preventDefault();
           
@@ -700,23 +709,29 @@
           const details = document.getElementById('details').value;
           const address = document.getElementById('address').value;
           const email = document.getElementById('email').value; // Optional
-          const phone = document.getElementById('phone').value; // Optional but good to have in text
+          const phone = document.getElementById('phone').value; // Optional
           
           // Construct SMS Message
-          let message = "Hi Dean, I'm interested in: " + service + ". ";
+          let message = "Hi Dean, interested in: " + service + ". ";
           if(details) message += "Details: " + details + ". ";
-          if(address) message += "Location: " + address + ". ";
-          if(email) message += "My Email: " + email + ". ";
-          if(phone) message += "My Phone: " + phone;
+          if(address) message += "Loc: " + address + ". ";
+          if(email) message += "Email: " + email + ". ";
+          if(phone) message += "Phone: " + phone;
           
-          // Encode for URL
           const encodedMessage = encodeURIComponent(message);
           
-          // Open SMS
-          // Note: 'body=' is standard but on iOS it uses '&'. The safest way is '?' first then '&' for subsequent params, but sms only has body.
-          // Some devices might ignore the body, but most modern ones catch it.
-          // Using a general format that works on most:
-          window.location.href = "sms:2819179914?body=" + encodedMessage;
+          // DEVICE DETECTION FOR SMS LINK
+          var ua = navigator.userAgent.toLowerCase();
+          var url;
+          
+          // iPhone needs '&', Android needs '?'
+          if (ua.indexOf("iphone") > -1 || ua.indexOf("ipad") > -1) {
+              url = "sms:2819179914&body=" + encodedMessage;
+          } else {
+              url = "sms:2819179914?body=" + encodedMessage;
+          }
+          
+          window.location.href = url;
       });
     </script>
 </body>
