@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>Dean's Handyman Service LLC | Homes, Ranches & Starlink | TX, OK, AR, LA</title>
-    <meta name="description" content="Dean's Handyman Service LLC. Industrial-grade technical service for Homes, Ranches, and Businesses. Starlink, Electrical, and Carpentry in the Ark-La-Tex.">
+    <title>Dean's Handyman Service LLC | Starlink Install & Repair | Pittsburg, TX</title>
+    <meta name="description" content="Dean's Handyman Service LLC. Premier Starlink Installation, Electrical Repair, RV Tech, and Carpentry. Serving Pittsburg, Mt Pleasant, Broken Bow & Shreveport.">
     <meta name="keywords" content="Handyman Pittsburg TX, Residential Electrical Repair, Starlink Installer Texas, Ranch Maintenance, RV Repair Broken Bow, Luxury Home Tech, Smart Home Setup, Carpentry, Structural Repair">
     <meta name="author" content="Dean's Handyman Service LLC">
     
@@ -14,13 +14,16 @@
     <meta name="bingbot" content="index, follow">
     <meta name="revisit-after" content="7 days">
     
-    <link rel="icon" type="image/jpg" href="https://i.postimg.cc/qvsGMT1Z/IMG-20240820-102606-912.jpg">
-    
-    <meta property="og:type" content="business.business">
+    <meta property="og:site_name" content="Dean's Handyman Service LLC">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://deanshandymanservice.me/">
-    <meta property="og:title" content="Dean's Handyman Service LLC - Premium Home & Ranch Tech">
-    <meta property="og:description" content="Specializing in Starlink, Electrical, and Technical Repair for Homes, Ranches, and Businesses.">
+    <meta property="og:title" content="Dean's Handyman - Starlink & Technical Pros">
+    <meta property="og:description" content="Expert Starlink Setup, Electrical, and RV Repair. We fix what others can't. Book online.">
     <meta property="og:image" content="https://i.postimg.cc/4NzfWL81/20251230-113812.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <link rel="icon" type="image/jpg" href="https://i.postimg.cc/qvsGMT1Z/IMG-20240820-102606-912.jpg">
 
     <script src="https://www.paypal.com/sdk/js?client-id=BAAy9tb8K7YLIFkRATKENXVH7y-7Uc1Au3XwHxzdf5VXxCV0tD5xZw7S6dgRFaBCHZlHfd5S4NgDvWRCLo&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
 
@@ -632,8 +635,14 @@
 
           const serviceSelect = document.getElementById('form-service');
           serviceSelect.value = "Starlink Install";
+          
+          // Updated for Tech Session Booking
+          if(packageName.includes("Support") || packageName.includes("Consult")) {
+              serviceSelect.value = "Virtual Consult";
+          }
+
           const detailsArea = document.getElementById('details');
-          detailsArea.value = "I am interested in the " + packageName + " package.";
+          detailsArea.value = "I am interested in the " + packageName + " service.";
       }
 
       function switchTab(tabName, btnElement) {
