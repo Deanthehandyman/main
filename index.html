@@ -51,7 +51,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #fdfdfd; overflow-x: hidden; padding-bottom: 70px; }
         img { max-width: 100%; height: auto; }
-        :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --dark: #1a1a1a; --light: #f4f7f6; --white: #ffffff; --tech-bg: #0f172a; --venmo-blue: #008CFF; --google-blue: #4285F4; --whatsapp-green: #25D366; }
+        :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --dark: #1a1a1a; --light: #f4f7f6; --white: #ffffff; --tech-bg: #0f172a; --venmo-blue: #008CFF; --google-blue: #4285F4; --sms-green: #34b7f1; }
         
         /* --- TYPOGRAPHY --- */
         h1, h2, h3 { color: var(--primary-dark); font-weight: 800; letter-spacing: -0.5px; }
@@ -118,8 +118,10 @@
         /* FORM STYLES INSIDE CARD */
         .form-group label { display: block; margin-bottom: 6px; font-size: 0.8rem; font-weight: 700; color: #555; text-transform: uppercase; }
         .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 15px; background: #f8fafc; transition: 0.3s; }
-        .form-submit { width: 100%; margin-top: 15px; padding: 14px; font-size: 1rem; background-color: var(--whatsapp-green); color:white; border:none; cursor:pointer; font-weight:bold; text-transform:uppercase;}
-        .form-submit:hover { background-color: #1ebc57; }
+        .form-submit { width: 100%; margin-top: 15px; padding: 14px; font-size: 1rem; background-color: var(--primary); color:white; border:none; cursor:pointer; font-weight:bold; text-transform:uppercase; display: flex; justify-content: center; align-items: center; gap: 8px;}
+        .form-submit:hover { background-color: var(--primary-dark); }
+        .form-call-btn { width: 100%; margin-top: 10px; padding: 12px; font-size: 1rem; background-color: white; color:var(--primary); border:2px solid var(--primary); cursor:pointer; font-weight:bold; text-transform:uppercase; text-align: center; text-decoration: none; display: block; border-radius: 4px;}
+        .form-call-btn:hover { background-color: #f0f9ff; }
 
         /* --- PRICE MENU TABLE --- */
         .price-menu { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
@@ -276,7 +278,7 @@
             <div class="action-card" id="contact" data-aos="fade-left">
                 <div class="card-tabs">
                     <button class="card-tab active" onclick="switchTab('bot', this)">🤖 Instant Estimate</button>
-                    <button class="card-tab" onclick="switchTab('form', this)">📧 Send Message</button>
+                    <button class="card-tab" onclick="switchTab('form', this)">📧 Text / Call</button>
                 </div>
                 
                 <div class="card-content">
@@ -337,8 +339,13 @@
                                 <label>Contact Info (Optional)</label>
                                 <input type="email" id="email" name="email" placeholder="Your Name or Email">
                             </div>
-                            <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Start WhatsApp Chat 💬</button>
-                            <div style="font-size:0.75rem; color:#777; text-align:center; margin-top:15px; font-weight:600;">🔒 Direct Secure Chat</div>
+                            <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
+                                💬 Send Text Message (SMS)
+                            </button>
+                            
+                            <a href="tel:2819179914" class="form-call-btn">📞 Or Call (281) 917-9914</a>
+                            
+                            <div style="font-size:0.75rem; color:#777; text-align:center; margin-top:15px; font-weight:600;">🔒 Direct Secure Phone</div>
                         </form>
                     </div>
                 </div>
@@ -478,13 +485,13 @@
                     <div class="virtual-icon">💻</div>
                     <h3 style="color:white;">Remote Starlink Support</h3>
                     <p>Slow speeds? App issues? We can log in remotely or guide you through settings optimization over a video call.</p>
-                    <a href="javascript:void(0)" onclick="bookViaWhatsApp('Remote Starlink Support')" class="btn btn-primary" style="margin-top:15px; width:100%;">Schedule on WhatsApp</a>
+                    <a href="javascript:void(0)" onclick="bookViaText('Remote Starlink Support')" class="btn btn-primary" style="margin-top:15px; width:100%;">Text to Book</a>
                 </div>
                 <div class="virtual-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="virtual-icon">📹</div>
                     <h3 style="color:white;">DIY Video Consult</h3>
                     <p>Stuck on a repair? Video call us. Show us the problem, and we'll walk you through the fix step-by-step.</p>
-                    <a href="javascript:void(0)" onclick="bookViaWhatsApp('DIY Video Consult')" class="btn btn-primary" style="margin-top:15px; width:100%;">Schedule on WhatsApp</a>
+                    <a href="javascript:void(0)" onclick="bookViaText('DIY Video Consult')" class="btn btn-primary" style="margin-top:15px; width:100%;">Text to Book</a>
                 </div>
             </div>
         </div>
@@ -673,10 +680,10 @@
       }
 
       // --- NEW FUNCTION FOR VIRTUAL SERVICES ---
-      function bookViaWhatsApp(serviceName) {
+      function bookViaText(serviceName) {
           let message = "Hi Dean, I'd like to book a " + serviceName + " session.";
           let encodedMessage = encodeURIComponent(message);
-          window.location.href = "https://api.whatsapp.com/send?phone=12819179914&text=" + encodedMessage;
+          window.location.href = "sms:2819179914?body=" + encodedMessage;
       }
 
       paypal.HostedButtons({
@@ -685,7 +692,7 @@
 
       const REFERRAL_LINK = "https://starlink.com/residential?referral=RC-2034578-19016-61&app_source=share"; 
 
-      // --- SUBMIT FUNCTION (WHATSAPP REDIRECT) ---
+      // --- SUBMIT FUNCTION (SMS REDIRECT) ---
       document.getElementById('quoteForm').addEventListener('submit', function(e) {
           e.preventDefault();
           
@@ -695,19 +702,21 @@
           const email = document.getElementById('email').value; // Optional
           const phone = document.getElementById('phone').value; // Optional but good to have in text
           
-          // Construct WhatsApp Message
-          let message = "Hi Dean, I'm interested in: " + service + ".\n\n";
-          if(details) message += "Details: " + details + "\n";
-          if(address) message += "Location: " + address + "\n";
-          if(email) message += "My Email: " + email + "\n";
+          // Construct SMS Message
+          let message = "Hi Dean, I'm interested in: " + service + ". ";
+          if(details) message += "Details: " + details + ". ";
+          if(address) message += "Location: " + address + ". ";
+          if(email) message += "My Email: " + email + ". ";
           if(phone) message += "My Phone: " + phone;
           
           // Encode for URL
           const encodedMessage = encodeURIComponent(message);
           
-          // Open WhatsApp using window.location.href (Mobile Safe)
-          // Using your direct number with the robust API link
-          window.location.href = "https://api.whatsapp.com/send?phone=12819179914&text=" + encodedMessage;
+          // Open SMS
+          // Note: 'body=' is standard but on iOS it uses '&'. The safest way is '?' first then '&' for subsequent params, but sms only has body.
+          // Some devices might ignore the body, but most modern ones catch it.
+          // Using a general format that works on most:
+          window.location.href = "sms:2819179914?body=" + encodedMessage;
       });
     </script>
 </body>
