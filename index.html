@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>Dean's Handyman Service LLC | Starlink, Electrical & General Repair | Pittsburg, TX</title>
-    <meta name="description" content="Dean's Handyman Service LLC. Full-service technical repair: Starlink, Electrical, Plumbing, Carpentry, and Smart Home. Serving Pittsburg, Mt Pleasant, Broken Bow & Shreveport.">
-    <meta name="keywords" content="Handyman Pittsburg TX, Starlink Installer, Electrical Repair, RV Tech, Ceiling Fan Install, Toilet Repair, TV Mounting, Gutter Cleaning, Smart Home Setup">
+    <title>Dean's Handyman Service LLC | Starlink Install & Repair | Pittsburg, TX</title>
+    <meta name="description" content="Dean's Handyman Service LLC. Premier Starlink Installation, Electrical Repair, RV Tech, and Carpentry. Serving Pittsburg, Mt Pleasant, Broken Bow & Shreveport.">
+    <meta name="keywords" content="Handyman Pittsburg TX, Residential Electrical Repair, Starlink Installer Texas, Ranch Maintenance, RV Repair Broken Bow, Luxury Home Tech, Smart Home Setup, Carpentry, Structural Repair">
     <meta name="author" content="Dean's Handyman Service LLC">
     
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -17,8 +17,8 @@
     <meta property="og:site_name" content="Dean's Handyman Service LLC">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://deanshandymanservice.me/">
-    <meta property="og:title" content="Dean's Handyman - Expert Starlink & Home Repair">
-    <meta property="og:description" content="From Starlink installs to leaky faucets and electrical repair. See our full price list and book online.">
+    <meta property="og:title" content="Dean's Handyman - Starlink & Technical Pros">
+    <meta property="og:description" content="Expert Starlink Setup, Electrical, and RV Repair. We fix what others can't. Book online.">
     <meta property="og:image" content="https://i.postimg.cc/4NzfWL81/20251230-113812.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -38,11 +38,11 @@
       "address": { "@type": "PostalAddress", "addressLocality": "Pittsburg", "addressRegion": "TX", "postalCode": "75686" },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Full Service Menu",
+        "name": "Technical Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Basic Residential Starlink" }, "price": "300.00", "priceCurrency": "USD" },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Light Fixture Installation" }, "price": "125.00", "priceCurrency": "USD" },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Toilet Repair" }, "price": "160.00", "priceCurrency": "USD" }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Starlink Installation", "description": "White-glove roof mount and setup" }, "price": "300.00", "priceCurrency": "USD" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Handyman Service Call", "description": "Minimum service call fee" }, "price": "100.00", "priceCurrency": "USD" },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "RV Electrical Repair", "description": "Mobile RV tech service" }, "price": "125.00", "priceCurrency": "USD" }
         ]
       }
     }
@@ -104,11 +104,18 @@
         .est-title { font-size: 1.2rem; margin-bottom: 15px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         .est-input-group { margin-bottom: 15px; }
         .est-input-group label { display: block; font-size: 0.8rem; margin-bottom: 5px; color: #ccc; }
-        .est-input-group select { width: 100%; padding: 10px; background: #334155; border: 1px solid #555; color: white; border-radius: 4px; }
         .est-result { background: rgba(0,255,0,0.1); border: 1px solid #28a745; padding: 15px; text-align: center; border-radius: 4px; display: none; margin-top: 15px; }
         .est-price { font-size: 1.8rem; font-weight: 800; color: #28a745; display: block; margin: 5px 0; }
         .est-book-btn { background: #28a745; color: white; border:none; padding:10px; width:100%; font-weight:bold; cursor:pointer; border-radius:4px; margin-top:10px; font-size:0.9rem; text-transform:uppercase; transition:0.3s; }
         .est-book-btn:hover { background: #218838; }
+
+        /* MULTI-SELECT SCROLL BOX */
+        .checklist-container { height: 180px; overflow-y: auto; background: #f8fafc; border: 1px solid #ddd; padding: 10px; border-radius: 4px; }
+        .checklist-item { display: flex; align-items: center; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+        .checklist-item:last-child { border-bottom: none; }
+        .checklist-item input { margin-right: 10px; width: 18px; height: 18px; accent-color: var(--primary); }
+        .checklist-item label { font-size: 0.9rem; color: #333; cursor: pointer; flex: 1; margin:0; text-transform: none; font-weight: 500;}
+        .checklist-category { font-size: 0.75rem; font-weight: 800; color: var(--primary); margin-top: 10px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
 
         /* --- SMART ACTION CARD (TABS) --- */
         .action-card { background: var(--white); border-radius: 8px; width: 100%; max-width: 450px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); color: var(--dark); overflow: hidden; }
@@ -130,8 +137,6 @@
         .price-menu tr:last-child td { border-bottom: none; }
         .price-cost { font-weight: 800; color: var(--primary); text-align: right; }
         .price-desc { font-size: 0.85rem; color: #666; display: block; margin-top: 4px; }
-        .full-list-btn { display: block; text-align: center; margin-top: 15px; font-weight: 700; color: var(--primary); cursor: pointer; text-decoration: underline; }
-        .full-list-container { display: none; margin-top: 20px; }
 
         /* --- SINGLE PREMIUM CARD --- */
         .premium-card { background: white; border: 2px solid var(--accent); border-radius: 12px; padding: 40px; text-align: center; max-width: 700px; margin: 0 auto; box-shadow: 0 20px 60px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
@@ -233,7 +238,6 @@
             </a>
             
             <nav class="nav-links">
-                <a href="#rates">Rates</a>
                 <a href="#starlink-landing">Starlink</a>
                 <a href="#projects">Portfolio</a>
                 <a href="#virtual">Virtual</a>
@@ -247,7 +251,6 @@
         </div>
         
         <div class="mobile-nav-overlay" id="mobileMenu">
-            <a href="#rates" onclick="toggleMenu()">Rates & Services</a>
             <a href="#starlink-landing" onclick="toggleMenu()">Starlink Install</a>
             <a href="#projects" onclick="toggleMenu()">Portfolio</a>
             <a href="#virtual" onclick="toggleMenu()">Virtual Services</a>
@@ -278,50 +281,48 @@
                 
                 <div class="card-content">
                     <div id="tab-bot">
-                        <div class="est-input-group">
-                            <label>What service do you need?</label>
-                            <select id="est-service">
-                                <optgroup label="Starlink Services">
-                                    <option value="Basic Residential Starlink">Basic Residential Starlink Install ($300)</option>
-                                    <option value="Premium Residential Starlink">Premium Residential Starlink Install ($499)</option>
-                                    <option value="Basic RV/Mobile Starlink">Basic RV/Mobile Starlink Install ($350)</option>
-                                    <option value="Premium RV/Mobile Starlink">Premium RV/Mobile Starlink Install ($550)</option>
-                                    <option value="Business Starlink Standard">Business Starlink Standard ($500)</option>
-                                    <option value="Business Starlink Premium">Business Starlink Premium ($1200)</option>
-                                    <option value="Marine Starlink">Marine Starlink Install ($800+)</option>
-                                    <option value="PTP Bridge">Point-to-Point Bridge Install ($300)</option>
-                                    <option value="Mesh WiFi">Mesh WiFi Setup ($75)</option>
-                                    <option value="Starlink Uninstall">Starlink Uninstall ($200)</option>
-                                </optgroup>
-                                <optgroup label="Electrical & Tech">
-                                    <option value="Light Fixture Install">Light Fixture Installation ($125)</option>
-                                    <option value="Ceiling Fan Install">Ceiling Fan Installation ($175)</option>
-                                    <option value="Outlet/Switch Replace">Outlet/Switch Replacement ($75)</option>
-                                    <option value="Smart Home Setup">Smart Home Device Setup ($65)</option>
-                                    <option value="TV Mounting">TV Mounting ($125)</option>
-                                    <option value="Cable Run">Low Voltage Cable Run ($100)</option>
-                                    <option value="Dish Removal">Old Satellite Dish Removal ($125)</option>
-                                </optgroup>
-                                <optgroup label="General Repair">
-                                    <option value="Service Call">On-Site Service Call ($150)</option>
-                                    <option value="Faucet Repair">Leaky Faucet Repair ($120)</option>
-                                    <option value="Toilet Repair">Toilet Repair/Rebuild ($160)</option>
-                                    <option value="Garbage Disposal">Garbage Disposal Replace ($185)</option>
-                                    <option value="Drywall Patch">Drywall Patch ($100)</option>
-                                    <option value="Door Repair">Door Repair/Adjustment ($95)</option>
-                                    <option value="Gutter Cleaning 1">Gutter Cleaning - 1 Story ($150)</option>
-                                    <option value="Gutter Cleaning 2">Gutter Cleaning - 2 Story ($250)</option>
-                                    <option value="Furniture Assembly">Furniture Assembly ($85/hr)</option>
-                                </optgroup>
-                            </select>
+                        <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">Select all the services you need:</p>
+                        
+                        <div class="checklist-container">
+                            <div class="checklist-category">Starlink Services</div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="300" data-name="Basic Residential Starlink"> Basic Residential Install</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="499" data-name="Premium Residential Starlink"> Premium Residential Install</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="350" data-name="Basic RV Starlink"> Basic RV/Mobile Install</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="550" data-name="Premium RV Starlink"> Premium RV/Mobile Install</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="500" data-name="Business Standard Starlink"> Business Standard Install</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="1200" data-name="Business Premium Starlink"> Business Premium Install</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="800" data-name="Marine Starlink"> Marine Starlink Install</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="200" data-name="Starlink Uninstall"> Starlink Uninstall</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="300" data-name="PTP Bridge"> Point-to-Point Bridge</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="75" data-name="Mesh WiFi"> Mesh WiFi Setup</label></div>
+                            
+                            <div class="checklist-category">Electrical & Tech</div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="125" data-name="Light Fixture"> Light Fixture Install</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="175" data-name="Ceiling Fan"> Ceiling Fan Install</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="75" data-name="Outlet/Switch"> Outlet or Switch Replace</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="125" data-name="TV Mounting"> TV Mounting (up to 65")</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="65" data-name="Smart Home Setup"> Smart Home Setup</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="100" data-name="Cable Run"> Low Voltage Cable Run</label></div>
+                            
+                            <div class="checklist-category">General Repair</div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="150" data-name="Service Call"> On-Site Service Call</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="120" data-name="Faucet Repair"> Leaky Faucet Repair</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="160" data-name="Toilet Repair"> Toilet Repair/Rebuild</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="185" data-name="Garbage Disposal"> Garbage Disposal Replace</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="100" data-name="Drywall Patch"> Drywall Patch (Small)</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="95" data-name="Door Repair"> Door Repair/Adjustment</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="150" data-name="Gutter Clean 1"> Gutter Cleaning (1 Story)</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="250" data-name="Gutter Clean 2"> Gutter Cleaning (2 Story)</label></div>
+                            <div class="checklist-item"><label><input type="checkbox" class="service-checkbox" value="125" data-name="Dish Removal"> Old Satellite Dish Removal</label></div>
                         </div>
-                        <button onclick="runEstimate()" class="btn btn-accent" style="width:100%">Calculate Estimate</button>
+
+                        <button onclick="runEstimate()" class="btn btn-accent" style="width:100%; margin-top:15px;">Calculate Total</button>
                         
                         <div id="est-output" class="est-result">
-                            <span style="font-size:0.9rem; color:#333;">Estimated Price:</span>
+                            <span style="font-size:0.9rem; color:#333;">Total Estimate:</span>
                             <span id="est-price-display" class="est-price">$0.00</span>
                             <p style="font-size:0.8rem; color:#666; margin-top:5px;">*Final price confirmed on site.</p>
-                            <button onclick="autoBook()" class="est-book-btn">✅ Accept & Book Now</button>
+                            <button onclick="autoBook()" class="est-book-btn">✅ Accept & Send to Dean</button>
                         </div>
                     </div>
 
@@ -329,16 +330,11 @@
                         <form id="quoteForm" action="https://formspree.io/f/xzdgkqnp" method="POST">
                             <div class="form-group">
                                 <label>Service Needed</label>
-                                <select id="form-service" name="service">
-                                    <option value="Starlink Install">Starlink Installation</option>
-                                    <option value="Electrical Repair">Electrical Repair</option>
-                                    <option value="General Handyman">General Handyman</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                                <input type="text" id="form-service" name="service" readonly style="background:#eee; font-weight:bold;">
                             </div>
                             <div class="form-group">
-                                <label>Project Scope</label>
-                                <textarea id="details" name="message" rows="2" placeholder="Briefly describe your needs..."></textarea>
+                                <label>Project Details / Notes</label>
+                                <textarea id="details" name="message" rows="2" placeholder="Any specific details?"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Location</label>
@@ -352,73 +348,6 @@
                             <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Send to Dean</button>
                             <div style="font-size:0.75rem; color:#777; text-align:center; margin-top:15px; font-weight:600;">🔒 Secure Professional Inquiry</div>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="rates" style="background: var(--light);">
-        <div class="container">
-            <div style="display:flex; flex-wrap:wrap; gap:40px;">
-                <div style="flex:1; min-width:300px;">
-                    <h2>Transparent Service Menu</h2>
-                    <p style="color:#666;">We believe in honest, upfront pricing. No hidden fees. We do the job right the first time.</p>
-                    
-                    <ul class="price-features" style="margin-top:20px;">
-                        <li><strong>100 Mile Radius:</strong> No trip charge within 100 miles of Pittsburg, TX.</li>
-                        <li><strong>Warranty:</strong> 30-Day Workmanship Guarantee.</li>
-                        <li><strong>Insured:</strong> Fully insured for residential & commercial.</li>
-                    </ul>
-                </div>
-                
-                <div style="flex:1.5; min-width:300px;">
-                    <table class="price-menu">
-                        <thead>
-                            <tr>
-                                <th>Top Requested Services</th>
-                                <th style="text-align:right;">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Residential Starlink Install</strong><span class="price-desc">Basic Roof Mount & Setup</span></td>
-                                <td class="price-cost">$300.00</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Light Fixture Installation</strong><span class="price-desc">Standard Height</span></td>
-                                <td class="price-cost">$125.00</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Toilet Repair / Rebuild</strong><span class="price-desc">Includes Parts & Labor</span></td>
-                                <td class="price-cost">$160.00</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Service Call</strong><span class="price-desc">Diagnostic / First Hour</span></td>
-                                <td class="price-cost">$150.00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
-                    <a onclick="toggleFullList()" class="full-list-btn">▼ Show Full Service List (30+ Items)</a>
-                    
-                    <div id="full-service-list" class="full-list-container">
-                        <table class="price-menu">
-                            <tbody>
-                                <tr><td><strong>Ceiling Fan Installation</strong></td><td class="price-cost">$175.00</td></tr>
-                                <tr><td><strong>Outlet/Switch Replacement</strong></td><td class="price-cost">$75.00</td></tr>
-                                <tr><td><strong>Smart Home Device Setup</strong></td><td class="price-cost">$65.00</td></tr>
-                                <tr><td><strong>Leaky Faucet Repair</strong></td><td class="price-cost">$120.00</td></tr>
-                                <tr><td><strong>Garbage Disposal Replacement</strong></td><td class="price-cost">$185.00</td></tr>
-                                <tr><td><strong>TV Mounting (up to 65")</strong></td><td class="price-cost">$125.00</td></tr>
-                                <tr><td><strong>Drywall Patch (Small)</strong></td><td class="price-cost">$100.00</td></tr>
-                                <tr><td><strong>Door Repair / Adjustment</strong></td><td class="price-cost">$95.00</td></tr>
-                                <tr><td><strong>Gutter Cleaning (1 Story)</strong></td><td class="price-cost">$150.00</td></tr>
-                                <tr><td><strong>Low Voltage Cable Run</strong></td><td class="price-cost">$100.00</td></tr>
-                                <tr><td><strong>Satellite Dish Removal</strong></td><td class="price-cost">$125.00</td></tr>
-                                <tr><td><strong>Starlink Uninstall</strong></td><td class="price-cost">$200.00</td></tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
@@ -643,19 +572,6 @@
               menu.style.display = "flex";
           }
       }
-      
-      function toggleFullList() {
-          var list = document.getElementById("full-service-list");
-          var btn = document.querySelector(".full-list-btn");
-          
-          if(list.style.display === "block") {
-              list.style.display = "none";
-              btn.innerHTML = "▼ Show Full Service List (30+ Items)";
-          } else {
-              list.style.display = "block";
-              btn.innerHTML = "▲ Hide List";
-          }
-      }
 
       function selectPackage(packageName) {
           const formSection = document.getElementById('contact');
@@ -668,14 +584,9 @@
               switchTab('form', document.querySelectorAll('.card-tab')[1]);
           }
 
-          const serviceSelect = document.getElementById('form-service');
-          serviceSelect.value = "Starlink Install";
+          const serviceInput = document.getElementById('form-service');
+          if(serviceInput) serviceInput.value = packageName;
           
-          // Updated for Tech Session Booking
-          if(packageName.includes("Support") || packageName.includes("Consult")) {
-              serviceSelect.value = "Virtual Consult";
-          }
-
           const detailsArea = document.getElementById('details');
           detailsArea.value = "I am interested in the " + packageName + " service.";
       }
@@ -699,53 +610,26 @@
           }
       }
 
-      // --- INSTANT ESTIMATOR LOGIC (UPDATED WITH 30 ITEMS) ---
+      // --- INSTANT ESTIMATOR LOGIC (MULTI-SELECT) ---
       function runEstimate() {
-          const service = document.getElementById('est-service').value;
-          const type = document.getElementById('est-type').value;
-          let range = "$0 - $0";
+          let total = 0;
+          let selectedServices = [];
+          
+          const checkboxes = document.querySelectorAll('.service-checkbox:checked');
+          
+          checkboxes.forEach((checkbox) => {
+              total += parseFloat(checkbox.value);
+              selectedServices.push(checkbox.getAttribute('data-name'));
+          });
 
-          // Exact pricing logic map from your file
-          const priceMap = {
-              "Basic Residential Starlink": "$300.00",
-              "Premium Residential Starlink": "$499.00",
-              "Basic RV/Mobile Starlink": "$350.00",
-              "Premium RV/Mobile Starlink": "$550.00",
-              "Business Starlink Standard": "$500.00",
-              "Business Starlink Premium": "$1200.00",
-              "Marine Starlink": "$800.00",
-              "PTP Bridge": "$300.00",
-              "Mesh WiFi": "$75.00",
-              "Starlink Uninstall": "$200.00",
-              "Light Fixture Install": "$125.00",
-              "Ceiling Fan Install": "$175.00",
-              "Outlet/Switch Replace": "$75.00",
-              "Smart Home Setup": "$65.00",
-              "TV Mounting": "$125.00",
-              "Cable Run": "$100.00",
-              "Dish Removal": "$125.00",
-              "Service Call": "$150.00",
-              "Faucet Repair": "$120.00",
-              "Toilet Repair": "$160.00",
-              "Garbage Disposal": "$185.00",
-              "Drywall Patch": "$100.00",
-              "Door Repair": "$95.00",
-              "Gutter Cleaning 1": "$150.00",
-              "Gutter Cleaning 2": "$250.00",
-              "Furniture Assembly": "$85.00/hr"
-          };
-
-          if(priceMap[service]) {
-              range = priceMap[service];
-              if(type === "complex") {
-                  // Add a rough complexity markup for the estimator
-                  let numericPrice = parseFloat(range.replace(/[^0-9.]/g, ''));
-                  if(!isNaN(numericPrice)) {
-                      range = "$" + (numericPrice * 1.5).toFixed(2) + " (Est. Complex)";
-                  }
+          let range = "$0.00";
+          if (total > 0) {
+              range = "$" + total.toFixed(2);
+              if(checkboxes.length > 1) {
+                  range += " (Combined)";
               }
           } else {
-              range = "Contact for Quote";
+              range = "$0.00 (Select items above)";
           }
 
           document.getElementById('est-price-display').innerText = range;
@@ -753,16 +637,28 @@
       }
 
       function autoBook() {
-          const service = document.getElementById('est-service').value;
-          const price = document.getElementById('est-price-display').innerText;
+          let selectedServices = [];
+          let total = 0;
+          const checkboxes = document.querySelectorAll('.service-checkbox:checked');
           
+          checkboxes.forEach((checkbox) => {
+              total += parseFloat(checkbox.value);
+              selectedServices.push(checkbox.getAttribute('data-name'));
+          });
+
+          if(selectedServices.length === 0) {
+              alert("Please select at least one service to book.");
+              return;
+          }
+
           // Switch Tabs to Form
           const formTabBtn = document.querySelectorAll('.card-tab')[1];
           switchTab('form', formTabBtn);
           
           // Auto-Fill Form
-          document.getElementById('form-service').value = "General Handyman"; // Default fallback
-          document.getElementById('details').value = "I used the estimator for " + service + ". I accept the estimated price of " + price + ". Please contact me to schedule.";
+          const serviceListString = selectedServices.join(", ");
+          document.getElementById('form-service').value = "Custom Estimate Bundle"; 
+          document.getElementById('details').value = "I selected these services: " + serviceListString + ". Estimated Total: $" + total + ". Please contact me to schedule.";
       }
 
       paypal.HostedButtons({
