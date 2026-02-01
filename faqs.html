@@ -1,89 +1,233 @@
-<!DOCTYPE html-US>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <title>Customer FAQs | Dean's Handyman Service LLC | Pittsburg, TX</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Frequently asked questions about Starlink installation, electrical repair costs, and service areas for Dean's Handyman Service LLC in East Texas.">
+    <meta name="keywords" content="Starlink Installation Cost Texas, Handyman Service Area Pittsburg, RV Repair FAQs, Electrical Troubleshooting Cost">
+    <meta name="author" content="Dean's Handyman Service LLC">
+    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deanshandymanservice.me/faqs">
+    <meta property="og:title" content="Dean's Handyman FAQs - Answers & Pricing">
+    <meta property="og:description" content="Questions about Starlink or Repairs? Get answers and pricing here.">
+    <meta property="og:image" content="https://i.postimg.cc/4NzfWL81/20251230-113812.jpg">
+
+    <link rel="icon" type="image/jpg" href="https://i.postimg.cc/qvsGMT1Z/IMG-20240820-102606-912.jpg">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* --- BASICS --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #fdfdfd; overflow-x: hidden; padding-bottom: 70px; }
+        img { max-width: 100%; height: auto; }
+        :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --dark: #1a1a1a; --light: #f4f7f6; --white: #ffffff; --tech-bg: #0f172a; --venmo-blue: #008CFF; --google-blue: #4285F4; }
+        
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 { color: var(--primary-dark); font-weight: 800; letter-spacing: -0.5px; }
+        h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; }
+        h2 { font-size: 2rem; text-align: center; margin-bottom: 15px; }
+        h3 { font-size: 1.5rem; margin-top: 30px; margin-bottom: 15px; color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .section-sub { text-align: center; color: #666; margin-bottom: 50px; font-size: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;}
+        
+        /* --- BUTTONS --- */
+        .btn { display: inline-block; padding: 10px 20px; border-radius: 4px; font-weight: 700; text-decoration: none; cursor: pointer; transition: 0.3s; border: none; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem;}
+        .btn-primary { background-color: var(--primary); color: #ffffff !important; box-shadow: 0 4px 10px rgba(0, 80, 115, 0.2); }
+        .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
+        .nav-pay-btn { background: var(--venmo-blue); color: white !important; padding: 8px 16px; border-radius: 4px; }
+        
+        /* --- LAYOUT --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 70px 0; }
+        
+        /* --- HEADER --- */
+        header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; height: 80px; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--dark); }
+        .logo-img { height: 60px; width: auto; border-radius: 4px; }
+        .logo-text { font-weight: 900; font-size: 1.1rem; line-height: 1.1; text-transform: uppercase; color: var(--primary-dark); }
+        .logo-text span { color: var(--accent); display: block; font-size: 0.65rem; letter-spacing: 1px; margin-top: 2px; font-weight: 600; }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: var(--primary-dark); text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        
+        /* --- FAQ STYLES --- */
+        details { background: #fff; margin-bottom: 10px; border-radius: 6px; border: 1px solid #e0e0e0; overflow: hidden; transition: 0.3s; }
+        details:hover { border-color: var(--primary); }
+        summary { padding: 15px 20px; font-weight: 700; cursor: pointer; list-style: none; position: relative; font-size: 1rem; background: #fdfdfd; color: var(--primary-dark); }
+        summary::after { content: '+'; position: absolute; right: 20px; font-weight: 300; font-size: 1.5rem; color: var(--accent); top: 50%; transform: translateY(-55%); }
+        details[open] summary::after { content: '-'; }
+        details[open] summary { background: #f0f9ff; border-bottom: 1px solid #eee; }
+        .faq-answer { padding: 20px; color: #555; line-height: 1.6; background: #fff; font-size: 0.95rem; }
+        .faq-answer a { color: var(--primary); font-weight: bold; text-decoration: underline; }
+
+        /* --- FOOTER --- */
+        footer { background: #0f172a; color: #94a3b8; padding: 50px 0; margin-bottom: 50px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .footer-col h4 { color: white; margin-bottom: 15px; font-size: 1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col li { margin-bottom: 10px; font-size: 0.9rem; }
+        .footer-col a { color: #94a3b8; text-decoration: none; transition: 0.3s; }
+        .footer-col a:hover { color: var(--accent); }
+
+        /* --- STICKY FOOTER --- */
+        .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background: white; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 2000; padding: 10px; gap: 10px; display: none; justify-content: center; }
+        .sticky-btn { flex: 1; text-align: center; padding: 10px; font-weight: 800; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; border-radius: 4px; }
+        .sticky-call { background: var(--primary); color: white; }
+        .sticky-book { background: var(--accent); color: white; }
+
+        /* Mobile Nav */
+        .mobile-menu-btn { display: none; font-size: 2rem; color: var(--dark); cursor: pointer; padding: 10px; }
+        .mobile-nav-overlay { position: fixed; top: 80px; left: 0; width: 100%; background: white; box-shadow: 0 10px 10px rgba(0,0,0,0.1); padding: 20px; display: none; flex-direction: column; gap: 15px; border-top: 1px solid #eee; z-index: 999; }
+        .mobile-nav-overlay a { text-decoration: none; color: #333; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; display: block; }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; } 
+            .mobile-menu-btn { display: block; position: absolute; right: 0; top: 20px; }
+            .sticky-footer { display: flex; } 
+            .container { padding: 0 20px; } 
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo-wrapper">
-                <img src="https://i.postimg.cc/qvsGMT1Z/IMG-20240820-102606-912.jpg" class="logo-img">
+                <img src="https://i.postimg.cc/qvsGMT1Z/IMG-20240820-102606-912.jpg" alt="Dean's Handyman Service Logo" class="logo-img">
                 <div class="logo-text">Dean's<br><span>Handyman Service LLC</span></div>
             </a>
+            
             <nav class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="faqs.html">FAQs</a>
                 <a href="reviews.html">Reviews</a>
                 <a href="blog.html">Blog</a>
-                <a href="contact.html" class="nav-pay-btn">Pay/Contact</a>
+                <a href="index.html#contact" class="nav-pay-btn">Pay/Contact</a>
             </nav>
+
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+        </div>
+        
+        <div class="mobile-nav-overlay" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="faqs.html">FAQs</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#contact">Get Quote / Pay</a>
         </div>
     </header>
 
-    <div class="container section">
-        <h1>Technical Service FAQs</h1>
-        <p class="section-sub">Direct answers to common questions about Starlink, electrical repairs, and specialized handyman services in the Ark-La-Tex.</p>
+    <div class="section" style="padding-top: 60px;">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h1>Technical Service FAQs</h1>
+                <p class="section-sub">Direct answers to common questions about Starlink, electrical repairs, and specialized handyman services in the Ark-La-Tex.</p>
+            </div>
 
-        <div class="faq-container" style="max-width: 900px; margin: 0 auto;">
-            
-            <h3 style="margin: 30px 0 15px; color: var(--primary);">📡 Starlink Integration</h3>
-            <details>
-                <summary>How much does a professional Starlink installation cost?</summary>
-                <div class="faq-answer">
-                    Our "White-Glove" residential installation starts at $300. This includes professional roof mounting, waterproofing, internal cable routing, and full network optimization to ensure you get the highest possible speeds.
-                </div>
-            </details>
-            <details>
-                <summary>Can you install Starlink if I have a lot of trees?</summary>
-                <div class="faq-answer">
-                    Yes. We perform a technical obstruction analysis to find the best mounting point. In heavy canopy areas like East Texas, we often use custom pole mounts or elevated roof brackets to clear the tree line.
-                </div>
-            </details>
+            <div class="faq-container" style="max-width: 900px; margin: 0 auto;">
+                
+                <h3 data-aos="fade-up">📡 Starlink Integration</h3>
+                <details data-aos="fade-up">
+                    <summary>How much does a professional Starlink installation cost?</summary>
+                    <div class="faq-answer">
+                        Our "White-Glove" residential installation starts at <strong>$300</strong>. This includes professional roof mounting, waterproofing, internal cable routing, and full network optimization to ensure you get the highest possible speeds.
+                    </div>
+                </details>
+                <details data-aos="fade-up">
+                    <summary>Can you install Starlink if I have a lot of trees?</summary>
+                    <div class="faq-answer">
+                        Yes. We perform a technical obstruction analysis to find the best mounting point. In heavy canopy areas like East Texas, we often use custom pole mounts, tower mounts, or elevated roof brackets to clear the tree line.
+                    </div>
+                </details>
+                <details data-aos="fade-up">
+                    <summary>Do you sell the Starlink Kit?</summary>
+                    <div class="faq-answer">
+                        We can provide the hardware for you, or you can buy it directly from Starlink/Best Buy. We stock standard kits, pipe adapters, and high-end aftermarket mounts in our mobile unit.
+                    </div>
+                </details>
 
-            <h3 style="margin: 30px 0 15px; color: var(--primary);">⚡ Electrical & Technical Repairs</h3>
-            <details>
-                <summary>What kind of electrical work do you handle?</summary>
-                <div class="faq-answer">
-                    We specialize in troubleshooting and repair. This includes fixing dead outlets, replacing flickering light fixtures, ceiling fan installation, and diagnosing circuit breaker issues. We do not perform full panel upgrades or heavy new construction wiring.
-                </div>
-            </details>
-            <details>
-                <summary>Do you offer mobile RV repair?</summary>
-                <div class="faq-answer">
-                    Yes. We are mobile technical specialists. We can assist with RV electrical troubleshooting, Starlink-on-the-move setups, and general mechanical repairs at your home or campsite.
-                </div>
-            </details>
+                <h3 data-aos="fade-up">⚡ Electrical & Technical Repairs</h3>
+                <details data-aos="fade-up">
+                    <summary>What kind of electrical work do you handle?</summary>
+                    <div class="faq-answer">
+                        We specialize in troubleshooting and repair. This includes fixing dead outlets, replacing flickering light fixtures, ceiling fan installation, and diagnosing circuit breaker issues. We focus on maintenance rather than heavy new construction wiring.
+                    </div>
+                </details>
+                <details data-aos="fade-up">
+                    <summary>Do you offer mobile RV repair?</summary>
+                    <div class="faq-answer">
+                        Yes. We are mobile technical specialists. We can assist with RV electrical troubleshooting, Starlink-on-the-move setups, and general mechanical repairs at your home or campsite (e.g., Lake Bob Sandlin, Broken Bow).
+                    </div>
+                </details>
 
-            <h3 style="margin: 30px 0 15px; color: var(--primary);">💼 Business & Booking</h3>
-            <details>
-                <summary>Which areas do you serve without a trip fee?</summary>
-                <div class="faq-answer">
-                    We serve a 100-mile radius from Pittsburg, TX (75686) with NO trip fee. This includes Mt. Pleasant, Gilmer, and surrounding areas. Distances beyond 100 miles are charged a small mileage rate.
-                </div>
-            </details>
-            <details>
-                <summary>How do I pay my invoice?</summary>
-                <div class="faq-answer">
-                    We offer secure online payments. You can pay your invoice via Square (Credit Card), PayPal, or Venmo directly through the links on our <a href="contact.html">Contact page</a>.
-                </div>
-            </details>
-        </div>
+                <h3 data-aos="fade-up">💼 Business & Booking</h3>
+                <details data-aos="fade-up">
+                    <summary>Which areas do you serve without a trip fee?</summary>
+                    <div class="faq-answer">
+                        We serve a <strong>100-mile radius</strong> from Pittsburg, TX (75686) with NO trip fee for standard jobs. This includes Mt. Pleasant, Gilmer, Longview, and surrounding areas. Distances beyond 100 miles are charged a small mileage rate.
+                    </div>
+                </details>
+                <details data-aos="fade-up">
+                    <summary>How do I pay my invoice?</summary>
+                    <div class="faq-answer">
+                        We offer secure online payments. You can pay your invoice via Square (Credit Card), PayPal, or Venmo directly through the links on our <a href="index.html#payment">Payment Section</a>.
+                    </div>
+                </details>
+            </div>
 
-        <div style="text-align: center; margin-top: 60px; padding: 40px; background: var(--light); border-radius: 8px;">
-            <h3>Still have a question?</h3>
-            <p>Call or Text <strong>281-917-9914</strong> for an instant technical consultation.</p>
-            <a href="contact.html" class="btn btn-primary" style="margin-top: 15px;">Get a Quote</a>
+            <div style="text-align: center; margin-top: 60px; padding: 40px; background: var(--light); border-radius: 8px; border: 1px solid #e0e0e0;" data-aos="zoom-in">
+                <h3 style="margin-top:0; border:none;">Still have a question?</h3>
+                <p>Call or Text <strong>281-917-9914</strong> for an instant technical consultation.</p>
+                <a href="index.html#contact" class="btn btn-primary" style="margin-top: 15px;">Get an Instant Quote</a>
+            </div>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>© 2026 Dean's Handyman Service LLC. All Rights Reserved.</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Dean's Handyman Service LLC</h4>
+                    <p>Setting the standard for technical installation and fabrication in the Ark-La-Tex.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:2819179914">(281) 917-9914</a></li>
+                        <li>Pittsburg, TX (75686)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top:50px; border-top:1px solid #334155; padding-top:20px; color:#64748b; font-size: 0.85rem;">
+                © 2026 Dean's Handyman Service LLC. All Rights Reserved.
+            </div>
         </div>
     </footer>
+
+    <div class="sticky-footer" style="z-index: 9999;">
+        <a href="tel:2819179914" class="sticky-btn sticky-call">📞 Call Dean</a>
+        <a href="index.html#contact" class="sticky-btn sticky-book">📅 Book Premium</a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+
+      function toggleMenu() {
+          var menu = document.getElementById("mobileMenu");
+          if (menu.style.display === "flex") {
+              menu.style.display = "none";
+          } else {
+              menu.style.display = "flex";
+          }
+      }
+    </script>
 </body>
 </html>
