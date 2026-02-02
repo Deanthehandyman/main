@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Project Gallery | Dean's Handyman Service LLC</title>
+    <meta name="description" content="View our recent work: Starlink installations, electrical repairs, and RV fixes in East Texas. Updated live from the job site.">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* --- GLOBAL VARIABLES --- */
+        :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --light: #f8fafc; --white: #ffffff; --dark: #1e293b; }
+        
+        /* --- RESET & TYPOGRAPHY --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); padding-bottom: 0; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
+        
+        /* --- LAYOUT --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; }
+        
+        /* --- HEADER --- */
+        header { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; height: 80px; display: flex; align-items: center; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { font-weight: 900; font-size: 1.3rem; color: var(--primary-dark); line-height: 1; text-transform: uppercase; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); display: block; font-size: 0.7rem; letter-spacing: 2px; margin-top: 3px; }
+        
+        .nav-links { display: flex; align-items: center; gap: 20px; }
+        .nav-links a { font-weight: 700; font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); letter-spacing: 0.5px; position: relative; }
+        .nav-links a:hover { color: var(--accent); }
+        
+        .btn { padding: 10px 20px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; border: none; cursor: pointer; display: inline-block; text-align: center; }
+        .btn-primary { background: var(--primary); color: white !important; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        /* --- GALLERY STYLES --- */
+        .page-header { background: var(--primary-dark); color: white; padding: 60px 0; text-align: center; }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .page-header p { color: #cbd5e1; font-size: 1.1rem; }
+
+        .widget-box {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            min-height: 400px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- FOOTER --- */
+        footer { background: #0f172a; color: #94a3b8; padding: 60px 0; margin-top: 80px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .footer-col h4 { color: white; margin-bottom: 15px; font-size: 1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col li { margin-bottom: 10px; font-size: 0.9rem; }
+        .footer-col a:hover { color: var(--accent); }
+
+        /* --- MOBILE NAV & STICKY FOOTER --- */
+        .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background: white; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 2000; padding: 10px; gap: 10px; display: none; justify-content: center; }
+        .sticky-btn { flex: 1; text-align: center; padding: 10px; font-weight: 800; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; border-radius: 4px; }
+        
+        .mobile-menu-btn { display: none; font-size: 2rem; color: var(--primary); cursor: pointer; }
+        .mobile-nav { position: fixed; top: 80px; left: 0; width: 100%; background: white; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); display: none; flex-direction: column; gap: 15px; border-top: 1px solid #eee; z-index: 999; }
+        .mobile-nav a { font-weight: 700; font-size: 1rem; padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: var(--primary-dark); }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .sticky-footer { display: flex; } 
+            .container { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Dean's<span>Handyman Service LLC</span></a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="areas.html">Service Area</a>
+                <a href="gallery.html" style="color:var(--primary);">Gallery</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html" class="btn btn-primary">Get Quote</a>
+            </nav>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="areas.html">Service Areas</a>
+        <a href="gallery.html" style="color:var(--primary);">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Get Quote</a>
+    </div>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-down">Project Gallery</h1>
+            <p data-aos="fade-up">Live updates from the field. Real work, real results.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="widget-box" data-aos="fade-up">
+            
+            <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js" async></script>
+            <div class="pa-gallery-player-widget" style="width:100%; height:480px; display:none;"
+              data-link="https://photos.app.goo.gl/9Qh998qV7gE3gTjW8"
+              data-title="Website Portfolio · Dean's Handyman Service"
+              data-description="Shared album · Tap to view!">
+              </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <h3>See something you need?</h3>
+            <p style="color:#666; margin-bottom:20px;">We can replicate any installation you see here.</p>
+            <a href="contact.html" class="btn btn-primary">Get a Quote for Your Project</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Dean's Handyman Service LLC</h4>
+                    <p>Setting the standard for technical installation and fabrication in the Ark-La-Tex.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">All Services</a></li>
+                        <li><a href="areas.html">Service Areas</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="gallery.html">Project Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Pittsburg, TX (75686)</p>
+                    <p><a href="tel:2819179914" style="color:var(--accent); font-weight:bold;">(281) 917-9914</a></p>
+                    <div style="margin-top:15px;">
+                        <a href="contact.html" class="btn btn-primary" style="padding:8px 15px; font-size:0.8rem;">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top:50px; padding-top:20px; border-top:1px solid #1e293b; font-size:0.85rem;">
+                © 2026 Dean's Handyman Service LLC. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="sticky-footer" style="z-index: 9999;">
+        <a href="tel:2819179914" class="sticky-btn" style="background:var(--primary); color:white;">📞 Call Dean</a>
+        <a href="contact.html" class="sticky-btn" style="background:var(--accent); color:white;">📅 Get Quote</a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        function toggleMenu() {
+            var m = document.getElementById('mobileMenu');
+            m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+        }
+    </script>
+</body>
+</html>
