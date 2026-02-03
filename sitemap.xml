@@ -2,36 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://deanshandymanservice.me/index.html</loc>
-    <lastmod>2026-01-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-02-02</lastmod>
+    <priority>1.00</priority>
   </url>
-  
   <url>
-    <loc>https://deanshandymanservice.me/about.html</loc>
-    <lastmod>2026-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://deanshandymanservice.me/services.html</loc>
+    <lastmod>2026-02-02</lastmod>
+    <priority>0.80</priority>
   </url>
-
   <url>
-    <loc>https://deanshandymanservice.me/blog.html</loc>
-    <lastmod>2026-01-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://deanshandymanservice.me/areas.html</loc>
+    <lastmod>2026-02-02</lastmod>
+    <priority>0.80</priority>
   </url>
-
   <url>
-    <loc>https://deanshandymanservice.me/faqs.html</loc>
-    <lastmod>2026-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://deanshandymanservice.me/gallery.html</loc>
+    <lastmod>2026-02-02</lastmod>
+    <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://deanshandymanservice.me/reviews.html</loc>
-    <lastmod>2026-01-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-02-02</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://deanshandymanservice.me/contact.html</loc>
+    <lastmod>2026-02-02</lastmod>
+    <priority>0.90</priority>
   </url>
 </urlset>
