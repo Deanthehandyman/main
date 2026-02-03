@@ -21,8 +21,8 @@
         h2 { font-size: 2rem; text-align: center; margin-bottom: 15px; }
         .section-sub { text-align: center; color: #666; margin-bottom: 50px; font-size: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;}
         
-        /* --- BUTTONS --- */
-        .btn { display: inline-block; padding: 12px 24px; border-radius: 4px; font-weight: 700; text-decoration: none; cursor: pointer; transition: 0.3s; border: none; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.9rem;}
+        /* --- BUTTONS (High Visibility) --- */
+        .btn { display: inline-block; padding: 12px 24px; border-radius: 4px; font-weight: 800; text-decoration: none; cursor: pointer; transition: 0.3s; border: none; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.95rem; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
         .btn-primary { background-color: var(--primary); color: #ffffff !important; box-shadow: 0 4px 10px rgba(0, 80, 115, 0.2); }
         .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
         .btn-accent { background-color: var(--accent); color: white !important; }
@@ -46,24 +46,24 @@
         .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: var(--white); padding: 60px 0; }
         .hero h1 { color: white; }
         
-        /* --- ESTIMATOR CARD (The New Functionality) --- */
+        /* --- ESTIMATOR CARD (Compact) --- */
         .action-card { background: var(--white); border-radius: 8px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden; border: 1px solid #eee; }
         .card-tabs { display: flex; background: #eee; }
-        .card-tab { flex: 1; padding: 15px; text-align: center; border: none; background: #e0e0e0; cursor: pointer; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; color: #666; }
+        .card-tab { flex: 1; padding: 12px; text-align: center; border: none; background: #e0e0e0; cursor: pointer; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; color: #666; }
         .card-tab.active { background: var(--white); color: var(--primary); border-top: 4px solid var(--accent); }
-        .card-content { padding: 25px; }
+        .card-content { padding: 20px; }
         
-        .est-list { max-height: 300px; overflow-y: auto; padding-right: 5px; margin-bottom: 20px; border: 1px solid #f1f5f9; background: #f9f9f9; padding:10px; border-radius: 6px; }
-        .qty-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #eee; }
-        .qty-label { font-weight: 700; font-size: 0.9rem; color: #444; flex: 1; }
-        .qty-input { width: 50px; text-align: center; padding: 5px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold; color: var(--primary); }
-        .category-header { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); font-weight: 800; margin-top: 15px; margin-bottom: 5px; border-bottom: 2px solid #eee; }
+        .est-list { max-height: 250px; overflow-y: auto; padding-right: 5px; margin-bottom: 15px; border: 1px solid #f1f5f9; background: #f9f9f9; padding:5px; border-radius: 6px; }
+        .qty-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 5px; border-bottom: 1px solid #eee; }
+        .qty-label { font-weight: 600; font-size: 0.85rem; color: #444; flex: 1; }
+        .qty-input { width: 50px; text-align: center; padding: 4px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold; color: var(--primary); font-size: 0.9rem; }
+        .category-header { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); font-weight: 800; margin-top: 10px; margin-bottom: 5px; background: #eee; padding: 2px 5px; border-radius: 3px; }
 
-        .result-box { background: #e8f5e9; border: 1px solid #28a745; border-radius: 8px; padding: 15px; text-align: center; margin-top: 15px; display: none; }
-        .total-price { font-size: 2rem; font-weight: 800; color: #15803d; line-height: 1; margin: 10px 0; }
+        .result-box { background: #e8f5e9; border: 1px solid #28a745; border-radius: 8px; padding: 10px; text-align: center; margin-top: 10px; display: none; }
+        .total-price { font-size: 1.8rem; font-weight: 800; color: #15803d; line-height: 1; margin: 5px 0; }
         
         /* Form Inputs */
-        input[type="text"], input[type="email"], input[type="tel"], textarea, input[type="number"] { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; margin-bottom: 10px; background: #fff; }
+        input[type="text"], input[type="email"], input[type="tel"], textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95rem; margin-bottom: 8px; background: #fff; }
 
         /* --- FOOTER --- */
         footer { background: #0f172a; color: #94a3b8; padding: 50px 0; margin-bottom: 50px; }
@@ -143,7 +143,7 @@
                 
                 <div class="card-content">
                     <div id="view-calc">
-                        <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">Enter quantity (Prices revealed at end):</p>
+                        <p style="font-size:0.85rem; color:#666; margin-bottom:10px;">Enter quantity (Prices revealed at end):</p>
                         
                         <div class="est-list">
                             <div class="category-header">📡 Starlink & Internet</div>
@@ -158,13 +158,11 @@
 
                             <div class="category-header">🛠️ General</div>
                             <div class="qty-row"><span class="qty-label">TV Mounting</span> <input type="number" min="0" class="qty-input" data-price="125" data-name="TV Mount"></div>
-                            <div class="qty-row"><span class="qty-label">Service Call (Base)</span> <input type="number" min="0" class="qty-input" data-price="150" data-name="Service Call"></div>
                         </div>
 
-                        <div style="background:#f8fafc; padding:10px; border-radius:4px; margin-top:10px;">
-                            <label style="font-size:0.8rem; font-weight:bold;">Trip Distance (Miles from 75686):</label>
-                            <input type="number" id="trip-miles" placeholder="0" style="padding:5px; width:60px; margin-left:10px;">
-                            <span style="font-size:0.7rem; color:#666;">(First 100 free)</span>
+                        <div style="background:#f8fafc; padding:8px; border-radius:4px; margin-top:10px; display:flex; align-items:center;">
+                            <label style="font-size:0.8rem; font-weight:bold; flex:1;">Trip Miles (Over 100 free):</label>
+                            <input type="number" id="trip-miles" placeholder="0" style="padding:4px; width:50px; text-align:center;">
                         </div>
 
                         <button onclick="calculateTotal()" class="btn btn-primary" style="width:100%; margin-top:15px;">Calculate Price</button>
@@ -177,7 +175,7 @@
                     </div>
 
                     <div id="view-send" style="display:none;">
-                        <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">Review quote and submit request.</p>
+                        <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">Review quote and submit request.</p>
                         
                         <form action="https://formspree.io/f/xzdgkqnp" method="POST">
                             <input type="hidden" name="Quote Summary" id="hidden-summary">
@@ -187,7 +185,7 @@
                             <input type="email" name="Email" placeholder="Your Email" required>
                             <input type="tel" name="Phone" placeholder="Your Phone Number" required>
                             <input type="text" name="Address" placeholder="City / Address" required>
-                            <textarea name="Message" placeholder="Any specific details?" style="height:80px;"></textarea>
+                            <textarea name="Message" placeholder="Any specific details?" style="height:60px;"></textarea>
                             
                             <div style="background:#f8fafc; padding:10px; border-radius:6px; margin-bottom:15px; border-left:3px solid var(--accent);">
                                 <strong style="font-size:0.8rem;">Quote Summary:</strong>
