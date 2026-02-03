@@ -71,29 +71,29 @@
 
     <div class="container">
         <h1>Get an Instant Quote</h1>
-        <p class="sub">Select your items below to calculate a price, then send it directly to Dean.</p>
+        <p class="sub">Enter quantities below. Price calculates at the end.</p>
 
         <div class="est-box" id="step1">
             
             <div class="cat-title">📡 Starlink & Internet</div>
-            <div class="row"><span class="label">Residential Install ($300)</span><input type="number" min="0" class="input-qty" data-price="300" data-name="Res Starlink"></div>
-            <div class="row"><span class="label">RV / Mobile Install ($350)</span><input type="number" min="0" class="input-qty" data-price="350" data-name="RV Starlink"></div>
-            <div class="row"><span class="label">Uninstall / Relocate ($200)</span><input type="number" min="0" class="input-qty" data-price="200" data-name="Uninstall"></div>
+            <div class="row"><span class="label">Residential Install</span><input type="number" min="0" class="input-qty" data-price="300" data-name="Res Starlink"></div>
+            <div class="row"><span class="label">RV / Mobile Install</span><input type="number" min="0" class="input-qty" data-price="350" data-name="RV Starlink"></div>
+            <div class="row"><span class="label">Uninstall / Relocate</span><input type="number" min="0" class="input-qty" data-price="200" data-name="Uninstall"></div>
 
             <div class="cat-title">⚡ Electrical</div>
-            <div class="row"><span class="label">Light Fixture Install ($125)</span><input type="number" min="0" class="input-qty" data-price="125" data-name="Light Fixture"></div>
-            <div class="row"><span class="label">Ceiling Fan Install ($175)</span><input type="number" min="0" class="input-qty" data-price="175" data-name="Ceiling Fan"></div>
-            <div class="row"><span class="label">Outlet/Switch Repair ($75)</span><input type="number" min="0" class="input-qty" data-price="75" data-name="Outlet Repair"></div>
+            <div class="row"><span class="label">Light Fixture Install</span><input type="number" min="0" class="input-qty" data-price="125" data-name="Light Fixture"></div>
+            <div class="row"><span class="label">Ceiling Fan Install</span><input type="number" min="0" class="input-qty" data-price="175" data-name="Ceiling Fan"></div>
+            <div class="row"><span class="label">Outlet/Switch Repair</span><input type="number" min="0" class="input-qty" data-price="75" data-name="Outlet Repair"></div>
 
             <div class="cat-title">🚰 Plumbing</div>
-            <div class="row"><span class="label">Faucet Replacement ($120)</span><input type="number" min="0" class="input-qty" data-price="120" data-name="Faucet"></div>
-            <div class="row"><span class="label">Toilet Repair/Swap ($150)</span><input type="number" min="0" class="input-qty" data-price="150" data-name="Toilet"></div>
-            <div class="row"><span class="label">Garbage Disposal ($125)</span><input type="number" min="0" class="input-qty" data-price="125" data-name="Disposal"></div>
+            <div class="row"><span class="label">Faucet Replacement</span><input type="number" min="0" class="input-qty" data-price="120" data-name="Faucet"></div>
+            <div class="row"><span class="label">Toilet Repair/Swap</span><input type="number" min="0" class="input-qty" data-price="150" data-name="Toilet"></div>
+            <div class="row"><span class="label">Garbage Disposal</span><input type="number" min="0" class="input-qty" data-price="125" data-name="Disposal"></div>
 
             <div class="cat-title">🛠️ General & Labor</div>
-            <div class="row"><span class="label">TV Mounting ($125)</span><input type="number" min="0" class="input-qty" data-price="125" data-name="TV Mount"></div>
-            <div class="row"><span class="label">Furniture Assembly ($100)</span><input type="number" min="0" class="input-qty" data-price="100" data-name="Assembly"></div>
-            <div class="row"><span class="label">Hourly Labor ($100/hr)</span><input type="number" min="0" class="input-qty" data-price="100" data-name="Labor Hour"></div>
+            <div class="row"><span class="label">TV Mounting</span><input type="number" min="0" class="input-qty" data-price="125" data-name="TV Mount"></div>
+            <div class="row"><span class="label">Furniture Assembly</span><input type="number" min="0" class="input-qty" data-price="100" data-name="Assembly"></div>
+            <div class="row"><span class="label">Hourly Labor</span><input type="number" min="0" class="input-qty" data-price="100" data-name="Labor Hour"></div>
 
             <div style="margin-top:30px; background:#f1f5f9; padding:15px; border-radius:6px; display:flex; align-items:center; justify-content:space-between;">
                 <label class="label">One-Way Mileage from 75686:</label>
@@ -194,7 +194,7 @@
             const fullMsg = `Hi Dean, this is ${name} from ${loc}.\n\nI need a quote for:\n${window.quoteData.summary}\n\nEst Total: $${window.quoteData.total}\n\nNote: ${note}`;
             
             if(method === 'email') {
-                window.location.href = `mailto:DeanshandymanserviceLLC@gmail.com?subject=New Quote Request&body=${encodeURIComponent(fullMsg)}`;
+                window.location.href = `mailto:deanshandymanservice1@gmail.com?subject=New Quote Request&body=${encodeURIComponent(fullMsg)}`;
             } else {
                 window.location.href = `sms:2819179914?body=${encodeURIComponent(fullMsg)}`;
             }
