@@ -21,11 +21,17 @@
         h2 { font-size: 2rem; text-align: center; margin-bottom: 15px; }
         .section-sub { text-align: center; color: #666; margin-bottom: 50px; font-size: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;}
         
-        /* --- BUTTONS --- */
-        .btn { display: inline-block; padding: 12px 24px; border-radius: 4px; font-weight: 800; text-decoration: none; cursor: pointer; transition: 0.3s; border: none; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.95rem; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+        /* --- BUTTONS (FIXED READABILITY) --- */
+        .btn { display: inline-block; padding: 12px 24px; border-radius: 4px; font-weight: 900; text-decoration: none; cursor: pointer; transition: 0.3s; border: none; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.95rem; }
+        
+        /* Primary (Blue) - White Text */
         .btn-primary { background-color: var(--primary); color: #ffffff !important; box-shadow: 0 4px 10px rgba(0, 80, 115, 0.2); }
         .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
-        .btn-accent { background-color: var(--accent); color: white !important; }
+        
+        /* Accent (Gold) - BLACK TEXT for Readability */
+        .btn-accent { background-color: var(--accent); color: #000000 !important; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); }
+        .btn-accent:hover { background-color: #bfa030; transform: translateY(-2px); }
+        
         .btn-green { background-color: #28a745; color: white !important; }
         
         /* --- LAYOUT --- */
@@ -47,14 +53,14 @@
         .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: var(--white); padding: 60px 0; }
         .hero h1 { color: white; }
         
-        /* --- ESTIMATOR CARD (Expanded Options) --- */
+        /* --- ESTIMATOR CARD --- */
         .action-card { background: var(--white); border-radius: 8px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden; border: 1px solid #eee; }
         .card-tabs { display: flex; background: #eee; }
         .card-tab { flex: 1; padding: 12px; text-align: center; border: none; background: #e0e0e0; cursor: pointer; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; color: #666; }
         .card-tab.active { background: var(--white); color: var(--primary); border-top: 4px solid var(--accent); }
         .card-content { padding: 20px; }
         
-        .est-list { max-height: 300px; overflow-y: auto; padding-right: 5px; margin-bottom: 15px; border: 1px solid #f1f5f9; background: #f9f9f9; padding:5px; border-radius: 6px; }
+        .est-list { max-height: 250px; overflow-y: auto; padding-right: 5px; margin-bottom: 15px; border: 1px solid #f1f5f9; background: #f9f9f9; padding:5px; border-radius: 6px; }
         .qty-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 5px; border-bottom: 1px solid #eee; }
         .qty-label { font-weight: 600; font-size: 0.85rem; color: #444; flex: 1; }
         .qty-input { width: 50px; text-align: center; padding: 4px; border: 1px solid #ccc; border-radius: 4px; font-weight: bold; color: var(--primary); font-size: 0.9rem; }
@@ -155,7 +161,7 @@
                             <div class="category-header">⚡ Electrical</div>
                             <div class="qty-row"><span class="qty-label">Light Fixture Install</span> <input type="number" min="0" class="qty-input" data-price="125" data-name="Light Fixture"></div>
                             <div class="qty-row"><span class="qty-label">Ceiling Fan Install</span> <input type="number" min="0" class="qty-input" data-price="175" data-name="Ceiling Fan"></div>
-                            <div class="qty-row"><span class="qty-label">Outlet Replacement</span> <input type="number" min="0" class="qty-input" data-price="75" data-name="Outlet Repair"></div>
+                            <div class="qty-row"><span class="qty-label">Outlet Repair</span> <input type="number" min="0" class="qty-input" data-price="75" data-name="Outlet Repair"></div>
 
                             <div class="category-header">🚰 Plumbing</div>
                             <div class="qty-row"><span class="qty-label">Faucet Replacement</span> <input type="number" min="0" class="qty-input" data-price="120" data-name="Faucet"></div>
@@ -209,28 +215,20 @@
 
     <div class="section" style="background-color: var(--light);">
         <div class="container">
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 30px auto;">
                 <h2>Recent Projects</h2>
-                <p class="section-sub">Real work from around the Ark-La-Tex.</p>
+                <p class="section-sub">Live updates from the field.</p>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
-                <div style="background:white; padding:10px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
-                    <img src="https://i.postimg.cc/4NzfWL81/20251230-113812.jpg" alt="Starlink" style="border-radius:4px; height:200px; width:100%; object-fit:cover;">
-                    <h4 style="margin:10px 0 5px 0;">Starlink Roof Mount</h4>
-                    <p style="font-size:0.9rem; color:#666;">Zero-leak penetration using industrial pitch pads.</p>
-                </div>
-                <div style="background:white; padding:10px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
-                    <img src="https://i.postimg.cc/MZnXmY2s/20251208-114718.jpg" alt="Electrical" style="border-radius:4px; height:200px; width:100%; object-fit:cover;">
-                    <h4 style="margin:10px 0 5px 0;">Electrical Repair</h4>
-                    <p style="font-size:0.9rem; color:#666;">Panel troubleshooting and code-compliant fixes.</p>
-                </div>
-                <div style="background:white; padding:10px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.05);">
-                    <img src="https://i.postimg.cc/y8LzGw0h/20250730-170809.jpg" alt="Mobile Unit" style="border-radius:4px; height:200px; width:100%; object-fit:cover;">
-                    <h4 style="margin:10px 0 5px 0;">Mobile Tech Unit</h4>
-                    <p style="font-size:0.9rem; color:#666;">Fully equipped for on-site fabrication and repair.</p>
+            <div style="background:white; padding:10px; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.05); min-height:400px;">
+                <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js" async></script>
+                <div class="pa-gallery-player-widget" style="width:100%; height:480px; display:none;"
+                  data-link="https://photos.app.goo.gl/9Qh998qV7gE3gTjW8"
+                  data-title="Dean's Handyman Portfolio"
+                  data-description="Recent work updates">
                 </div>
             </div>
+            
             <div style="text-align:center; margin-top:40px;">
                 <a href="gallery.html" class="btn btn-primary" style="background:transparent; border:2px solid var(--primary); color:var(--primary);">View Full Gallery →</a>
             </div>
@@ -270,7 +268,7 @@
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="services.html">All Services</a></li>
+                        <li><a href="services.html">Services</a></li>
                         <li><a href="areas.html">Service Areas</a></li>
                         <li><a href="faqs.html">FAQs</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
@@ -290,7 +288,7 @@
 
     <div class="sticky-footer" style="z-index: 9999;">
         <a href="tel:2819179914" class="sticky-btn" style="background:var(--primary); color:white;">📞 Call Dean</a>
-        <a href="#estimator" class="sticky-btn" style="background:var(--accent); color:white;">📅 Get Quote</a>
+        <a href="#estimator" class="sticky-btn" style="background:var(--accent); color:#000000;">📅 Get Quote</a>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
