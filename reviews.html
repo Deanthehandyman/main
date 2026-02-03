@@ -2,379 +2,93 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews | Dean's Handyman Service LLC</title>
+    <meta name="description" content="Read real reviews from satisfied customers in Pittsburg, Mt. Pleasant, and East Texas.">
     
-    <title>Customer Reviews | Dean's Handyman Service LLC | Pittsburg, TX</title>
-    <meta name="description" content="Read 5-star reviews for Dean's Handyman Service. Verified testimonials from Pittsburg, Gilmer, and Broken Bow regarding Starlink, RV repair, and electrical work.">
-    <meta name="keywords" content="Dean's Handyman Service Reviews, Starlink Installer Reviews East Texas, Pittsburg TX Handyman Testimonials, RV Tech Reviews">
-    <meta name="author" content="Dean's Handyman Service LLC">
-    
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://deanshandymanservice.me/reviews">
-    <meta property="og:title" content="Dean's Handyman - Verified Reviews">
-    <meta property="og:description" content="See why 50+ neighbors trust Dean with their high-tech and home repairs.">
-    <meta property="og:image" content="https://i.postimg.cc/4NzfWL81/20251230-113812.jpg">
-
-    <link rel="icon" type="image/jpg" href="https://i.postimg.cc/qvsGMT1Z/IMG-20240820-102606-912.jpg">
-
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* --- BASICS --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #fdfdfd; overflow-x: hidden; padding-bottom: 70px; }
-        img { max-width: 100%; height: auto; }
-        :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --dark: #1a1a1a; --light: #f4f7f6; --white: #ffffff; --tech-bg: #0f172a; --venmo-blue: #008CFF; --google-blue: #4285F4; }
-        
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3 { color: var(--primary-dark); font-weight: 800; letter-spacing: -0.5px; }
-        h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; }
-        h2 { font-size: 2rem; text-align: center; margin-bottom: 15px; }
-        .section-sub { text-align: center; color: #666; margin-bottom: 50px; font-size: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;}
-        
-        /* --- BUTTONS --- */
-        .btn { display: inline-block; padding: 10px 20px; border-radius: 4px; font-weight: 700; text-decoration: none; cursor: pointer; transition: 0.3s; border: none; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem;}
-        .btn-primary { background-color: var(--primary); color: #ffffff !important; box-shadow: 0 4px 10px rgba(0, 80, 115, 0.2); }
-        .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
-        .btn-google { background-color: white; color: #333 !important; border: 2px solid #ddd; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; }
-        .btn-google:hover { background-color: #f8f8f8; border-color: #ccc; }
-        .nav-pay-btn { background: var(--venmo-blue); color: white !important; padding: 8px 16px; border-radius: 4px; }
-        
-        /* --- LAYOUT --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .section { padding: 70px 0; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #fdfdfd; padding-bottom: 70px; }
+        :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --white: #ffffff; }
         
         /* --- HEADER --- */
-        header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; height: 80px; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
-        .logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--dark); }
-        .logo-img { height: 60px; width: auto; border-radius: 4px; }
-        .logo-text { font-weight: 900; font-size: 1.1rem; line-height: 1.1; text-transform: uppercase; color: var(--primary-dark); }
-        .logo-text span { color: var(--accent); display: block; font-size: 0.65rem; letter-spacing: 1px; margin-top: 2px; font-weight: 600; }
-        .nav-links { display: flex; align-items: center; }
-        .nav-links a { color: var(--primary-dark); text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; height: 80px; display: flex; align-items: center; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo { font-weight: 900; font-size: 1.3rem; color: var(--primary-dark); text-decoration: none; text-transform: uppercase; }
+        .nav-links a { margin-left: 20px; font-weight: 700; font-size: 0.85rem; text-decoration: none; color: var(--primary-dark); text-transform: uppercase; }
+        .btn-primary { background: var(--primary); color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: 900; }
         
-        /* --- REVIEWS GRID --- */
-        .review-category-title { font-size: 1.2rem; color: var(--primary); border-left: 4px solid var(--accent); padding-left: 15px; margin: 40px 0 20px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; }
+        /* --- CONTENT --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        h1 { text-align: center; color: var(--primary-dark); margin-bottom: 10px; font-size: 2.5rem; }
+        p.sub { text-align: center; color: #666; margin-bottom: 40px; }
         
-        .gw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
-        .gw-card { background: #f9f9f9; padding: 25px; border-radius: 8px; border: 1px solid #eee; position: relative; box-shadow: 0 2px 10px rgba(0,0,0,0.03); transition: 0.3s; }
-        .gw-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--primary); }
-        .gw-author { font-weight: 700; font-size: 0.95rem; margin-bottom: 5px; display:flex; align-items:center; gap:10px; color:#333; }
-        .gw-author::before { content: 'G'; display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; background: var(--google-blue); color:white; border-radius:50%; font-size:0.9rem; font-family:sans-serif; }
-        .gw-stars { color: #f5c518; font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
-        .gw-text { font-size: 0.95rem; color: #555; font-style: italic; line-height: 1.6; }
-        .gw-location { font-size: 0.75rem; color: #999; margin-top: 10px; text-transform: uppercase; font-weight: 700; display: block; }
-        .gw-verify { position: absolute; top: 20px; right: 20px; width: 18px; height: 18px; fill: var(--google-blue); }
-
-        /* --- TRUSTWORTHY FEEDBACK SECTION --- */
-        .feedback-section { background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); overflow: hidden; margin-top: 60px; border: 1px solid #eee; }
-        .feedback-header { background: var(--primary-dark); color: white; padding: 30px; text-align: center; }
-        .feedback-body { display: flex; flex-wrap: wrap; }
+        /* --- WIDGET CONTAINER --- */
+        .widget-box { 
+            background: white; 
+            padding: 20px; 
+            border: 1px solid #eee; 
+            border-radius: 8px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            min-height: 400px; 
+        }
         
-        .fb-col-left { flex: 1; min-width: 300px; padding: 40px; border-right: 1px solid #eee; background: #fdfdfd; display: flex; flex-direction: column; justify-content: center; }
-        .fb-col-right { flex: 1.2; min-width: 300px; padding: 40px; }
-        
-        .fb-input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; background: #f9f9f9; font-size: 0.95rem; }
-        .fb-textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; background: #f9f9f9; height: 100px; font-size: 0.95rem; resize: vertical; }
-        
-        .trust-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #666; background: #eee; padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; font-weight: 600; }
+        /* --- CTA SECTION --- */
+        .review-cta { text-align: center; margin-top: 60px; background: #f8fafc; padding: 40px; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .review-cta h3 { color: var(--primary-dark); margin-bottom: 10px; }
+        .btn-outline { display: inline-block; border: 2px solid var(--primary); color: var(--primary); padding: 10px 20px; font-weight: 800; text-decoration: none; border-radius: 4px; transition: 0.3s; }
+        .btn-outline:hover { background: var(--primary); color: white; }
 
         /* --- FOOTER --- */
-        footer { background: #0f172a; color: #94a3b8; padding: 50px 0; margin-bottom: 50px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .footer-col h4 { color: white; margin-bottom: 15px; font-size: 1rem; }
-        .footer-col ul { list-style: none; padding: 0; }
-        .footer-col li { margin-bottom: 10px; font-size: 0.9rem; }
-        .footer-col a { color: #94a3b8; text-decoration: none; transition: 0.3s; }
-        .footer-col a:hover { color: var(--accent); }
-
-        /* --- STICKY FOOTER --- */
-        .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background: white; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 2000; padding: 10px; gap: 10px; display: none; justify-content: center; }
-        .sticky-btn { flex: 1; text-align: center; padding: 10px; font-weight: 800; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; border-radius: 4px; }
-        .sticky-call { background: var(--primary); color: white; }
-        .sticky-book { background: var(--accent); color: white; }
-
-        /* Mobile Nav */
-        .mobile-menu-btn { display: none; font-size: 2rem; color: var(--dark); cursor: pointer; padding: 10px; }
-        .mobile-nav-overlay { position: fixed; top: 80px; left: 0; width: 100%; background: white; box-shadow: 0 10px 10px rgba(0,0,0,0.1); padding: 20px; display: none; flex-direction: column; gap: 15px; border-top: 1px solid #eee; z-index: 999; }
-        .mobile-nav-overlay a { text-decoration: none; color: #333; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; display: block; }
-
-        @media (max-width: 900px) {
-            .nav-links { display: none; } 
-            .mobile-menu-btn { display: block; position: absolute; right: 0; top: 20px; }
-            .sticky-footer { display: flex; } 
-            .container { padding: 0 20px; } 
-            .fb-col-left, .fb-col-right { width: 100%; padding: 25px; border-right: none; border-bottom: 1px solid #eee; }
-        }
+        footer { background: #005073; color: #94a3b8; padding: 50px 0; text-align: center; margin-top: 50px; }
+        
+        /* --- MOBILE NAV --- */
+        .mobile-menu-btn { display: none; font-size: 2rem; cursor: pointer; }
+        .mobile-nav { display: none; position: fixed; top: 80px; left: 0; width: 100%; background: white; padding: 20px; border-top: 1px solid #eee; flex-direction: column; gap: 15px; box-shadow: 0 10px 10px rgba(0,0,0,0.1); }
+        .mobile-nav a { text-decoration: none; color: #333; font-weight: 700; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        @media (max-width: 900px) { .nav-links { display: none; } .mobile-menu-btn { display: block; } }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container nav-container">
-            <a href="index.html" class="logo-wrapper">
-                <img src="https://i.postimg.cc/qvsGMT1Z/IMG-20240820-102606-912.jpg" alt="Dean's Handyman Service Logo" class="logo-img">
-                <div class="logo-text">Dean's<br><span>Handyman Service LLC</span></div>
-            </a>
-            
+        <div class="nav-container">
+            <a href="index.html" class="logo">Dean's Handyman</a>
             <nav class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="faqs.html">FAQs</a>
-                <a href="reviews.html">Reviews</a>
-                <a href="blog.html">Blog</a>
-                <a href="index.html#contact" class="nav-pay-btn">Pay/Contact</a>
+                <a href="services.html">Services</a>
+                <a href="areas.html">Service Area</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="reviews.html" style="color:var(--accent);">Reviews</a>
+                <a href="contact.html" class="btn-primary">Get Quote</a>
             </nav>
-
-            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
-        </div>
-        
-        <div class="mobile-nav-overlay" id="mobileMenu">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="faqs.html">FAQs</a>
-            <a href="reviews.html">Reviews</a>
-            <a href="blog.html">Blog</a>
-            <a href="index.html#contact">Get Quote / Pay</a>
+            <div class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').style.display = (document.getElementById('mobileMenu').style.display === 'flex') ? 'none' : 'flex';">☰</div>
         </div>
     </header>
+    <div class="mobile-nav" id="mobileMenu">
+        <a href="index.html">Home</a><a href="services.html">Services</a><a href="areas.html">Service Areas</a><a href="gallery.html">Gallery</a><a href="reviews.html">Reviews</a><a href="contact.html">Get Quote</a>
+    </div>
 
-    <div class="section" style="padding-top: 60px;">
-        <div class="container">
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <h1>Trusted Local Reputation</h1>
-                <p class="section-sub">We don't buy reviews. We earn them. See what verified neighbors in the Ark-La-Tex are saying.</p>
+    <div class="container">
+        <h1 data-aos="fade-down">What Neighbors Are Saying</h1>
+        <p class="sub" data-aos="fade-up">Real feedback from verified customers in Pittsburg, Mt. Pleasant, and beyond.</p>
+        
+        <div class="widget-box" data-aos="fade-up">
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-012b6ebd-624b-4c5a-adf0-894136b6d32b" data-elfsight-app-lazy></div>
             </div>
 
-            <div class="review-category-title" data-aos="fade-right">📡 Starlink & Internet</div>
-            <div class="gw-grid">
-                <div class="gw-card" data-aos="fade-up">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">Mark T.</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"Dean came all the way out to Broken Bow for our cabin. The Starlink install is invisible—no wires showing anywhere. He knew exactly how to clear the tree line. Worth every penny."</p>
-                    <span class="gw-location">📍 Broken Bow, OK</span>
-                </div>
-
-                <div class="gw-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">Robert H.</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"I tried to install the dish myself and couldn't get a signal. Dean showed up with a custom pole mount and had us streaming 4K in under two hours. Highly technical guy."</p>
-                    <span class="gw-location">📍 Gilmer, TX</span>
-                </div>
-
-                <div class="gw-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">Emily S.</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"He setup a wireless bridge from our house to the metal shop 300ft away. Now my husband has full Wi-Fi in the barn. Amazing work."</p>
-                    <span class="gw-location">📍 Pittsburg, TX</span>
-                </div>
-                
-                <div class="gw-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">Carlos G.</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"Our internet speed went from 5mbps to 200mbps. Dean mounted the dish on our chimney so it clears the oak trees. Very clean cable run."</p>
-                    <span class="gw-location">📍 Daingerfield, TX</span>
-                </div>
-            </div>
-
-            <div class="review-category-title" data-aos="fade-right">⚡ Electrical & Repairs</div>
-            <div class="gw-grid">
-                <div class="gw-card" data-aos="fade-up">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">Linda R.</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"Best handyman in Pittsburg. He fixed a dangerous sparking outlet and installed a new ceiling fan. Very clean, respectful, and explained exactly what went wrong with the old wiring."</p>
-                    <span class="gw-location">📍 Pittsburg, TX</span>
-                </div>
-
-                <div class="gw-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">James P.</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"Professional work. I needed a custom gate bracket welded and some shop lights hung. Dean handled it perfectly. Solid work."</p>
-                    <span class="gw-location">📍 Mt. Pleasant, TX</span>
-                </div>
-
-                <div class="gw-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">Teresa M.</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"My kitchen lights were flickering for months. Dean traced it to a bad neutral wire in the attic. He literally prevented a fire. Thank you!"</p>
-                    <span class="gw-location">📍 Daingerfield, TX</span>
-                </div>
-                
-                <div class="gw-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">Mr. Harrison</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"Replaced two toilets and a garbage disposal in one afternoon. He had all the parts in his truck. Super efficient."</p>
-                    <span class="gw-location">📍 Pittsburg, TX</span>
-                </div>
-            </div>
-
-            <div class="review-category-title" data-aos="fade-right">🚐 RV & Mobile Tech</div>
-            <div class="gw-grid">
-                <div class="gw-card" data-aos="fade-up">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">Sarah Jenkins</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"I had a mess of electrical in my 5th wheel. Dean fixed what three other 'pros' couldn't figure out. He knows 12v systems inside and out."</p>
-                    <span class="gw-location">📍 Lake Bob Sandlin</span>
-                </div>
-
-                <div class="gw-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">Bill C.</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"My slide-out was stuck halfway. Dean came to the campsite, manually overrode the hydraulic pump, and fixed the sheared pin. Saved our vacation."</p>
-                    <span class="gw-location">📍 Broken Bow, OK</span>
-                </div>
-
-                <div class="gw-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">Mike & Janet</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"Installed a Starlink Flat Mount on our motorhome roof. It looks factory installed. Sealed perfectly, no leaks."</p>
-                    <span class="gw-location">📍 Texarkana, TX</span>
-                </div>
-                
-                <div class="gw-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="gw-verify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-                    <div class="gw-author">The Millers</div>
-                    <div class="gw-stars">★★★★★</div>
-                    <p class="gw-text">"Replaced our RV water heater element on a Sunday. Dean is a lifesaver. Fast, fair price, and knows his stuff."</p>
-                    <span class="gw-location">📍 Lake O' The Pines</span>
-                </div>
-            </div>
-
-            <div class="feedback-section" data-aos="zoom-in" style="margin-top: 80px;">
-                <div class="feedback-header">
-                    <h2 style="color:white; margin-bottom:5px;">Your Feedback Matters</h2>
-                    <p style="opacity:0.9; font-size:0.95rem;">Help your neighbors find the right handyman by sharing your experience.</p>
-                </div>
-                <div class="feedback-body">
-                    
-                    <div class="fb-col-left">
-                        <div class="trust-badge">⭐ Recommended Option</div>
-                        <h3 style="margin-top:0; border:none; margin-bottom:15px; color:var(--primary);">Public Google Review</h3>
-                        <p style="color:#666; font-size:0.9rem; margin-bottom:25px;">Posting publicly helps our small business grow and helps your neighbors find a reliable tech.</p>
-                        
-                        <a href="https://g.page/r/CSyLvaLRoMg_EAE/review" target="_blank" class="btn btn-google">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="width:24px; height:24px;">
-                                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-                                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-                                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-                                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-                                <path fill="none" d="M0 0h48v48H0z"/>
-                            </svg>
-                            <strong>Post to Google Maps</strong>
-                        </a>
-                    </div>
-
-                    <div class="fb-col-right">
-                        <div class="trust-badge">🔒 Secure & Private</div>
-                        <h3 style="margin-top:0; border:none; margin-bottom:15px; color:var(--dark);">Submit Feedback to Dean</h3>
-                        <p style="color:#666; font-size:0.9rem; margin-bottom:20px;">Want to share feedback directly with me first? I read every single message personally.</p>
-                        
-                        <form id="reviewForm" action="https://formspree.io/f/xzdgkqnp" method="POST">
-                            <input type="hidden" name="type" value="New Customer Review">
-                            <div style="display:flex; gap:10px;">
-                                <input type="text" name="name" class="fb-input" placeholder="Your Name" required>
-                                <input type="text" name="city" class="fb-input" placeholder="City (e.g. Pittsburg)" required>
-                            </div>
-                            <select name="rating" class="fb-input" required>
-                                <option value="" disabled selected>Rate your experience...</option>
-                                <option value="5 Stars">⭐⭐⭐⭐⭐ Excellent</option>
-                                <option value="4 Stars">⭐⭐⭐⭐ Good</option>
-                                <option value="3 Stars">⭐⭐⭐ Average</option>
-                                <option value="2 Stars">⭐⭐ Poor</option>
-                                <option value="1 Star">⭐ Terrible</option>
-                            </select>
-                            <textarea name="review" class="fb-textarea" placeholder="Write your review here..." required></textarea>
-                            <button type="submit" class="btn btn-primary" id="reviewBtn" style="width:100%;">Submit Review</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
+        <div class="review-cta" data-aos="fade-up">
+            <h3>Have we worked together?</h3>
+            <p>Your feedback helps me grow and helps neighbors find reliable service.</p>
+            <br>
+            <a href="https://g.page/r/YOUR_GOOGLE_LINK/review" target="_blank" class="btn-outline">Leave a Review on Google</a>
         </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Dean's Handyman Service LLC</h4>
-                    <p>Setting the standard for technical installation and fabrication in the Ark-La-Tex.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Us</h4>
-                    <ul>
-                        <li><a href="tel:2819179914">(281) 917-9914</a></li>
-                        <li>Pittsburg, TX (75686)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center" style="margin-top:50px; border-top:1px solid #334155; padding-top:20px; color:#64748b; font-size: 0.85rem;">
-                © 2026 Dean's Handyman Service LLC. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
-
-    <div class="sticky-footer" style="z-index: 9999;">
-        <a href="tel:2819179914" class="sticky-btn sticky-call">📞 Call Dean</a>
-        <a href="index.html#contact" class="sticky-btn sticky-book">📅 Book Premium</a>
-    </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({ duration: 800, once: true });
-
-      function toggleMenu() {
-          var menu = document.getElementById("mobileMenu");
-          if (menu.style.display === "flex") {
-              menu.style.display = "none";
-          } else {
-              menu.style.display = "flex";
-          }
-      }
-
-      // --- REVIEW SUBMIT FUNCTION ---
-      document.getElementById('reviewForm').addEventListener('submit', function(e) {
-          e.preventDefault();
-          const btn = document.getElementById('reviewBtn');
-          const originalText = btn.innerText;
-          btn.innerText = "Sending...";
-          btn.disabled = true;
-
-          var formData = new FormData(this);
-          
-          fetch("https://formspree.io/f/xzdgkqnp", {
-              method: "POST",
-              body: formData,
-              headers: { 'Accept': 'application/json' }
-          }).then(response => {
-              if (response.ok) {
-                  alert("Thank you! Your feedback has been sent to Dean.");
-                  document.getElementById('reviewForm').reset();
-              } else {
-                  alert("Oops! There was a problem submitting your review.");
-              }
-              btn.innerText = originalText;
-              btn.disabled = false;
-          }).catch(error => {
-              alert("Error: " + error.message);
-              btn.innerText = originalText;
-              btn.disabled = false;
-          });
-      });
-    </script>
+    <footer><p>© 2026 Dean's Handyman Service LLC.</p></footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>AOS.init();</script>
 </body>
 </html>
