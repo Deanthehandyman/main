@@ -1,0 +1,21 @@
+name: Daily Handyman Blogs
+on:
+  schedule:
+    - cron: '0 13 * * *' # Runs at 7:00 AM Central Time every day
+  workflow_dispatch:      # Allows you to click "Run" manually to test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Lead Generator
+        run: python getstarted/generate.py
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'Dean-Automator'
+          git config --global user.email 'dean@github.com'
+          git add .
+          git commit -m "Automated Blog Update - 3 New Leads" || exit 0
+          git push
+
