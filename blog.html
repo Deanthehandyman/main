@@ -6,6 +6,7 @@
     <title>The Handyman's Log | Dean's Handyman Service LLC</title>
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         /* --- BRANDING --- */
         :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --text: #333; --light-bg: #f4f7f6; }
@@ -27,7 +28,7 @@
 
         /* --- GRID --- */
         .container { max-width: 1100px; margin: 60px auto; padding: 0 25px; }
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 35px; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 35px; min-height: 200px; }
         
         /* --- CARDS --- */
         .blog-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: all 0.3s ease; }
@@ -48,7 +49,6 @@
         .modal-body { padding: 40px; }
         .modal-body h2 { color: var(--primary-dark); font-size: 2.2rem; margin-top: 0; font-weight: 800; }
         .article-content { font-size: 1.1rem; color: #334155; }
-        .article-content h3 { color: var(--primary); font-size: 1.5rem; margin-top: 30px; }
         .cta-box { background: #f0f7fa; border-left: 5px solid var(--accent); padding: 25px; margin-top: 40px; border-radius: 4px; }
         
         @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
@@ -66,7 +66,7 @@
 
     <div class="blog-hero">
         <h1>The Handyman's Log</h1>
-        <p>100 Days of Insights from the Field in Pittsburg, TX.</p>
+        <p>Expert Tips for East Texas Homeowners & RVers.</p>
     </div>
 
     <div class="container">
@@ -82,82 +82,104 @@
                 <h2 id="m-title"></h2>
                 <div class="article-content" id="m-body"></div>
                 <div class="cta-box">
-                    <strong>Need this done right?</strong>
-                    <p>I serve Pittsburg, Mt. Pleasant, and East Texas. Let's get your project on the schedule.</p>
+                    <strong>Need help with this?</strong>
+                    <p>I serve Pittsburg, Mt. Pleasant, and East Texas. I can handle this job for you.</p>
                     <a href="index.html#estimator" class="back-btn" style="display:inline-block; margin-top:10px;">Get a Quote</a>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        const startDateStr = '2026-02-04'; // AUTOMATION START DATE
-        
-        // --- 100 FULL-LENGTH ARTICLES ---
+        // --- 1. CONFIGURATION ---
+        const startDateStr = '2026-02-04'; 
+
+        // --- 2. THE POSTS DATABASE ---
         const posts = [
-            // --- 10 ACTIVE POSTS ---
-            { 
-                status: 'active', cat: "Starlink", title: "Why Trees are the Enemy of Starlink", 
-                img: "https://images.unsplash.com/photo-1464869372688-a93d806be852?w=800", 
-                excerpt: "In East Texas, pine trees kill your signal. Here is how we fix it.", 
-                body: "<p>Out here in the piney woods, we love our trees, but they are the absolute enemy of satellite internet. I get calls daily from folks around Pittsburg saying, 'Dean, I bought Starlink, set it in the yard, and it drops connection constantly.'</p><p>Starlink satellites move fast across the sky. Your dish needs a wide, clear field of view to track them. If a single pine branch is in that path, the signal gets cut until it finds the next satellite.</p><p>The solution isn't cutting down the forest; it's getting above it. I specialize in high-mount installations. Whether it's a ridge mount on your roof or a pole mount, getting that dish 10 feet higher usually solves the obstruction issue entirely.</p>" 
+            // [ACTIVE POSTS] - These show up IMMEDIATELY
+            {
+                status: 'active',
+                cat: "Starlink",
+                title: "Why Trees are the Enemy of Starlink",
+                img: "https://images.unsplash.com/photo-1464869372688-a93d806be852?w=800",
+                excerpt: "In East Texas, pine trees kill your signal. Here is how we fix it.",
+                body: "<p>Out here in the piney woods, we love our trees, but they are the absolute enemy of satellite internet. I get calls daily from folks around Pittsburg saying, 'Dean, I bought Starlink, set it in the yard, and it drops connection constantly.'</p><p>Starlink satellites move fast across the sky. Your dish needs a wide, clear field of view to track them. If a single pine branch is in that path, the signal gets cut until it finds the next satellite.</p><p>The solution isn't cutting down the forest; it's getting above it. I specialize in high-mount installations. Whether it's a ridge mount on your roof or a pole mount, getting that dish 10 feet higher usually solves the obstruction issue entirely.</p>"
             },
-            { 
-                status: 'active', cat: "Electrical", title: "Loose Neutrals: A Fire Hazard", 
-                img: "https://images.unsplash.com/photo-1495073278381-18df1dd69107?w=800", 
-                excerpt: "Do your lights dim when the microwave turns on? That is a major red flag.", 
-                body: "<p>I had a customer in Mt. Pleasant tell me they thought their house was haunted. Every time the microwave ran, the living room lights would dim. That's not a ghost; that's a loose neutral wire.</p><p>Your electrical system relies on a neutral wire to balance the load. If that connection gets loose at the meter base or in your panel, the voltage goes haywire. This can fry your electronics instantly.</p><p>More importantly, the arcing at the loose connection creates heat that can start a fire in your walls. Do not ignore flickering lights.</p>" 
+            {
+                status: 'active',
+                cat: "Electrical",
+                title: "Loose Neutrals: A Fire Hazard",
+                img: "https://images.unsplash.com/photo-1495073278381-18df1dd69107?w=800",
+                excerpt: "Do your lights dim when the microwave turns on? That is a major red flag.",
+                body: "<p>I had a customer in Mt. Pleasant tell me they thought their house was haunted. Every time the microwave ran, the living room lights would dim. That's not a ghost; that's a loose neutral wire.</p><p>Your electrical system relies on a neutral wire to balance the load. If that connection gets loose at the meter base or in your panel, the voltage goes haywire. This can fry your electronics instantly.</p><p>More importantly, the arcing at the loose connection creates heat that can start a fire in your walls. Do not ignore flickering lights.</p>"
             },
-            { 
-                status: 'active', cat: "RV Life", title: "Skirting Your RV for Winter", 
-                img: "https://images.unsplash.com/photo-1639572340227-1183e645a573?w=800", 
-                excerpt: "Living full-time in an RV means preparing for freezes. Skirting is non-negotiable.", 
-                body: "<p>We don't get hard winters often, but when that arctic blast hits Pittsburg, RVers suffer. The thin underbelly of a camper offers almost zero protection for PEX pipes.</p><p>When the wind whips under your rig, it freezes your water lines almost instantly. The solution is RV skirting. It traps the heat radiating from your floor and creates a dead air space.</p><p>It also drastically cuts down on your propane usage. Whether you use foam board or custom vinyl, get it done before the freeze.</p>" 
+            {
+                status: 'active',
+                cat: "RV Living",
+                title: "Skirting Your RV for Winter",
+                img: "https://images.unsplash.com/photo-1639572340227-1183e645a573?w=800",
+                excerpt: "Living full-time in an RV means preparing for freezes. Skirting is non-negotiable.",
+                body: "<p>We don't get hard winters often, but when that arctic blast hits Pittsburg, RVers suffer. The thin underbelly of a camper offers almost zero protection for PEX pipes.</p><p>When the wind whips under your rig, it freezes your water lines almost instantly. The solution is RV skirting. It traps the heat radiating from your floor and creates a dead air space.</p><p>It also drastically cuts down on your propane usage. Whether you use foam board or custom vinyl, get it done before the freeze.</p>"
             },
-            { 
-                status: 'active', cat: "Smart Tech", title: "Beaming Internet to the Barn", 
-                img: "https://images.unsplash.com/photo-1500076656116-558758c991c1?w=800", 
-                excerpt: "Your Starlink router isn't strong enough to reach the shop 200 feet away.", 
-                body: "<p>Common request: 'Dean, I need internet in my metal shop 200 feet away.' The standard router isn't going to punch through your house walls and travel that far.</p><p>The solution isn't digging a trench. It's a Wireless Point-to-Point Bridge. Think of it like an invisible ethernet cable carried through the air.</p><p>We mount a small dish on the house and another on the barn. Boom—full speed internet in the shop, no digging required.</p>" 
+            {
+                status: 'active',
+                cat: "Smart Tech",
+                title: "Beaming Internet to the Barn",
+                img: "https://images.unsplash.com/photo-1500076656116-558758c991c1?w=800",
+                excerpt: "Your Starlink router isn't strong enough to reach the shop 200 feet away.",
+                body: "<p>Common request: 'Dean, I need internet in my metal shop 200 feet away.' The standard router isn't going to punch through your house walls and travel that far.</p><p>The solution isn't digging a trench. It's a Wireless Point-to-Point Bridge. Think of it like an invisible ethernet cable carried through the air.</p><p>We mount a small dish on the house and another on the barn. Boom—full speed internet in the shop, no digging required.</p>"
             },
-            { 
-                status: 'active', cat: "Plumbing", title: "That Popping Noise in Your Water Heater", 
-                img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800", 
-                excerpt: "Is your water heater sounding like a popcorn machine? It's dying.", 
-                body: "<p>If you hear popping, that is sediment boiling at the bottom of your tank. Our water has minerals that settle over time.</p><p>This layer traps steam bubbles against the burner. It insulates the water from the heat, making your bill go up and eventually cracking the tank.</p><p>Flush your tank annually. It's messy, but cheaper than a new heater.</p>" 
+            {
+                status: 'active',
+                cat: "Plumbing",
+                title: "That Popping Noise in Your Water Heater",
+                img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800",
+                excerpt: "Is your water heater sounding like a popcorn machine? It's dying.",
+                body: "<p>If you hear popping, that is sediment boiling at the bottom of your tank. Our water has minerals that settle over time.</p><p>This layer traps steam bubbles against the burner. It insulates the water from the heat, making your bill go up and eventually cracking the tank.</p><p>Flush your tank annually. It's messy, but cheaper than a new heater.</p>"
             },
-            { 
-                status: 'active', cat: "Tools", title: "Why I Use DeWalt 20V", 
-                img: "https://images.unsplash.com/photo-1581147036324-c17ac41dfa6c?w=800", 
-                excerpt: "As a professional, time is money. Yellow and black tools run my business.", 
-                body: "<p>Customers see the sea of yellow tools in my truck. I use DeWalt because the 20V batteries hold up to the East Texas heat.</p><p>When I'm drilling brick for a Starlink mount, I need sustained power. Cheap drills die halfway through.</p><p>Reliability means I finish your job faster.</p>" 
+            {
+                status: 'active',
+                cat: "Tools",
+                title: "Why I Use DeWalt 20V",
+                img: "https://images.unsplash.com/photo-1581147036324-c17ac41dfa6c?w=800",
+                excerpt: "As a professional, time is money. Yellow and black tools run my business.",
+                body: "<p>Customers see the sea of yellow tools in my truck. I use DeWalt because the 20V batteries hold up to the East Texas heat.</p><p>When I'm drilling brick for a Starlink mount, I need sustained power. Cheap drills die halfway through.</p><p>Reliability means I finish your job faster.</p>"
             },
-            { 
-                status: 'active', cat: "RV Repair", title: "STOP Using Silicone on RV Roofs", 
-                img: "https://images.unsplash.com/photo-1536407896971-090636da1289?w=800", 
-                excerpt: "Silicone doesn't stick to rubber roofs. Use Dicor instead.", 
-                body: "<p>Public enemy number one: Silicone on an RV roof. It peels off in three weeks. RV roofs are EPDM or TPO rubber.</p><p>Silicone doesn't bond chemically. You must use Self-Leveling Lap Sealant (Dicor). It melts onto the rubber and creates a permanent seal.</p>" 
+            {
+                status: 'active',
+                cat: "RV Repair",
+                title: "STOP Using Silicone on RV Roofs",
+                img: "https://images.unsplash.com/photo-1536407896971-090636da1289?w=800",
+                excerpt: "Silicone doesn't stick to rubber roofs. Use Dicor instead.",
+                body: "<p>Public enemy number one: Silicone on an RV roof. It peels off in three weeks. RV roofs are EPDM or TPO rubber.</p><p>Silicone doesn't bond chemically. You must use Self-Leveling Lap Sealant (Dicor). It melts onto the rubber and creates a permanent seal.</p>"
             },
-            { 
-                status: 'active', cat: "Mounting", title: "TV on Brick: Do It Right", 
-                img: "https://images.unsplash.com/photo-1593784697956-14120257771e?w=800", 
-                excerpt: "Plastic anchors melt in brick. I use concrete screws.", 
-                body: "<p>Mounting a TV on a fireplace looks great, but plastic anchors will slip out of mortar over time. I use Tapcon concrete screws.</p><p>They cut their own threads into the masonry. When done right, I could do pull-ups on the mount.</p>" 
+            {
+                status: 'active',
+                cat: "Mounting",
+                title: "TV on Brick: Do It Right",
+                img: "https://images.unsplash.com/photo-1593784697956-14120257771e?w=800",
+                excerpt: "Plastic anchors melt in brick. I use concrete screws.",
+                body: "<p>Mounting a TV on a fireplace looks great, but plastic anchors will slip out of mortar over time. I use Tapcon concrete screws.</p><p>They cut their own threads into the masonry. When done right, I could do pull-ups on the mount.</p>"
             },
-            { 
-                status: 'active', cat: "Maintenance", title: "Gutter Cleaning in Pine Country", 
-                img: "https://images.unsplash.com/photo-1621245781363-23945c711a3d?w=800", 
-                excerpt: "Pine needles destroy fascia boards. Keep them clean.", 
-                body: "<p>Pine needles form dense mats in gutters. Water overflows and rots your fascia boards. It's a messy job, but I recommend cleaning them twice a year to save your roof.</p>" 
+            {
+                status: 'active',
+                cat: "Maintenance",
+                title: "Gutter Cleaning in Pine Country",
+                img: "https://images.unsplash.com/photo-1621245781363-23945c711a3d?w=800",
+                excerpt: "Pine needles destroy fascia boards. Keep them clean.",
+                body: "<p>Pine needles form dense mats in gutters. Water overflows and rots your fascia boards. It's a messy job, but I recommend cleaning them twice a year to save your roof.</p>"
             },
-            { 
-                status: 'active', cat: "Gaming", title: "Gaming on Starlink", 
-                img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800", 
-                excerpt: "Can you play COD on Starlink? Yes, but obstructions matter.", 
-                body: "<p>As a gamer, I check latency. Starlink gets 30-50ms ping in Pittsburg. It's great for gaming, provided you have ZERO obstructions.</p><p>A single tree branch will cause lag spikes. That's why the install matters.</p>" 
+            {
+                status: 'active',
+                cat: "Gaming",
+                title: "Gaming on Starlink",
+                img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800",
+                excerpt: "Can you play COD on Starlink? Yes, but obstructions matter.",
+                body: "<p>As a gamer, I check latency. Starlink gets 30-50ms ping in Pittsburg. It's great for gaming, provided you have ZERO obstructions.</p><p>A single tree branch will cause lag spikes. That's why the install matters.</p>"
             },
 
-            // --- 90 FUTURE POSTS ---
+            // [FUTURE POSTS] - These unlock automatically based on date
             { status: 'future', day: 1, cat: "RV Upgrades", title: "Keyless RV Entry", img: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800", excerpt: "Stop fumbling for keys at the lake.", body: "<p>Upgrade your RV door to a digital keypad. It's a 30-minute install that changes your life. No more lost keys at the State Park.</p>" },
             { status: 'future', day: 2, cat: "Electrical", title: "Why Outdoor Outlets Trip", img: "https://images.unsplash.com/photo-1565514020128-2c26e1c6b306?w=800", excerpt: "Rain getting in? Your bubble covers are cracked.", body: "<p>Plastic covers get brittle in the sun. If they crack, rain trips the GFCI. Replace them with heavy-duty covers immediately.</p>" },
             { status: 'future', day: 3, cat: "Starlink", title: "Gen 3 Router Benefits", img: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800", excerpt: "Is the new router worth it? Yes, for the range.", body: "<p>The new Gen 3 router has WiFi 6 and better range for large ranch homes. Plus, it has ethernet ports built-in!</p>" },
@@ -177,80 +199,11 @@
             { status: 'future', day: 17, cat: "Starlink", title: "Starlink in Storms", img: "https://images.unsplash.com/photo-1527664557558-a2b352fcf203?w=800", excerpt: "Does it work in rain?", body: "<p>Heavy rain fades the signal. However, the dish heats up to melt snow and ice automatically.</p>" },
             { status: 'future', day: 18, cat: "RV Tech", title: "Sanitize Water Tanks", img: "https://images.unsplash.com/photo-1626326725832-601448b4e137?w=800", excerpt: "Kill the bacteria.", body: "<p>Once a year, run a bleach solution through your fresh tank and lines. Let it sit, then flush thoroughly.</p>" },
             { status: 'future', day: 19, cat: "Plumbing", title: "Running Toilets", img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800", excerpt: "Wasting water?", body: "<p>It's usually a $5 flapper valve. If it's warped, water leaks into the bowl constantly. Easy fix.</p>" },
-            { status: 'future', day: 20, cat: "Local", title: "Local Hardware Stores", img: "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=800", excerpt: "Support Pittsburg businesses.", body: "<p>I try to source parts from local shops in town. They know our homes better than the big box stores.</p>" },
-            { status: 'future', day: 21, cat: "Handyman", title: "Door Weatherstripping", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800", excerpt: "Stop cooling the outside.", body: "<p>If you see light under your door, you're losing money. A new rubber sweep takes 10 minutes to install.</p>" },
-            { status: 'future', day: 22, cat: "Electrical", title: "Sun-Baked Outlets", img: "https://images.unsplash.com/photo-1558211583-03ed8a0b3d5f?w=800", excerpt: "Plastic vs The Sun.", body: "<p>UV rays destroy plastic covers. When they crack, water gets in. Replace them every 5 years.</p>" },
-            { status: 'future', day: 23, cat: "Starlink", title: "The Pipe Adapter", img: "https://images.unsplash.com/photo-1628126235206-52605511dc5a?w=800", excerpt: "Reusing old mounts.", body: "<p>We can often use your old DirecTV J-mount by using the official Starlink Pipe Adapter. It's solid and looks clean.</p>" },
-            { status: 'future', day: 24, cat: "RV Life", title: "Roof Maintenance", img: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800", excerpt: "Don't ignore the roof.", body: "<p>Inspect your sealant every 6 months. A small crack leads to massive rot. Prevention is cheap; repair is expensive.</p>" },
-            { status: 'future', day: 25, cat: "Smart Home", title: "Video Doorbell Power", img: "https://images.unsplash.com/photo-1558002038-1091a166111c?w=800", excerpt: "Why does it buzz?", body: "<p>Rings need good voltage. Old doorbells have weak transformers. I often have to upgrade the transformer in the attic.</p>" },
-            { status: 'future', day: 26, cat: "Plumbing", title: "Low Pressure Fix", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800", excerpt: "Check the aerator.", body: "<p>Unscrew the tip of your faucet. It's likely clogged with calcium. Soak it in vinegar or replace it.</p>" },
-            { status: 'future', day: 27, cat: "Handyman", title: "Fence Repair", img: "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800", excerpt: "Broken pickets?", body: "<p>You don't need a new fence. I can swap out just the broken pickets and stain them to match.</p>" },
-            { status: 'future', day: 28, cat: "Starlink", title: "Ethernet Adapter", img: "https://images.unsplash.com/photo-1544724569-5f546fd6dd2d?w=800", excerpt: "Hardwiring is better.", body: "<p>Gen 2 dishes need the adapter dongle. Hardwiring your PC gives you lower latency than WiFi.</p>" },
-            { status: 'future', day: 29, cat: "Electrical", title: "Dimmers and LEDs", img: "https://images.unsplash.com/photo-1565814329-81e3a6699633?w=800", excerpt: "Why do they flicker?", body: "<p>Old dimmers aren't built for LEDs. You need a modern LED-compatible dimmer switch to stop the strobe effect.</p>" },
-            { status: 'future', day: 30, cat: "RV Tech", title: "Cleaning AC Coils", img: "https://images.unsplash.com/photo-1626326725832-601448b4e137?w=800", excerpt: "Improve efficiency.", body: "<p>Get up on the roof and clean the condenser coils. A dirty AC works twice as hard and cools half as well.</p>" },
-            { status: 'future', day: 31, cat: "Handyman", title: "Hanging Heavy Mirrors", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800", excerpt: "Don't trust drywall.", body: "<p>Use toggle bolts or find a stud. A heavy mirror will rip a standard plastic anchor right out of the wall.</p>" },
-            { status: 'future', day: 32, cat: "Plumbing", title: "Cleaning P-Traps", img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800", excerpt: "Lost a ring?", body: "<p>The U-bend under your sink catches debris and lost jewelry. It's easy to remove and clean out.</p>" },
-            { status: 'future', day: 33, cat: "Starlink", title: "Starlink Mesh", img: "https://images.unsplash.com/photo-1628126235206-52605511dc5a?w=800", excerpt: "Extending the signal.", body: "<p>Starlink sells mesh nodes, but often a third-party mesh system (like Eero) covers a large house better.</p>" },
-            { status: 'future', day: 34, cat: "RV Life", title: "Anode Rods", img: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800", excerpt: "Sacrificial metal.", body: "<p>Your water heater has a rod that rusts so the tank doesn't. Replace it annually to save the heater.</p>" },
-            { status: 'future', day: 35, cat: "Smart Home", title: "Smart Switches", img: "https://images.unsplash.com/photo-1558002038-1091a166111c?w=800", excerpt: "Better than bulbs.", body: "<p>I prefer smart switches. They let you use the physical button without killing power to the automation.</p>" },
-            { status: 'future', day: 36, cat: "Handyman", title: "Caulking Windows", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800", excerpt: "Stop the rot.", body: "<p>Check your exterior window caulk. If it's cracked, water is getting behind the siding. Re-caulk it now.</p>" },
-            { status: 'future', day: 37, cat: "Local", title: "Lake Bob Sandlin", img: "https://images.unsplash.com/photo-1609101032943-4dc9197c36d0?w=800", excerpt: "I come to you.", body: "<p>I do tons of service calls at the State Park. Don't unhook your rig; I'll come fix it on-site.</p>" },
-            { status: 'future', day: 38, cat: "Starlink", title: "Don't Paint the Dish", img: "https://images.unsplash.com/photo-1622359557431-7a637db6f890?w=800", excerpt: "Signal blocking.", body: "<p>Metallic paint blocks signal. If you must camouflage it, use a vinyl wrap, but it's best to leave it alone.</p>" },
-            { status: 'future', day: 39, cat: "RV Tech", title: "Tire Rot", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800", excerpt: "Cover them up.", body: "<p>UV rays destroy tires before the tread wears out. Keep them covered when parked to prevent blowouts.</p>" },
-            { status: 'future', day: 40, cat: "Electrical", title: "Surge Protection", img: "https://images.unsplash.com/photo-1555963966-b7ae5404b6ed?w=800", excerpt: "Whole house safety.", body: "<p>East Texas lightning is fierce. A whole-house surge protector at the panel saves your appliances.</p>" },
-            { status: 'future', day: 41, cat: "Plumbing", title: "Shower Heads", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800", excerpt: "Hard water clogs.", body: "<p>If your pressure is bad, the head is likely calcified. A new high-pressure head feels amazing.</p>" },
-            { status: 'future', day: 42, cat: "Handyman", title: "Stain, Don't Paint", img: "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800", excerpt: "Deck maintenance.", body: "<p>Paint peels and traps water. Stain soaks in and protects the wood. Always stain your deck.</p>" },
-            { status: 'future', day: 43, cat: "Starlink", title: "Easy for Seniors", img: "https://images.unsplash.com/photo-1548348425-9f5b2b2b2f56?w=800", excerpt: "Simple setup.", body: "<p>Starlink is great because there are no login screens. It just works like normal WiFi once installed.</p>" },
-            { status: 'future', day: 44, cat: "RV Life", title: "Propane Safety", img: "https://images.unsplash.com/photo-1626326725832-601448b4e137?w=800", excerpt: "Check your hoses.", body: "<p>Rubber pigtail hoses crack over time. If you smell rotten eggs, turn it off and call me.</p>" },
-            { status: 'future', day: 45, cat: "Smart Home", title: "Smart Thermostats", img: "https://images.unsplash.com/photo-1558002038-1091a166111c?w=800", excerpt: "Save energy.", body: "<p>Ecobee or Nest can lower your bill. Note: You likely need a 'C-Wire' adapter for older HVAC systems.</p>" },
-            { status: 'future', day: 46, cat: "Electrical", title: "Loose Outlets", img: "https://images.unsplash.com/photo-1558211583-03ed8a0b3d5f?w=800", excerpt: "Plugs falling out?", body: "<p>If plugs won't stay in, the internal contacts are worn. Loose contacts create heat. Replace the outlet.</p>" },
-            { status: 'future', day: 47, cat: "Handyman", title: "Screen Repair", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800", excerpt: "Mosquito season.", body: "<p>Re-screening a frame is cheap. Don't let bugs take over your porch.</p>" },
-            { status: 'future', day: 48, cat: "Starlink", title: "Better than HughesNet", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800", excerpt: "No contest.", body: "<p>Starlink has way lower latency. It feels like cable internet. HughesNet feels like dial-up.</p>" },
-            { status: 'future', day: 49, cat: "RV Tech", title: "Roof UV Coating", img: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800", excerpt: "Sunblock for your roof.", body: "<p>Rubber roofs chalk. Apply a UV coating every 2 years to extend its life by a decade.</p>" },
-            { status: 'future', day: 50, cat: "Plumbing", title: "Frozen Spigots", img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800", excerpt: "Did it split?", body: "<p>If you left a hose attached in winter, your frost-free spigot likely split inside the wall. Check for leaks.</p>" },
-            { status: 'future', day: 51, cat: "Local", title: "Humidity and Doors", img: "https://images.unsplash.com/photo-1609101032943-4dc9197c36d0?w=800", excerpt: "Sticking doors?", body: "<p>East Texas humidity swells wood. Sometimes a quick planing of the door edge is all you need.</p>" },
-            { status: 'future', day: 52, cat: "Electrical", title: "Smoke Detectors", img: "https://images.unsplash.com/photo-1565814329-81e3a6699633?w=800", excerpt: "Check the date.", body: "<p>Detectors expire after 10 years. If they are yellow, replace them immediately.</p>" },
-            { status: 'future', day: 53, cat: "Handyman", title: "Cabinet Hardware", img: "https://images.unsplash.com/photo-1595846519845-68e298c2edd8?w=800", excerpt: "Clean upgrade.", body: "<p>Adding handles keeps grease off the wood and updates the kitchen look instantly.</p>" },
-            { status: 'future', day: 54, cat: "Starlink", title: "Deep Woods Install", img: "https://images.unsplash.com/photo-1628126235206-52605511dc5a?w=800", excerpt: "No clear sky?", body: "<p>Sometimes we have to top a tree or build a tower. I can assess your specific situation.</p>" },
-            { status: 'future', day: 55, cat: "RV Life", title: "Water Pressure Regulator", img: "https://images.unsplash.com/photo-1626326725832-601448b4e137?w=800", excerpt: "Protect your pipes.", body: "<p>Park pressure fluctuates. A high spike can burst your lines. Always use a regulator.</p>" },
-            { status: 'future', day: 56, cat: "Smart Home", title: "Smart Locks", img: "https://images.unsplash.com/photo-1558002038-1091a166111c?w=800", excerpt: "Guest access.", body: "<p>Give the dog sitter a temporary code. Never hide a key under the mat again.</p>" },
-            { status: 'future', day: 57, cat: "Plumbing", title: "Clogged Drains", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800", excerpt: "Hair clogs.", body: "<p>A 'Zip-It' plastic snake works wonders for hair clogs. No chemicals needed.</p>" },
-            { status: 'future', day: 58, cat: "Electrical", title: "Under Cabinet Lights", img: "https://images.unsplash.com/photo-1558211583-03ed8a0b3d5f?w=800", excerpt: "Kitchen wow factor.", body: "<p>LED strips make food prep easier and look high-end. Great upgrade.</p>" },
-            { status: 'future', day: 59, cat: "Handyman", title: "Pressure Washing", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800", excerpt: "Be careful.", body: "<p>Don't force water behind your siding. It causes mold. Soft wash is often better.</p>" },
-            { status: 'future', day: 60, cat: "Starlink", title: "Fragile Cables", img: "https://images.unsplash.com/photo-1544724569-5f546fd6dd2d?w=800", excerpt: "Handle with care.", body: "<p>The connectors are proprietary and fragile. Don't let them get packed with dirt during install.</p>" },
-            { status: 'future', day: 61, cat: "RV Tech", title: "Fridge Fans", img: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800", excerpt: "Keep it cold.", body: "<p>RV fridges struggle in 100-degree heat. An internal fan helps circulate the cold air.</p>" },
-            { status: 'future', day: 62, cat: "Local", title: "Camp County", img: "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=800", excerpt: "Serving neighbors.", body: "<p>I love working in Pittsburg and Leesburg. Small town service is what I'm about.</p>" },
-            { status: 'future', day: 63, cat: "Electrical", title: "Label Your Panel", img: "https://images.unsplash.com/photo-1565514020128-2c26e1c6b306?w=800", excerpt: "Emergency prep.", body: "<p>If you don't know which breaker kills the kitchen, let's trace and label them today.</p>" },
-            { status: 'future', day: 64, cat: "Plumbing", title: "Wax Rings", img: "https://images.unsplash.com/photo-1606214555898-1e43c5b36481?w=800", excerpt: "Leaky base?", body: "<p>If the toilet rocks, the seal is broken. Replacing the wax ring prevents floor rot.</p>" },
-            { status: 'future', day: 65, cat: "Handyman", title: "Pet Doors", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800", excerpt: "Dog freedom.", body: "<p>I can install weather-sealed pet doors in walls or doors. Let the dog out!</p>" },
-            { status: 'future', day: 66, cat: "Starlink", title: "Masonry Routing", img: "https://images.unsplash.com/photo-1622359557431-7a637db6f890?w=800", excerpt: "Clean install.", body: "<p>The masonry routing kit creates a clean, watertight seal through brick walls.</p>" },
-            { status: 'future', day: 67, cat: "RV Life", title: "Black Tank Rules", img: "https://images.unsplash.com/photo-1626326725832-601448b4e137?w=800", excerpt: "Keep it closed.", body: "<p>Never leave the black valve open. Gravity needs the weight of a full tank to pull solids out.</p>" },
-            { status: 'future', day: 68, cat: "Electrical", title: "Bath Fans", img: "https://images.unsplash.com/photo-1565814329-81e3a6699633?w=800", excerpt: "Stop the noise.", body: "<p>Upgrade to a whisper-quiet fan. It moves more air and stops the rattling.</p>" },
-            { status: 'future', day: 69, cat: "Smart Home", title: "Smart Blinds", img: "https://images.unsplash.com/photo-1558002038-1091a166111c?w=800", excerpt: "Wake up with sun.", body: "<p>Retrofit motors can automate your existing blinds. Very cool tech.</p>" },
-            { status: 'future', day: 70, cat: "Handyman", title: "Tightening Knobs", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800", excerpt: "Loose handles?", body: "<p>A drop of thread locker (blue Loctite) keeps cabinet knobs tight forever.</p>" },
-            { status: 'future', day: 71, cat: "Starlink", title: "Scan the Sky", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800", excerpt: "Use the app.", body: "<p>Before buying, use the Starlink app camera tool to check for trees. It's accurate.</p>" },
-            { status: 'future', day: 72, cat: "RV Tech", title: "Awning Fabric", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800", excerpt: "Torn by wind?", body: "<p>I can replace just the fabric. You don't need a whole new roller assembly.</p>" },
-            { status: 'future', day: 73, cat: "Plumbing", title: "Pop-Up Drains", img: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800", excerpt: "Update the sink.", body: "<p>New pop-up drains don't have the annoying lever. They look clean and work better.</p>" },
-            { status: 'future', day: 74, cat: "Electrical", title: "Landscape Lights", img: "https://images.unsplash.com/photo-1555963966-b7ae5404b6ed?w=800", excerpt: "Wired vs Solar.", body: "<p>Wired low-voltage lights last years. Solar lights last months. Go wired.</p>" },
-            { status: 'future', day: 75, cat: "Handyman", title: "Dryer Vents", img: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800", excerpt: "Fire hazard.", body: "<p>Clean your dryer vent annually. Lint buildup starts fires and kills efficiency.</p>" },
-            { status: 'future', day: 76, cat: "Starlink", title: "Pole Mounts", img: "https://images.unsplash.com/photo-1548348425-9f5b2b2b2f56?w=800", excerpt: "Get it high.", body: "<p>A pole mount is often the best way to clear the tree line without drilling the roof.</p>" },
-            { status: 'future', day: 77, cat: "RV Life", title: "Dehumidifiers", img: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800", excerpt: "Stop mold.", body: "<p>Run a dehumidifier in your RV. East Texas moisture causes delamination.</p>" },
-            { status: 'future', day: 78, cat: "Electrical", title: "Test GFCIs", img: "https://images.unsplash.com/photo-1565514020128-2c26e1c6b306?w=800", excerpt: "Click test.", body: "<p>Push the test button monthly. If it doesn't click, you aren't protected.</p>" },
-            { status: 'future', day: 79, cat: "Local", title: "Broken Bow Cabins", img: "https://images.unsplash.com/photo-1609101032943-4dc9197c36d0?w=800", excerpt: "Rental repairs.", body: "<p>I service rentals in Broken Bow. Quick repairs keep guest reviews high.</p>" },
-            { status: 'future', day: 80, cat: "Plumbing", title: "Water Heater Timer", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800", excerpt: "Save cash.", body: "<p>Put a timer on your electric heater. Only heat water when you need it.</p>" },
-            { status: 'future', day: 81, cat: "Handyman", title: "Attic Stairs", img: "https://images.unsplash.com/photo-1595846519845-68e298c2edd8?w=800", excerpt: "Wobbly?", body: "<p>Tighten the springs and hinges. A loose attic stair is dangerous.</p>" },
-            { status: 'future', day: 82, cat: "Starlink", title: "Support is Slow", img: "https://images.unsplash.com/photo-1628126235206-52605511dc5a?w=800", excerpt: "Install it right.", body: "<p>Starlink support takes days. A good install prevents you from ever needing them.</p>" },
-            { status: 'future', day: 83, cat: "RV Tech", title: "Furnace Sail Switch", img: "https://images.unsplash.com/photo-1626326725832-601448b4e137?w=800", excerpt: "No heat?", body: "<p>If the blower runs but no heat, it's often a dirty sail switch. Cheap fix.</p>" },
-            { status: 'future', day: 84, cat: "Electrical", title: "Freezer Circuits", img: "https://images.unsplash.com/photo-1558211583-03ed8a0b3d5f?w=800", excerpt: "Don't share power.", body: "<p>Don't run a freezer on the same circuit as a hairdryer. Give it dedicated power.</p>" },
-            { status: 'future', day: 85, cat: "Smart Home", title: "Smart Garage", img: "https://images.unsplash.com/photo-1558002038-1091a166111c?w=800", excerpt: "Did I close it?", body: "<p>MyQ lets you check your door from your phone. Peace of mind.</p>" },
-            { status: 'future', day: 86, cat: "Handyman", title: "Loose Cabinet Hinges", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800", excerpt: "Door sagging?", body: "<p>Adjust the screws on the hinge. It takes seconds to make doors square again.</p>" },
-            { status: 'future', day: 87, cat: "Plumbing", title: "Insulate Pipes", img: "https://images.unsplash.com/photo-1606214555898-1e43c5b36481?w=800", excerpt: "Winter prep.", body: "<p>Foam insulation is cheap. Burst pipes are expensive. Wrap them up.</p>" },
-            { status: 'future', day: 88, cat: "Starlink", title: "Recycling Old Dishes", img: "https://images.unsplash.com/photo-1544724569-5f546fd6dd2d?w=800", excerpt: "Ditch DirecTV.", body: "<p>I can remove your old ugly dish and seal the holes when installing Starlink.</p>" },
-            { status: 'future', day: 89, cat: "RV Life", title: "Lube Your Steps", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800", excerpt: "Stuck steps?", body: "<p>Lubricate the pivot points. If they seize, the motor breaks. Keep them moving.</p>" },
-            { status: 'future', day: 90, cat: "Fun", title: "The Fouke Monster", img: "https://images.unsplash.com/photo-1609101032943-4dc9197c36d0?w=800", excerpt: "Watch out!", body: "<p>Spending time in the East Texas woods, you hear stories. Keep an eye out!</p>" }
+            { status: 'future', day: 20, cat: "Local", title: "Local Hardware Stores", img: "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=800", excerpt: "Support Pittsburg businesses.", body: "<p>I try to source parts from local shops in town. They know our homes better than the big box stores.</p>" }
         ];
 
-        function renderBlog() {
+        // --- 3. RENDER LOGIC ---
+        try {
             const feed = document.getElementById('blog-feed');
             const today = new Date();
             const startDay = new Date(startDateStr + 'T00:00:00'); 
@@ -260,7 +213,11 @@
             let count = 0;
             posts.forEach((post, index) => {
                 let show = false;
+                
+                // Active posts ALWAYS show
                 if (post.status === 'active') show = true;
+                
+                // Future posts show if the date has passed
                 else if (post.status === 'future' && daysPassed >= post.day) show = true;
 
                 if (show) {
@@ -282,6 +239,13 @@
                     count++;
                 }
             });
+            
+            // Init Animation Library
+            AOS.init();
+
+        } catch (error) {
+            console.error("Blog Error:", error);
+            document.getElementById('blog-feed').innerHTML = "<p style='text-align:center; padding:20px; color:red;'>Error loading blog posts. Please refresh.</p>";
         }
 
         function openModal(index) {
@@ -302,9 +266,6 @@
         window.onclick = function(e) {
             if (e.target == document.getElementById('post-modal')) closePost();
         }
-
-        renderBlog();
-        import('https://unpkg.com/aos@2.3.1/dist/aos.js').then(AOS => AOS.init());
     </script>
 </body>
 </html>
