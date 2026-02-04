@@ -7,6 +7,9 @@
     <title>Dean's Handyman Service LLC | Pittsburg, TX</title>
     <meta name="description" content="Starlink Installation, Electrical Repair, and RV Tech Services in East Texas.">
     
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://deanthehandyman.github.io/index.html">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* --- BASICS --- */
@@ -407,7 +410,7 @@
       /* --- BLOG ENGINE --- */
       async function loadHandymanBlogs() {
           const repo = 'deanthehandyman/deanthehandyman.github.io';
-          const folderPath = 'getstarted/posts';
+          const folderPath = 'posts'; // Corrected to point to your 'posts' folder in root
           const listDiv = document.getElementById('handyman-blog-list');
           const placeholder = document.getElementById('blog-placeholder');
 
@@ -429,7 +432,7 @@
                       <a href="posts/${post.name}" class="blog-card" data-aos="fade-up">
                           <span>Service Update • ${date}</span>
                           <h3>${title}</h3>
-                          <p>Expert tips from Dean's Handyman Service LLC regarding ${title.toLowerCase()}.</p>
+                          <p>Expert tips from Dean's Handyman Service LLC regarding ${title.toLowerCase()}. Tap to read more...</p>
                           <div class="read-more">Read Full Post →</div>
                       </a>`;
               });
