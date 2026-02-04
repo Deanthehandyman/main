@@ -1,7 +1,7 @@
 name: Daily Handyman Blogs
 on:
   schedule:
-    - cron: '0 13 * * *' # 7:00 AM Central Time
+    - cron: '0 13 * * *'
   workflow_dispatch:
 
 jobs:
@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
       - name: Run Script
         run: python generate.py
       - name: Commit and Push
@@ -18,4 +22,3 @@ jobs:
           git add .
           git commit -m "Daily Blog Update" || exit 0
           git push
-
