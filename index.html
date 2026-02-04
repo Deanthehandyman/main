@@ -73,15 +73,6 @@
         /* Form Inputs */
         input[type="text"], input[type="email"], input[type="tel"], textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95rem; margin-bottom: 8px; background: #fff; }
 
-        /* --- BLOG GRID STYLES --- */
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
-        .blog-card { background: white; padding: 25px; border-radius: 8px; border: 1px solid #eee; transition: 0.3s; text-decoration: none; display: block; }
-        .blog-card:hover { border-color: var(--accent); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transform: translateY(-5px); }
-        .blog-card span { color: var(--accent); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-        .blog-card h3 { font-size: 1.25rem; margin: 10px 0; color: var(--primary-dark); line-height: 1.3; }
-        .blog-card p { font-size: 0.95rem; color: #555; margin-bottom: 15px; }
-        .blog-card .read-more { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; }
-
         /* --- FOOTER --- */
         footer { background: #005073; color: #94a3b8; padding: 50px 0; margin-bottom: 50px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
@@ -119,7 +110,6 @@
             
             <nav class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="#blog" style="color:var(--primary);">Blog</a>
                 <a href="services.html">Services</a>
                 <a href="areas.html">Service Areas</a>
                 <a href="gallery.html">Gallery</a>
@@ -132,7 +122,6 @@
         
         <div class="mobile-nav-overlay" id="mobileMenu">
             <a href="index.html">Home</a>
-            <a href="#blog" onclick="toggleMenu()">Blog</a>
             <a href="services.html">Services</a>
             <a href="areas.html">Service Areas</a>
             <a href="gallery.html">Gallery</a>
@@ -220,23 +209,6 @@
                         <button onclick="switchTab('calc')" style="background:none; border:none; color:#999; width:100%; margin-top:15px; cursor:pointer; font-size:0.8rem;">← Back to Estimate</button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="blog" style="background-color: #fff;">
-        <div class="container">
-            <div style="text-align: center; max-width: 800px; margin: 0 auto 10px auto;">
-                <h2>Pro Tips & Service Updates</h2>
-                <p class="section-sub">Daily insights on home maintenance, Starlink setup, and RV life in Pittsburg, TX.</p>
-            </div>
-            
-            <div id="handyman-blog-list" class="blog-grid">
-                </div>
-            
-            <div id="blog-placeholder" style="text-align: center; display: none; padding: 40px;">
-                <p style="color:#888; font-style: italic;">Our daily blog automation is starting up. Check back tomorrow morning for our first service update!</p>
-                <a href="https://deanshandymanservice.me" class="btn btn-primary" style="margin-top:20px;">Visit Main Site</a>
             </div>
         </div>
     </section>
@@ -406,48 +378,6 @@
               window.location.href = `sms:2819179914?body=${encodeURIComponent(fullMsg)}`;
           }
       }
-
-      /* --- UPDATED BLOG ENGINE (WITH FORCE REFRESH) --- */
-      async function loadHandymanBlogs() {
-          const repo = 'deanthehandyman/deanthehandyman.github.io';
-          const folderPath = 'posts';
-          const listDiv = document.getElementById('handyman-blog-list');
-          const placeholder = document.getElementById('blog-placeholder');
-
-          try {
-              // The '?t=' + Date.now() is a cache-buster that forces GitHub to show the NEWEST files
-              const response = await fetch(`https://api.github.com/repos/${repo}/contents/${folderPath}?t=${Date.now()}`);
-              
-              if (!response.ok) { throw new Error(); }
-              
-              const files = await response.json();
-              
-              // Sort by name descending (assuming date-based naming) to get newest first
-              const posts = files
-                .filter(f => f.name.endsWith('.html'))
-                .sort((a, b) => b.name.localeCompare(a.name))
-                .slice(0, 3);
-
-              if (posts.length === 0) { throw new Error(); }
-
-              let html = '';
-              posts.forEach(post => {
-                  const title = post.name.replace(/-/g, ' ').replace('.html', '').substring(11).toUpperCase();
-                  const date = post.name.substring(0, 10);
-                  html += `
-                      <a href="posts/${post.name}" class="blog-card" data-aos="fade-up">
-                          <span>Service Update • ${date}</span>
-                          <h3>${title}</h3>
-                          <p>Expert tips from Dean's Handyman Service LLC regarding ${title.toLowerCase()}. Tap to read more...</p>
-                          <div class="read-more">Read Full Post →</div>
-                      </a>`;
-              });
-              listDiv.innerHTML = html;
-          } catch (e) {
-              placeholder.style.display = 'block';
-          }
-      }
-      loadHandymanBlogs();
     </script>
 </body>
 </html>
