@@ -51,7 +51,7 @@
         .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: var(--white); padding: 60px 0; }
         .hero h1 { color: white; }
         
-        /* --- ESTIMATOR CARD (Compact) --- */
+        /* --- ESTIMATOR CARD --- */
         .action-card { background: var(--white); border-radius: 8px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden; border: 1px solid #eee; }
         .card-tabs { display: flex; background: #eee; }
         .card-tab { flex: 1; padding: 12px; text-align: center; border: none; background: #e0e0e0; cursor: pointer; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; color: #666; }
@@ -70,13 +70,14 @@
         /* Form Inputs */
         input[type="text"], input[type="email"], input[type="tel"], textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95rem; margin-bottom: 8px; background: #fff; }
 
-        /* --- BLOG SECTION STYLES --- */
+        /* --- BLOG GRID STYLES --- */
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
-        .blog-card { background: white; padding: 20px; border-radius: 8px; border: 1px solid #eee; transition: 0.3s; text-decoration: none; display: block; }
-        .blog-card:hover { border-color: var(--accent); box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: translateY(-3px); }
-        .blog-card span { color: var(--accent); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
-        .blog-card h3 { font-size: 1.1rem; margin: 5px 0 10px 0; color: var(--primary-dark); }
-        .blog-card p { font-size: 0.9rem; color: #666; }
+        .blog-card { background: white; padding: 25px; border-radius: 8px; border: 1px solid #eee; transition: 0.3s; text-decoration: none; display: block; }
+        .blog-card:hover { border-color: var(--accent); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transform: translateY(-5px); }
+        .blog-card span { color: var(--accent); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .blog-card h3 { font-size: 1.25rem; margin: 10px 0; color: var(--primary-dark); line-height: 1.3; }
+        .blog-card p { font-size: 0.95rem; color: #555; margin-bottom: 15px; }
+        .blog-card .read-more { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; }
 
         /* --- FOOTER --- */
         footer { background: #005073; color: #94a3b8; padding: 50px 0; margin-bottom: 50px; }
@@ -114,12 +115,12 @@
             </a>
             
             <nav class="nav-links">
-                <a href="index.html" style="color:var(--primary);">Home</a>
+                <a href="index.html">Home</a>
+                <a href="#blog" style="color:var(--primary);">Blog</a>
                 <a href="services.html">Services</a>
                 <a href="areas.html">Service Areas</a>
                 <a href="gallery.html">Gallery</a>
                 <a href="reviews.html">Reviews</a>
-                <a href="blog.html">Blog</a>
                 <a href="contact.html" class="nav-pay-btn">Get Quote</a>
             </nav>
 
@@ -128,6 +129,7 @@
         
         <div class="mobile-nav-overlay" id="mobileMenu">
             <a href="index.html">Home</a>
+            <a href="#blog" onclick="toggleMenu()">Blog</a>
             <a href="services.html">Services</a>
             <a href="areas.html">Service Areas</a>
             <a href="gallery.html">Gallery</a>
@@ -219,18 +221,22 @@
         </div>
     </section>
 
-    <div class="section" id="blog" style="background-color: #fff;">
+    <section class="section" id="blog" style="background-color: #fff;">
         <div class="container">
             <div style="text-align: center; max-width: 800px; margin: 0 auto 10px auto;">
                 <h2>Pro Tips & Service Updates</h2>
-                <p class="section-sub">Daily insights on home maintenance, RV life, and Starlink setup in Pittsburg, TX.</p>
+                <p class="section-sub">Daily insights on home maintenance, Starlink setup, and RV life in Pittsburg, TX.</p>
             </div>
             
             <div id="handyman-blog-list" class="blog-grid">
-                <p style="text-align:center; width:100%; color:#888;">Fetching the latest updates...</p>
+                </div>
+            
+            <div id="blog-placeholder" style="text-align: center; display: none; padding: 40px;">
+                <p style="color:#888; font-style: italic;">Our daily blog automation is starting up. Check back tomorrow morning for our first service update!</p>
+                <a href="https://deanshandymanservice.me" class="btn btn-primary" style="margin-top:20px;">Visit Main Site</a>
             </div>
         </div>
-    </div>
+    </section>
 
     <div class="section" style="background-color: var(--light);">
         <div class="container">
@@ -398,42 +404,38 @@
           }
       }
 
-      /* --- NEW BLOG ENGINE SCRIPT --- */
+      /* --- BLOG ENGINE --- */
       async function loadHandymanBlogs() {
           const repo = 'deanthehandyman/deanthehandyman.github.io';
           const folderPath = 'getstarted/posts';
-          const displayDiv = document.getElementById('handyman-blog-list');
+          const listDiv = document.getElementById('handyman-blog-list');
+          const placeholder = document.getElementById('blog-placeholder');
 
           try {
               const response = await fetch(`https://api.github.com/repos/${repo}/contents/${folderPath}`);
+              
+              if (!response.ok) { throw new Error(); }
+              
               const files = await response.json();
+              const posts = files.filter(f => f.name.endsWith('.html')).reverse().slice(0, 3);
 
-              if (!Array.isArray(files)) {
-                  displayDiv.innerHTML = '<p style="text-align:center; width:100%;">Check back tomorrow for fresh updates!</p>';
-                  return;
-              }
-
-              const posts = files
-                  .filter(file => file.name.endsWith('.html'))
-                  .reverse()
-                  .slice(0, 6); // Shows only the 6 most recent posts
+              if (posts.length === 0) { throw new Error(); }
 
               let html = '';
               posts.forEach(post => {
                   const title = post.name.replace(/-/g, ' ').replace('.html', '').substring(11).toUpperCase();
                   const date = post.name.substring(0, 10);
-                  
                   html += `
                       <a href="posts/${post.name}" class="blog-card" data-aos="fade-up">
                           <span>Service Update • ${date}</span>
                           <h3>${title}</h3>
-                          <p>Expert insights from Dean's Handyman Service LLC. Tap to read more...</p>
+                          <p>Expert tips from Dean's Handyman Service LLC regarding ${title.toLowerCase()}.</p>
+                          <div class="read-more">Read Full Post →</div>
                       </a>`;
               });
-
-              displayDiv.innerHTML = html;
+              listDiv.innerHTML = html;
           } catch (e) {
-              displayDiv.innerHTML = '<p style="text-align:center; width:100%;"><a href="https://deanshandymanservice.me">Visit DeansHandymanService.me for details.</a></p>';
+              placeholder.style.display = 'block';
           }
       }
       loadHandymanBlogs();
