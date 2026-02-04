@@ -10,7 +10,17 @@
     <style>
         /* --- BRANDING --- */
         :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --text: #333; --light-bg: #f4f7f6; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background: var(--light-bg); color: var(--text); line-height: 1.6; }
+        
+        /* --- SCROLL FIXES --- */
+        html { overflow-y: scroll; } /* Forces scrollbar to prevent jumps */
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            background: var(--light-bg); 
+            color: var(--text); 
+            line-height: 1.6; 
+            overflow-x: hidden; /* Prevents horizontal scroll */
+        }
         p { margin-bottom: 1.5em; }
         
         /* --- HEADER --- */
@@ -41,10 +51,44 @@
         .read-btn { color: var(--primary); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; cursor: pointer; margin-top: auto; letter-spacing: 0.5px; display: inline-block; }
         .read-btn:hover { color: var(--accent); text-decoration: underline; }
 
-        /* --- MODAL --- */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.95); z-index: 1000; display: none; padding: 20px; backdrop-filter: blur(5px); overflow-y: auto; box-sizing: border-box; }
-        .modal-content { background: white; max-width: 800px; margin: 40px auto; border-radius: 12px; overflow: hidden; position: relative; animation: fadeUp 0.5s ease; }
-        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 2rem; color: white; cursor: pointer; z-index: 10; background: rgba(0,0,0,0.6); width: 44px; height: 44px; text-align: center; line-height: 38px; border-radius: 50%; }
+        /* --- MODAL (The Popup) --- */
+        .modal-overlay { 
+            position: fixed; 
+            top: 0; left: 0; right: 0; bottom: 0; 
+            background: rgba(15, 23, 42, 0.96); 
+            z-index: 10000; 
+            display: none; /* Hidden by default */
+            
+            /* SCROLL FIXES */
+            overflow-y: auto; 
+            -webkit-overflow-scrolling: touch; /* Smooth scroll on iPhone */
+            padding: 20px;
+        }
+
+        .modal-content { 
+            background: white; 
+            max-width: 800px; 
+            margin: 40px auto; /* Vertical spacing */
+            border-radius: 12px; 
+            overflow: hidden; 
+            position: relative; 
+            animation: fadeUp 0.4s ease; 
+        }
+
+        .close-modal { 
+            position: absolute; 
+            top: 20px; right: 20px; 
+            font-size: 2rem; 
+            color: white; 
+            cursor: pointer; 
+            z-index: 10; 
+            background: rgba(0,0,0,0.6); 
+            width: 44px; height: 44px; 
+            text-align: center; 
+            line-height: 38px; 
+            border-radius: 50%; 
+        }
+
         .modal-header-img { height: 350px; background-size: cover; background-position: center; }
         .modal-body { padding: 40px; }
         .modal-body h2 { color: var(--primary-dark); font-size: 2.2rem; margin-top: 0; font-weight: 800; }
@@ -276,7 +320,7 @@
             document.getElementById('m-cat').innerText = p.cat;
             document.getElementById('m-title').innerText = p.title;
             document.getElementById('m-body').innerHTML = p.body;
-            document.getElementById('post-modal').style.display = 'flex';
+            document.getElementById('post-modal').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
