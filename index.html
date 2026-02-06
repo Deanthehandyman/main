@@ -13,12 +13,6 @@
   <meta name="geo.position" content="32.9997;-94.9675">
   <meta name="ICBM" content="32.9997, -94.9675">
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Dean's Handyman Service in 75686 / Pittsburg, TX (200-Mile Radius)">
-  <meta property="og:description" content="Local handyman, smart home installs, and Starlink setup for 75686 (Pittsburg, TX) and East Texas homeowners within a 200-mile radius.">
-  <meta property="og:url" content="https://deanshandymanservice.me/">
-  <meta property="og:site_name" content="Dean's Handyman Service">
-
   <link rel="canonical" href="https://deanthehandyman.github.io/index.html">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   
@@ -26,47 +20,42 @@
     /* --- BASICS --- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #fdfdfd; overflow-x: hidden; padding-bottom: 70px; }
-    img { max-width: 100%; height: auto; }
-    :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --dark: #1a1a1a; --light: #f4f7f6; --white: #ffffff; --venmo-blue: #008CFF; }
+    :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --dark: #1a1a1a; --light: #f4f7f6; --white: #ffffff; }
 
     /* --- TYPOGRAPHY --- */
-    h1, h2, h3 { color: var(--primary-dark); font-weight: 800; letter-spacing: -0.5px; }
+    h1, h2, h3 { color: var(--primary-dark); font-weight: 800; letter-spacing: -0.5px; text-align: center; }
     h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; }
-    h2 { font-size: 2rem; text-align: center; margin-bottom: 15px; }
-
-    /* --- LAYOUT --- */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .section { padding: 70px 0; }
 
-    /* --- PROFESSIONAL HEADER --- */
+    /* --- HEADER --- */
     .site-header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
     .site-header .container { display: flex; justify-content: space-between; align-items: center; }
     .logo a { font-weight: 900; font-size: 1.5rem; text-decoration: none; color: var(--primary-dark); text-transform: uppercase; }
-    .main-nav a { color: var(--primary-dark); text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
-    .main-nav a:hover { color: var(--accent); }
+    .main-nav a { color: var(--primary-dark); text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
 
-    /* --- PROFESSIONAL FOOTER --- */
-    .site-footer { background: #005073; color: #ffffff; padding: 50px 0; margin-top: 50px; }
-    .site-footer a { color: #ffffff; text-decoration: none; display: block; margin-bottom: 8px; font-size: 0.9rem; }
-    .site-footer a:hover { color: var(--accent); }
-    .footer-top { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-    .footer-brand h3 { color: white; margin-bottom: 15px; }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 30px; padding-top: 20px; text-align: center; font-size: 0.8rem; }
-
-    /* --- BUTTONS & CARDS --- */
-    .btn { display: inline-block; padding: 12px 24px; border-radius: 4px; font-weight: 900; text-decoration: none; cursor: pointer; transition: 0.3s; border: none; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.95rem; }
-    .btn-primary { background-color: var(--primary); color: #ffffff !important; }
-    .btn-accent { background-color: var(--accent); color: #000000 !important; }
+    /* --- HERO --- */
     .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: var(--white); padding: 60px 0; }
-    .action-card { background: var(--white); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden; }
-    .card-tabs { display: flex; background: #eee; }
-    .card-tab { flex: 1; padding: 12px; text-align: center; border: none; cursor: pointer; font-weight: 700; }
-    .card-tab.active { background: var(--white); color: var(--primary); border-top: 4px solid var(--accent); }
-    .qty-input { width: 50px; text-align: center; }
-    .result-box { background: #e8f5e9; border: 1px solid #28a745; border-radius: 8px; padding: 10px; display: none; }
-    
-    /* Payment Grid */
-    .payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 20px; }
+
+    /* --- ESTIMATOR STYLES --- */
+    .est-box { background: white; padding: 30px; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); color: #333; margin-top: 20px; }
+    .cat-title { background: #f8fafc; padding: 10px; font-weight: 800; color: var(--primary); text-transform: uppercase; font-size: 0.8rem; margin-top: 20px; border-radius: 4px; text-align: left; }
+    .row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #eee; }
+    .label { font-weight: 600; font-size: 0.95rem; color: #444; }
+    .input-qty { width: 70px; padding: 8px; text-align: center; border: 1px solid #ddd; border-radius: 4px; font-weight: bold; }
+    .result-area { background: #e8f5e9; border: 1px solid #28a745; border-radius: 8px; padding: 20px; text-align: center; margin-top: 30px; display: none; }
+    .total-price { font-size: 2.5rem; font-weight: 800; color: #166534; display: block; margin: 10px 0; }
+    .contact-area { display: none; margin-top: 30px; }
+    input[type="text"], textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 15px; font-size: 1rem; }
+
+    /* --- BUTTONS --- */
+    .btn { display: inline-block; padding: 12px 24px; border-radius: 4px; font-weight: 900; text-decoration: none; cursor: pointer; border: none; text-align: center; text-transform: uppercase; transition: 0.3s; }
+    .btn-primary { background: var(--primary); color: white !important; }
+    .btn-accent { background: var(--accent); color: black !important; }
+    .btn-green { background: #28a745; color: white !important; width: 100%; padding: 15px; font-size: 1.1rem; }
+
+    /* --- FOOTER --- */
+    .site-footer { background: #005073; color: #ffffff; padding: 50px 0; margin-top: 50px; text-align: center; }
+    .footer-top { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left; }
 
     @media (max-width: 900px) {
       .site-header .container { flex-direction: column; gap: 10px; }
@@ -79,17 +68,13 @@
 
 <header class="site-header">
   <div class="container">
-    <div class="logo">
-      <a href="index.html">Dean's Handyman Service</a>
-    </div>
+    <div class="logo"><a href="index.html">Dean's Handyman</a></div>
     <nav class="main-nav">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="areas.html">Service Areas</a>
       <a href="gallery.html">Gallery</a>
-      <a href="blog.html">Blog</a>
       <a href="reviews.html">Reviews</a>
-      <a href="faqs.html">FAQs</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
@@ -98,70 +83,89 @@
 <section class="hero">
   <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; gap:50px;">
     <div style="flex:1; min-width:300px;" data-aos="fade-right">
-      <h1 style="color:white;">Industrial-Grade Service for<br>Homes & Ranches</h1>
-      <p style="color:#ddd; font-size:1.2rem; margin-bottom:30px;">The specialist for Starlink integration, electrical repair, and technical maintenance. We serve Pittsburg (75686) and a 200-mile radius across East Texas and Oklahoma.</p>
+      <h1 style="color:white; text-align:left;">Industrial-Grade Service for Homes & Ranches</h1>
+      <p style="color:#ddd; font-size:1.2rem; margin-bottom:30px;">Serving 75686 (Pittsburg, TX) and a 200-mile radius. Expert Starlink setup, electrical repair, and technical maintenance.</p>
       <div style="display:flex; gap:15px;">
-        <a href="#estimator" class="btn btn-accent">Get Instant Quote</a>
+        <a href="#booking-tool" class="btn btn-accent">Get Instant Quote</a>
         <a href="tel:2819179914" class="btn" style="border:1px solid white; color:white;">Call Dean</a>
       </div>
     </div>
 
-    <div class="action-card" id="estimator" style="flex:1; min-width:300px; max-width:450px;" data-aos="fade-left">
-      <div class="card-tabs">
-        <button class="card-tab active" onclick="switchTab('calc')">Step 1: Estimate</button>
-        <button class="card-tab" onclick="switchTab('send')">Step 2: Book</button>
+    <div id="booking-tool" style="flex:1; min-width:300px; max-width:500px;" data-aos="fade-left">
+      <div class="est-box" id="step1">
+        <h2 style="font-size:1.5rem; margin-bottom:5px;">Project Estimator</h2>
+        <p style="text-align:center; font-size:0.9rem; color:#666;">Enter quantities. Price updates at the end.</p>
+        
+        <div class="cat-title">📡 Starlink & Internet</div>
+        <div class="row"><span class="label">Residential Install</span><input type="number" min="0" class="input-qty" data-price="300" data-name="Res Starlink"></div>
+        <div class="row"><span class="label">RV / Mobile Install</span><input type="number" min="0" class="input-qty" data-price="350" data-name="RV Starlink"></div>
+        <div class="row"><span class="label">Uninstall / Relocate</span><input type="number" min="0" class="input-qty" data-price="200" data-name="Uninstall"></div>
+
+        <div class="cat-title">⚡ Electrical</div>
+        <div class="row"><span class="label">Light Fixture Install</span><input type="number" min="0" class="input-qty" data-price="125" data-name="Light Fixture"></div>
+        <div class="row"><span class="label">Ceiling Fan Install</span><input type="number" min="0" class="input-qty" data-price="175" data-name="Ceiling Fan"></div>
+        <div class="row"><span class="label">Outlet/Switch Repair</span><input type="number" min="0" class="input-qty" data-price="75" data-name="Outlet Repair"></div>
+
+        <div class="cat-title">🛠️ General Labor</div>
+        <div class="row"><span class="label">TV Mounting</span><input type="number" min="0" class="input-qty" data-price="125" data-name="TV Mount"></div>
+        <div class="row"><span class="label">Hourly Labor</span><input type="number" min="0" class="input-qty" data-price="100" data-name="Labor Hour"></div>
+
+        <div style="margin-top:20px; background:#f1f5f9; padding:15px; border-radius:6px;">
+            <label class="label">One-Way Mileage from 75686:</label>
+            <div style="display:flex; align-items:center; gap:10px; margin-top:5px;">
+                <input type="number" id="trip-miles" placeholder="0" style="width:80px; padding:8px; text-align:center; border:1px solid #ddd;">
+                <span style="font-size:0.8rem; color:#666;">(First 100 miles are free)</span>
+            </div>
+        </div>
+
+        <button onclick="calculateTotal()" class="btn btn-primary" style="width:100%; margin-top:20px; padding:15px;">Calculate Total</button>
+
+        <div id="result-area" class="result-area">
+          <span style="font-weight:bold; color:#15803d;">ESTIMATED TOTAL</span>
+          <div id="final-price" class="total-price">$0.00</div>
+          <button onclick="showContact()" class="btn btn-green">✅ Proceed to Booking</button>
+        </div>
       </div>
-      <div class="card-content" style="padding:20px;">
-        <div id="view-calc">
-          <p style="font-size:0.85rem; color:#666; margin-bottom:10px;">Enter quantity:</p>
-          <div style="max-height: 250px; overflow-y: auto; background: #f9f9f9; padding:10px; border-radius: 6px;">
-            <div style="font-weight:bold; color:var(--accent); margin-top:10px;">📡 Starlink & Internet</div>
-            <div style="display:flex; justify-content:space-between; padding:5px 0;"><span>Residential Install</span> <input type="number" min="0" class="qty-input" data-price="300" data-name="Res Starlink"></div>
-            <div style="display:flex; justify-content:space-between; padding:5px 0;"><span>RV / Mobile Install</span> <input type="number" min="0" class="qty-input" data-price="350" data-name="RV Starlink"></div>
-            <div style="font-weight:bold; color:var(--accent); margin-top:10px;">⚡ Electrical</div>
-            <div style="display:flex; justify-content:space-between; padding:5px 0;"><span>Light Fixture</span> <input type="number" min="0" class="qty-input" data-price="125" data-name="Light Fixture"></div>
-            <div style="display:flex; justify-content:space-between; padding:5px 0;"><span>Outlet Repair</span> <input type="number" min="0" class="qty-input" data-price="75" data-name="Outlet Repair"></div>
-          </div>
-          <button onclick="calculateTotal()" class="btn btn-primary" style="width:100%; margin-top:15px;">Calculate Price</button>
-          <div id="result-area" class="result-box">
-            <span style="font-weight:bold;">ESTIMATED TOTAL</span>
-            <div id="final-price" style="font-size:1.8rem; font-weight:800; color:#15803d;">$0.00</div>
-            <button onclick="goToBooking()" class="btn btn-accent" style="width:100%;">Proceed to Booking</button>
-          </div>
+
+      <div class="est-box contact-area" id="step2">
+        <h2 style="color:var(--primary);">Send Your Request</h2>
+        <input type="text" id="client-name" placeholder="Your Name" required>
+        <input type="text" id="client-loc" placeholder="Your City / Address" required>
+        <textarea id="client-msg" placeholder="Any specific job details?"></textarea>
+        
+        <div style="background:#f8fafc; padding:15px; border-radius:6px; margin-bottom:20px; border-left:4px solid var(--accent); text-align:left;">
+            <strong>Summary:</strong>
+            <p id="summary-text" style="margin:5px 0 0 0; color:#555; font-size:0.9rem;">No items selected.</p>
         </div>
-        <div id="view-send" style="display:none;">
-          <input type="text" id="client-name" placeholder="Your Name" style="width:100%; padding:10px; margin-bottom:10px;">
-          <input type="text" id="client-loc" placeholder="City" style="width:100%; padding:10px; margin-bottom:10px;">
-          <div id="summary-text" style="font-size:0.9rem; margin-bottom:10px;"></div>
-          <button onclick="sendVia('email')" class="btn btn-primary" style="width:100%; margin-bottom:5px;">Send Email</button>
-          <button onclick="sendVia('sms')" class="btn btn-accent" style="width:100%;">Send Text</button>
+
+        <div style="display:flex; gap:10px;">
+            <button onclick="sendVia('email')" class="btn btn-primary" style="flex:1;">📧 Email</button>
+            <button onclick="sendVia('text')" class="btn" style="flex:1; background:#28a745; color:white;">💬 Text</button>
         </div>
+        <button onclick="goBack()" style="background:none; border:none; width:100%; margin-top:15px; color:#999; cursor:pointer;">← Edit Estimate</button>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section container">
-    <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; align-items: flex-start;">
+<section class="container" style="padding: 60px 0;">
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
         
         <div style="flex: 1; min-width: 320px; max-width: 400px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: white;">
             <div style="background: var(--primary); color: white; padding: 10px; text-align: center; font-weight: bold;">Assistant Chat</div>
             <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
-            <zapier-interfaces-chatbot-embed is-popup='false' chatbot-id='cmla3f83s001hfy8tds4wmpva' height='600px' width='100%'></zapier-interfaces-chatbot-embed>
+            <zapier-interfaces-chatbot-embed is-popup='false' chatbot-id='cmla3f83s001hfy8tds4wmpva' height='500px' width='100%'></zapier-interfaces-chatbot-embed>
         </div>
 
         <div style="flex: 1; min-width: 320px; max-width: 500px; padding: 30px; background: var(--light); border-radius: 8px; text-align: center;">
             <h3>Direct Payment Links</h3>
-            <p style="margin-bottom: 20px;">Fast and secure payment options for deposits and completed work.</p>
-            
-            <div class="payment-grid">
-                <a href="https://square.link/u/dO7MQ0kc" target="_blank" class="btn btn-primary" style="font-size:0.8rem;">Square</a>
-                <a href="https://www.venmo.com/u/DeanshandymanserviceLLC" target="_blank" class="btn" style="background:#008CFF; color:white; font-size:0.8rem;">Venmo</a>
-                <a href="https://www.paypal.com/ncp/payment/CVURGTVEWZ96J" target="_blank" class="btn" style="background:#003087; color:white; font-size:0.8rem;">PayPal</a>
-                <a href="https://cash.app/$HandymanDean" target="_blank" class="btn" style="background:#00D632; color:white; font-size:0.8rem;">Cash App</a>
+            <p style="margin-bottom: 20px; color:#666;">Choose your preferred method below:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <a href="https://square.link/u/dO7MQ0kc" target="_blank" class="btn btn-primary">Square</a>
+                <a href="https://www.venmo.com/u/DeanshandymanserviceLLC" target="_blank" class="btn" style="background:#008CFF; color:white;">Venmo</a>
+                <a href="https://www.paypal.com/ncp/payment/CVURGTVEWZ96J" target="_blank" class="btn" style="background:#003087; color:white;">PayPal</a>
+                <a href="https://cash.app/$HandymanDean" target="_blank" class="btn" style="background:#00D632; color:white;">Cash App</a>
             </div>
-            
-            <p style="margin-top:25px; font-size:0.9rem; color:#666;">Serving Pittsburg, TX & surrounding counties.</p>
         </div>
     </div>
 </section>
@@ -169,28 +173,17 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-top">
-      <div class="footer-brand">
+      <div>
         <h3>Dean's Handyman Service LLC</h3>
-        <p>Reliable home repair, smart home installs, and Starlink setup in Pittsburg & 200 miles around 75686.</p>
+        <p>Expert repairs and Starlink setup in Pittsburg, TX and within 200 miles.</p>
       </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="areas.html">Service Areas</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy Policy</a>
-      </div>
-      <div class="footer-contact">
+      <div>
         <h4>Contact</h4>
         <p>Pittsburg, TX 75686</p>
         <p>Phone: (281) 917-9914</p>
-        <p>Email: deanshandymanservice1@gmail.com</p>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div style="margin-top:30px; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; font-size:0.8rem;">
       <p>© 2026 Dean's Handyman Service LLC. All rights reserved.</p>
     </div>
   </div>
@@ -198,42 +191,55 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 800, once: true });
-  
-  function switchTab(tabName) {
-    document.getElementById('view-calc').style.display = tabName === 'calc' ? 'block' : 'none';
-    document.getElementById('view-send').style.display = tabName === 'send' ? 'block' : 'none';
-    const tabs = document.querySelectorAll('.card-tab');
-    tabs[0].classList.toggle('active', tabName === 'calc');
-    tabs[1].classList.toggle('active', tabName === 'send');
-  }
+  AOS.init();
 
   function calculateTotal() {
     let total = 0;
     let items = [];
-    document.querySelectorAll('.qty-input').forEach(input => {
+    document.querySelectorAll('.input-qty').forEach(input => {
       const qty = parseInt(input.value) || 0;
       if(qty > 0) {
         total += (qty * parseInt(input.dataset.price));
-        items.push(qty + "x " + input.dataset.name);
+        items.push(`${qty}x ${input.dataset.name}`);
       }
     });
+
+    const miles = parseInt(document.getElementById('trip-miles').value) || 0;
+    if(miles > 100) {
+      const fee = (miles - 100) * 1.50;
+      total += fee;
+      items.push(`Trip Fee (${miles} mi)`);
+    }
+
     document.getElementById('final-price').innerText = "$" + total.toFixed(2);
     document.getElementById('result-area').style.display = 'block';
     window.quoteData = { total: total.toFixed(2), summary: items.join(", ") };
   }
 
-  function goToBooking() {
-    if(!window.quoteData) return alert("Calculate first");
+  function showContact() {
+    if(!window.quoteData || window.quoteData.summary === "") {
+        alert("Please select at least one service.");
+        return;
+    }
     document.getElementById('summary-text').innerText = window.quoteData.summary + " (Est: $" + window.quoteData.total + ")";
-    switchTab('send');
+    document.getElementById('step1').style.display = 'none';
+    document.getElementById('step2').style.display = 'block';
+  }
+
+  function goBack() {
+    document.getElementById('step1').style.display = 'block';
+    document.getElementById('step2').style.display = 'none';
   }
 
   function sendVia(method) {
     const name = document.getElementById('client-name').value;
     const loc = document.getElementById('client-loc').value;
-    const msg = `Hi Dean, I am ${name} from ${loc}. Quote: ${window.quoteData.summary} ($${window.quoteData.total})`;
-    if(method === 'email') window.location.href = `mailto:deanshandymanservice1@gmail.com?subject=Quote&body=${encodeURIComponent(msg)}`;
+    const note = document.getElementById('client-msg').value;
+    if(!name || !loc) { alert("Please enter name and location."); return; }
+    
+    const msg = `Hi Dean, this is ${name} from ${loc}.\n\nQuote for: ${window.quoteData.summary}\nEst Total: $${window.quoteData.total}\nNote: ${note}`;
+    
+    if(method === 'email') window.location.href = `mailto:deanshandymanservice1@gmail.com?subject=New Quote&body=${encodeURIComponent(msg)}`;
     else window.location.href = `sms:2819179914?body=${encodeURIComponent(msg)}`;
   }
 </script>
