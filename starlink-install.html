@@ -1,94 +1,94 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starlink Gen 3 & Mini Expert Installation | Pittsburg TX 75686</title>
+    <title>Starlink Gen 3 & Mini Expert Installation | Pittsburg TX | 200-Mile Radius</title>
     
-    <meta name="description" content="Professional Starlink Gen 3 & Mini Installation. Serving a 200-mile radius around Pittsburg, TX. Get your 2nd month FREE with our referral link.">
+    <meta name="description" content="Professional Starlink Gen 3 & Mini mounting and 12V DC power conversions. Serving a 200-mile radius from Pittsburg, TX across TX, AR, LA, and OK.">
     <meta name="geo.region" content="US-TX;US-AR;US-LA;US-OK">
-    <meta name="geo.placename" content="Pittsburg, Tyler, Texarkana, Shreveport, Broken Bow">
+    <meta name="geo.placename" content="Pittsburg, Tyler, Longview, Texarkana, Shreveport, Broken Bow">
+
+    <meta property="og:title" content="Expert Starlink Installation | Dean's Handyman Service LLC">
+    <meta property="og:image" content="https://i.imgur.com/edr3uRy.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* --- RESET & BASICS --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; overflow-x: hidden; }
         :root {
             --primary: #008bd2; 
             --primary-dark: #006fa8;
             --accent: #f0a500; 
-            --dark: #1e293b;
+            --dark: #0f172a; 
+            --text-main: #1a1a1a; 
+            --text-muted: #475569; 
             --white: #ffffff;
-            --light-bg: #f1f5f9;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-main); background-color: #f9f9f9; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
 
-        /* --- HEADER --- */
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 100px; }
-        .logo-wrapper { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--dark); }
-        .logo-img { height: 85px; width: auto; }
-        .logo-text { font-weight: 800; font-size: 1.1rem; line-height: 1.1; text-transform: uppercase; }
-        .nav-links a { color: var(--dark); text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
-        .btn-nav { background: var(--primary); color: white !important; padding: 10px 20px; border-radius: 6px; font-weight: bold; }
+        h1, h2, h3, h4 { color: var(--dark); font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 10px; color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* --- HERO --- */
-        .hero { background: var(--dark); color: white; padding: 80px 0; text-align: center; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
-        .hero p { font-size: 1.2rem; color: #cbd5e1; }
+        /* --- HEADER & NAVIGATION --- */
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 2000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo-wrapper { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 50px; width: auto; }
+        .logo-text { font-weight: 800; font-size: 1rem; line-height: 1; text-transform: uppercase; color: var(--dark); }
+        .logo-text span { color: var(--primary); font-size: 0.7rem; display: block; font-weight: 900; }
+        
+        .nav-links { display: flex; align-items: center; gap: 12px; }
+        .nav-links a { color: var(--dark); text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; }
 
-        /* --- REFERRAL BOX --- */
-        .referral-alert { 
-            background: #fff3cd; 
-            border: 2px dashed #856404; 
-            padding: 35px; 
-            border-radius: 12px; 
-            margin: 40px auto; 
-            max-width: 700px; 
-            text-align: center; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        /* Mobile Nav Toggle */
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2100; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--dark); }
+
+        @media (max-width: 992px) {
+            .menu-toggle { display: flex; }
+            .nav-links { 
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; 
+                background: var(--white); flex-direction: column; align-items: flex-start; 
+                padding: 100px 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s; 
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 1.1rem; width: 100%; padding: 15px 0; border-bottom: 1px solid #f1f1f1; }
         }
-        .btn-gold { 
-            display: inline-block; 
-            background: #856404; 
-            color: white; 
-            padding: 18px 40px; 
-            text-decoration: none; 
-            font-weight: 900; 
-            border-radius: 6px; 
-            margin-top: 20px; 
-            font-size: 1.2rem;
-            transition: 0.3s;
-        }
-        .btn-gold:hover { background: #6b5003; transform: translateY(-2px); }
 
-        /* --- HARDWARE CARDS --- */
-        .hw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
-        .hw-card { background: white; border-radius: 12px; padding: 35px; border-top: 6px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        /* --- HUB HERO (NEW TRUCK BACKGROUND) --- */
+        .hub-hero { 
+            background: linear-gradient(rgba(0, 15, 30, 0.65), rgba(0, 15, 30, 0.65)), url('https://i.imgur.com/edr3uRy.jpg'); 
+            background-size: cover; background-position: center; padding: 100px 0; text-align: center; color: white;
+        }
+
+        /* --- CONTENT STYLES --- */
+        .promo-box { background: #fff3cd; border: 2px dashed #856404; padding: 30px; border-radius: 12px; margin: 40px auto; max-width: 800px; text-align: center; }
+        .btn-gold { display: inline-block; background: #856404; color: white; padding: 15px 30px; text-decoration: none; font-weight: 900; border-radius: 6px; margin-top: 15px; font-size: 1.1rem; }
+
+        .hw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 50px 0; }
+        .hw-card { background: white; padding: 40px; border-radius: 12px; border-top: 6px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
         .hw-card:hover { transform: translateY(-5px); }
-        .hw-card h3 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.5rem; }
-        .badge { display: inline-block; background: var(--light-bg); padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; margin-bottom: 15px; font-weight: bold; color: var(--primary-dark); }
+        .hw-card h3 { margin-bottom: 15px; color: var(--dark); }
+        .hw-card p { color: var(--text-muted); font-weight: 500; }
 
-        /* --- PLAN TABLE --- */
-        .table-wrapper { overflow-x: auto; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin: 40px 0; }
-        .plan-table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        .plan-table th { background: var(--primary-dark); color: white; padding: 20px; text-align: left; }
-        .plan-table td { padding: 18px 20px; border-bottom: 1px solid #eee; }
-        .plan-table tr:last-child td { border-bottom: none; }
+        .plan-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin: 30px 0; }
+        .plan-table th { background: var(--primary-dark); color: white; padding: 15px; text-align: left; }
+        .plan-table td { padding: 15px; border-bottom: 1px solid #eee; font-weight: 600; color: var(--text-main); }
 
-        /* --- AREA TAGS --- */
-        .area-box { background: var(--light-bg); padding: 40px; border-radius: 12px; margin: 50px 0; }
-        .city-tag { display: inline-block; background: white; padding: 6px 15px; border-radius: 4px; font-size: 0.85rem; color: #444; margin: 5px; border: 1px solid #ddd; }
-
-        /* --- FOOTER --- */
-        footer { background: #1a1a1a; color: #aaa; padding: 60px 0; text-align: center; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            h1 { font-size: 2rem; }
+        /* --- CALL BUTTON --- */
+        .mobile-fab { 
+            position: fixed; bottom: 20px; left: 20px; background: #28a745; color: white; 
+            width: 60px; height: 60px; border-radius: 50%; display: none; align-items: center; 
+            justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1500; text-decoration: none; 
         }
+
+        @media (max-width: 992px) { .mobile-fab { display: flex; } }
     </style>
 </head>
 <body>
@@ -96,99 +96,105 @@
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo-wrapper">
-                <img src="https://i.imgur.com/CtBcYkI.png" alt="Dean's Handyman Service" class="logo-img">
-                <div class="logo-text">Dean's<br><span style="color:var(--primary); font-size:0.7rem;">Handyman Service LLC</span></div>
+                <img src="https://i.imgur.com/CtBcYkI.png" alt="Dean's Handyman Service Logo" class="logo-img">
+                <div class="logo-text">Dean's<br><span>Handyman Service LLC</span></div>
             </a>
-            <nav class="nav-links">
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </div>
+            <nav class="nav-links" id="nav-menu">
+                <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
                 <a href="areas.html">Areas</a>
                 <a href="gallery.html">Work</a>
-                <a href="contact.html" class="btn-nav">Get Quote</a>
+                <a href="blog.html">Blog</a>
+                <a href="faqs.html">FAQs</a>
+                <a href="contact.html">Contact</a>
+                <a href="tel:2819179914" style="background:var(--primary); color:white; padding: 8px 12px; border-radius:6px; text-decoration:none;">(281) 917-9914</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container" data-aos="fade-up">
-            <h1>Expert Starlink Installation</h1>
-            <p>Professional Gen 3 & Mini Mounting across Texas, Arkansas, Louisiana, and Oklahoma</p>
+    <a href="tel:2819179914" class="mobile-fab">📞</a>
+
+    <section class="hub-hero">
+        <div class="container" data-aos="fade-down">
+            <h1>Starlink Installation Hub</h1>
+            <p style="font-weight: 800; text-shadow: 0 2px 6px black; font-size: 1.3rem;">Providing Reliable Tech to Rural TX, AR, LA, and OK</p>
         </div>
     </section>
 
     <div class="container">
-        <div class="referral-alert" data-aos="zoom-in">
-            <p style="font-size: 1.1rem; color: #856404;"><strong>🎁 STARLINK PROMO:</strong> Order your kit using the referral link below and Starlink will give you your <strong>2nd Month of Service for FREE!</strong></p>
-            <a href="https://starlink.com/residential?referral=RC-2034578-19016-61&app_source=share" target="_blank" class="btn-gold">ORDER & CLAIM FREE MONTH</a>
+        <div class="promo-box" data-aos="zoom-in">
+            <p style="color: #856404; font-weight: 800; font-size: 1.2rem;">🎁 REFERRAL PROMO</p>
+            <p>Order your hardware via my referral link and Starlink will give you your <strong>2nd Month of Service for FREE!</strong></p>
+            <a href="https://starlink.com/residential?referral=RC-2034578-19016-61&app_source=share" target="_blank" class="btn-gold">CLAIM FREE MONTH HERE</a>
         </div>
 
-        <h2 style="margin: 60px 0 20px; text-align: center;">Authorized 2026 Hardware Setups</h2>
-        
+        <h2 style="text-align: center; margin-top: 60px;">Professional Mounting & Power Solutions</h2>
         <div class="hw-grid">
-            <div class="hw-card" data-aos="fade-right">
-                <span class="badge">RESIDENTIAL / RANCH</span>
-                <h3>Standard Gen 3 (V4)</h3>
-                <p>The latest "Kickstand" model. High speeds up to 400 Mbps. We specialize in non-penetrating ridge mounts, chimney straps, and custom wall-pivot installs for permanent home use.</p>
-                
+            <div class="hw-card" data-aos="fade-up">
+                <span style="font-size: 0.75rem; font-weight: 900; color: var(--primary); text-transform: uppercase;">Standard Gen 3</span>
+                <h3>Home & Ranch Setup</h3>
+                <p>We handle the complex mounting requirements of East Texas rural properties. This includes custom peak mounts, chimney straps, and cable routing that exceeds residential standards.</p>
             </div>
-
-            <div class="hw-card" data-aos="fade-left">
-                <span class="badge">RV / MOBILE / OFF-GRID</span>
-                <h3>Starlink Mini</h3>
-                <p>Ultra-portable with built-in WiFi. Perfect for digital nomads and RVers. We provide 12V DC power conversions and magnetic roof mounts for vehicles and campers.</p>
-                
+            <div class="hw-card" data-aos="fade-up" data-aos-delay="100">
+                <span style="font-size: 0.75rem; font-weight: 900; color: var(--primary); text-transform: uppercase;">Starlink Mini</span>
+                <h3>RV & Off-Grid Hardwiring</h3>
+                <p>Stay connected on the move. We specialize in <strong>12V DC power hardwiring</strong> and magnetic vehicle mounts, allowing you to bypass your inverter and save battery life.</p>
             </div>
         </div>
 
-        <h2 style="margin: 60px 0 20px; text-align: center;">Current 2026 Service Plans</h2>
-        <div class="table-wrapper" data-aos="fade-up">
-            <table class="plan-table">
+        <h2 style="text-align: center; margin-top: 40px;">2026 Service Tiers</h2>
+        <div style="overflow-x: auto;">
+            <table class="plan-table" data-aos="fade-up">
                 <thead>
-                    <tr><th>Plan</th><th>Monthly Cost</th><th>Speed Expectation</th><th>Best Usage</th></tr>
+                    <tr><th>Plan</th><th>Monthly Cost</th><th>Target Usage</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Residential 100</strong></td><td>$50/mo</td><td>100 Mbps</td><td>Basic Streaming & Web</td></tr>
-                    <tr><td><strong>Residential 200</strong></td><td>$80/mo</td><td>200 Mbps</td><td>Home Office & Families</td></tr>
-                    <tr><td><strong>Residential MAX</strong></td><td>$120/mo</td><td>400+ Mbps</td><td>Power Users / 4K Gaming</td></tr>
-                    <tr><td><strong>Roam Unlimited</strong></td><td>$165/mo</td><td>Best Effort</td><td>Full-time RV / Travel</td></tr>
+                    <tr><td><strong>Residential 100</strong></td><td>$50/mo</td><td>Basic Streaming & Web</td></tr>
+                    <tr><td><strong>Residential 200</strong></td><td>$80/mo</td><td>Standard Family Use</td></tr>
+                    <tr><td><strong>Residential MAX</strong></td><td>$120/mo</td><td>4K Gaming & Power Users</td></tr>
+                    <tr><td><strong>Roam Unlimited</strong></td><td>$165/mo</td><td>Mobile Professionals / RV</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="area-box" data-aos="fade-up">
-            <h3 style="margin-bottom: 15px; color: var(--primary-dark);">Serving a 200-Mile Radius from 75686</h3>
-            <p style="margin-bottom: 20px; font-weight: 600;">FREE travel for the first 100 miles! We cover the entire Ark-La-Tex including:</p>
-            <div class="city-cloud">
-                <span class="city-tag">Pittsburg, TX</span>
-                <span class="city-tag">Tyler, TX</span>
-                <span class="city-tag">Longview, TX</span>
-                <span class="city-tag">Texarkana, AR/TX</span>
-                <span class="city-tag">Broken Bow, OK</span>
-                <span class="city-tag">Shreveport, LA</span>
-                <span class="city-tag">Paris, TX</span>
-                <span class="city-tag">Sulphur Springs, TX</span>
-                <span class="city-tag">Marshall, TX</span>
-                <span class="city-tag">Mount Pleasant, TX</span>
-            </div>
-            <div style="margin-top: 30px; text-align: center;">
-                <a href="contact.html" class="btn-primary">Book Your Installation Call</a>
-            </div>
+        <div style="background: var(--dark); color: white; padding: 50px; border-radius: 12px; margin: 60px 0; text-align: center;" data-aos="fade-up">
+            <h3 style="color: white;">Ark-La-Tex Wide Coverage</h3>
+            <p style="font-weight: 600; color: #94a3b8; margin-top: 15px;">FREE travel for the first 100 miles from Pittsburg, TX!</p>
+            <a href="contact.html" class="btn btn-primary" style="margin-top: 25px; padding: 15px 40px;">Request Starlink Quote</a>
         </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <p><strong>Dean's Handyman Service LLC</strong></p>
-            <p>Professional Starlink Consultation & Installation | (281) 917-9914</p>
-            <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.5;">© 2026 All Rights Reserved.</p>
+    <footer style="background: #0a0f1a; color: #cbd5e1; padding: 60px 0;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+            <div>
+                <h4 style="color: white; margin-bottom: 15px;">Dean's Handyman Service LLC</h4>
+                <p style="color:#94a3b8; font-weight:600;">Technical technical tradesman serving the rural Ark-La-Tex with industrial precision.</p>
+            </div>
+            <div>
+                <h4 style="color: white; margin-bottom: 15px;">Contact Info</h4>
+                <p style="color:#94a3b8; font-weight:600;">(281) 917-9914<br>deanshandymanservice1@gmail.com</p>
+            </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const spans = menuBtn.getElementsByTagName('span');
+            spans[0].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(5px, 6px)' : 'none';
+            spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
+            spans[2].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(5px, -6px)' : 'none';
+        });
     </script>
-
+    
     <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
     <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmla3f83s001hfy8tds4wmpva'></zapier-interfaces-chatbot-embed>
 
