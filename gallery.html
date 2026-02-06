@@ -1,79 +1,138 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Gallery | Dean's Handyman Service Pittsburg TX 75686</title>
-  
-  <meta name="description" content="View our recent handyman and Starlink installation projects in Pittsburg, TX and across our 200-mile service radius.">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #fdfdfd; }
-    :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --white: #ffffff; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery | Dean's Handyman Service | Pittsburg TX & Ark-La-Tex</title>
+    
+    <meta name="description" content="View industrial-grade craftsmanship in our project gallery. Featuring Starlink installations, electrical work, and home repairs across a 200-mile radius from Pittsburg, TX.">
+    <meta name="geo.region" content="US-TX;US-AR;US-LA;US-OK">
+    <meta name="geo.placename" content="Pittsburg, Tyler, Longview, Texarkana, Shreveport">
 
-    /* --- HEADER --- */
-    .site-header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
-    .site-header .container { display: flex; justify-content: space-between; align-items: center; }
-    .logo a { font-weight: 900; font-size: 1.5rem; text-decoration: none; color: var(--primary-dark); text-transform: uppercase; }
-    .main-nav { display: flex; gap: 15px; }
-    .main-nav a { color: var(--primary-dark); text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
-    .main-nav a:hover { color: var(--accent); }
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & BASICS --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; overflow-x: hidden; }
+        :root {
+            --primary: #008bd2; 
+            --primary-dark: #006fa8;
+            --accent: #f0a500; 
+            --dark: #1e293b;
+            --white: #ffffff;
+            --light-bg: #f1f5f9;
+        }
 
-    /* --- GALLERY SECTION --- */
-    .gallery-header { text-align: center; padding: 60px 0 20px; }
-    .gallery-header h1 { font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 10px; }
-    .album-link-box { text-align: center; margin: 30px 0; padding: 20px; background: #f1f5f9; border-radius: 8px; }
-    .btn-album { display: inline-block; padding: 12px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-weight: bold; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* --- FOOTER --- */
-    .site-footer { background: #005073; color: #ffffff; padding: 50px 0; margin-top: 50px; text-align: center; }
-  </style>
+        /* --- HEADER --- */
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 100px; }
+        .logo-wrapper { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--dark); }
+        .logo-img { height: 85px; width: auto; }
+        .logo-text { font-weight: 800; font-size: 1.1rem; line-height: 1.1; text-transform: uppercase; }
+        .nav-links a { color: var(--dark); text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .btn-nav { background: var(--primary); color: white !important; padding: 10px 20px; border-radius: 6px; font-weight: bold; }
+
+        /* --- GALLERY HERO --- */
+        .hero-mini { background: linear-gradient(135deg, #005a8d 0%, #008bd2 100%); color: white; padding: 60px 0; text-align: center; }
+        .hero-mini h1 { font-size: 2.5rem; margin-bottom: 10px; color: white; }
+
+        /* --- WIDGET AREA --- */
+        .gallery-content { padding: 60px 0; }
+        .widget-container { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); min-height: 400px; }
+
+        /* --- ALBUM CTA --- */
+        .album-link-box { 
+            text-align: center; 
+            margin-top: 40px; 
+            padding: 40px; 
+            background: var(--dark); 
+            color: white; 
+            border-radius: 12px; 
+            border-bottom: 6px solid var(--accent);
+        }
+        .btn-album { 
+            display: inline-block; 
+            padding: 15px 30px; 
+            background: var(--accent); 
+            color: var(--dark) !important; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: 800; 
+            text-transform: uppercase;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+        .btn-album:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(240, 165, 0, 0.3); }
+
+        /* --- FOOTER --- */
+        footer { background: #1a1a1a; color: #aaa; padding: 60px 0; text-align: center; margin-top: 60px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .logo-text { display: none; }
+            h1 { font-size: 2rem !important; }
+        }
+    </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <div class="logo"><a href="index.html">Dean's Handyman</a></div>
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="starlink-install.html">Starlink</a>
-      <a href="areas.html">Areas</a>
-      <a href="gallery.html" style="color: var(--accent);">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo-wrapper">
+                <img src="https://i.imgur.com/CtBcYkI.png" alt="Dean's Handyman Service" class="logo-img">
+                <div class="logo-text">Dean's<br><span style="color:var(--primary); font-size:0.7rem;">Handyman Service LLC</span></div>
+            </a>
+            <nav class="nav-links">
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="starlink-install.html">Starlink</a>
+                <a href="areas.html">Areas</a>
+                <a href="gallery.html" style="color: var(--primary);">Work</a>
+                <a href="contact.html" class="btn-nav">Get Quote</a>
+            </nav>
+        </div>
+    </header>
 
-<section class="container">
-  <div class="gallery-header" data-aos="fade-up">
-    <h1>Project Gallery</h1>
-    <p>Real photos of my work serving Pittsburg and the 200-mile radius.</p>
-  </div>
+    <section class="hero-mini">
+        <div class="container" data-aos="fade-down">
+            <h1>Project Gallery</h1>
+            <p>Industrial Precision Serving a 200-Mile Multi-State Radius</p>
+        </div>
+    </section>
 
-  <div style="margin-top: 20px; min-height: 400px;" data-aos="fade-up" data-aos-delay="100">
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-b44d4883-d56d-4b53-9744-7e78cc29adee" data-elfsight-app-lazy></div>
-  </div>
+    <div class="container gallery-content">
+        <div class="widget-container" data-aos="fade-up">
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-b44d4883-d56d-4b53-9744-7e78cc29adee" data-elfsight-app-lazy></div>
+        </div>
 
-  <div class="album-link-box" data-aos="fade-up">
-    <p style="margin-bottom: 15px;">Want to see the full collection? Visit the Google Photos Album:</p>
-    <a href="https://photos.app.goo.gl/ihv1j4HSQZGuD6wD9" target="_blank" class="btn-album">Open Google Photo Album</a>
-  </div>
-</section>
+        <div class="album-link-box" data-aos="zoom-in">
+            <h3>Want to see the full collection?</h3>
+            <p>I document every project to ensure transparency and show the commercial standards we bring to every home.</p>
+            <a href="https://photos.app.goo.gl/ihv1j4HSQZGuD6wD9" target="_blank" class="btn-album">View Google Photo Album</a>
+        </div>
+    </div>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>Dean's Handyman Service LLC | Pittsburg, TX 75686 | (281) 917-9914</p>
-    <p style="margin-top:10px; font-size:0.8rem; opacity: 0.8;">Serving 200 miles around 75686</p>
-  </div>
-</footer>
+    <footer>
+        <div class="container">
+            <p><strong>Dean's Handyman Service LLC</strong></p>
+            <p>Pittsburg, TX 75686 | (281) 917-9914</p>
+            <div style="margin-top:20px; opacity: 0.5; font-size:0.8rem;">
+                © 2026 All Rights Reserved. Serving TX, AR, LA, OK.
+            </div>
+        </div>
+    </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+
+    <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+    <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmla3f83s001hfy8tds4wmpva'></zapier-interfaces-chatbot-embed>
 
 </body>
 </html>
