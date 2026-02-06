@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dean's Handyman Service | 75686 Pittsburg TX & 200-Mile Tech Expert</title>
 
-  <meta name="description" content="Dean's Handyman Service: Professional home repair, Starlink Gen 3/Mini installation, and smart home setup. Serving Pittsburg, TX and a 200-mile radius across the Ark-La-Tex.">
-  <meta name="keywords" content="75686 Handyman, Starlink Installer Texas, Pittsburg TX home repair, 200 mile radius handyman, Starlink Mini RV mount, Ark-La-Tex handyman">
+  <meta name="description" content="Dean's Handyman Service: Professional home repair, Starlink Gen 3/Mini installation, and smart home setup. Serving Pittsburg, TX and a 200-mile radius.">
+  <meta name="keywords" content="75686 Handyman, Starlink Installer Texas, Pittsburg TX home repair, 200 mile radius handyman, Starlink Mini RV mount">
 
   <meta name="geo.region" content="US-TX">
   <meta name="geo.placename" content="Pittsburg">
@@ -22,7 +22,7 @@
 
     h1, h2, h3 { color: var(--primary-dark); font-weight: 800; text-align: center; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .btn { display: inline-block; padding: 14px 28px; border-radius: 5px; font-weight: 900; text-decoration: none; text-align: center; text-transform: uppercase; transition: 0.3s; border: none; }
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 5px; font-weight: 900; text-decoration: none; text-align: center; text-transform: uppercase; transition: 0.3s; border: none; cursor: pointer;}
     .btn-primary { background: var(--primary); color: white !important; }
     .btn-accent { background: var(--accent); color: black !important; }
 
@@ -39,18 +39,17 @@
     /* --- OFFERS BAR --- */
     .offers-banner { background: #fff3cd; border-bottom: 2px solid #ffeeba; padding: 15px 0; text-align: center; font-weight: 700; color: #856404; }
 
-    /* --- VALUE STACK (THE "WHY") --- */
-    .value-stack { padding: 80px 0; background: white; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-    .value-card { padding: 40px; border: 1px solid #eee; border-radius: 10px; text-align: center; transition: 0.3s; }
-    .value-card i { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
-
     /* --- ESTIMATOR --- */
     .est-section { padding: 80px 0; background: var(--light); }
-    .est-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; }
-    .cat-title { background: #f8fafc; padding: 10px; font-weight: 800; color: var(--primary); text-transform: uppercase; font-size: 0.8rem; margin-top: 20px; border-radius: 4px; }
+    .est-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); max-width: 700px; margin: 0 auto; }
+    .cat-title { background: #f8fafc; padding: 12px; font-weight: 800; color: var(--primary); text-transform: uppercase; font-size: 0.85rem; margin-top: 25px; border-radius: 4px; border-left: 4px solid var(--accent); }
     .row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #eee; }
-    .qty-input { width: 70px; padding: 10px; text-align: center; border: 1px solid #ddd; font-weight: bold; border-radius: 5px; }
+    .label { font-weight: 600; font-size: 0.95rem; }
+    .qty-input { width: 75px; padding: 10px; text-align: center; border: 1px solid #ddd; font-weight: bold; border-radius: 5px; }
+
+    /* --- PAYMENTS & CHAT --- */
+    .tech-row { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; padding: 60px 0; }
+    .payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 20px; }
 
     /* --- FOOTER --- */
     .site-footer { background: var(--primary-dark); color: white; padding: 60px 0; }
@@ -81,11 +80,11 @@
 <section class="hero">
   <div class="container">
     <div style="max-width: 700px;">
-      <h1>The Tech-Forward Handyman for East Texas</h1>
-      <p style="font-size: 1.25rem; color: #cbd5e1; margin-bottom: 30px;">From 4 generations of builders. We specialize in Starlink Gen 3 setup, electrical repair, and smart home integration in 75686 and a 200-mile radius.</p>
+      <h1>Professional Craftsmanship Meets Modern Tech</h1>
+      <p style="font-size: 1.25rem; color: #cbd5e1; margin-bottom: 30px;">Specializing in Starlink Gen 3/Mini, Electrical, and Home Repair. Serving Pittsburg, TX and the entire Ark-La-Tex.</p>
       <div style="display: flex; gap: 20px; flex-wrap: wrap;">
         <a href="#estimator" class="btn btn-accent">Get Instant Quote</a>
-        <a href="starlink-install.html" class="btn" style="background: white; color: black;">Starlink Guide & Referral</a>
+        <a href="starlink-install.html" class="btn" style="background: white; color: black;">Starlink Guide</a>
       </div>
     </div>
   </div>
@@ -93,72 +92,88 @@
 
 <div class="offers-banner">
   <div class="container">
-    📍 FREE Travel for the first 100 miles! &nbsp; | &nbsp; 🛰️ Get your 2nd Month of Starlink FREE using my link!
+    📍 FREE Travel for the first 100 miles! &nbsp; | &nbsp; 🛰️ 2nd Month of Starlink FREE using my Referral Link!
   </div>
 </div>
 
-<section class="value-stack">
-  <div class="container">
-    <h2>Why Choose Dean's Handyman Service?</h2>
-    <div class="grid-3">
-      <div class="value-card">
-        <i class="fas fa-tools"></i>
-        <h3>Heritage of Quality</h3>
-        <p>I carry the legacy of a welder, a locksmith, and concrete experts. I don't just patch—I solve the root of the problem with generational skill.</p>
-      </div>
-      <div class="value-card">
-        <i class="fas fa-satellite"></i>
-        <h3>Starlink Expert</h3>
-        <p>Certified-level expertise in Gen 3 and Mini hardware. We handle roof mounts, RV hardwiring, and 12V DC conversions for nomads.</p>
-      </div>
-      <div class="value-card">
-        <i class="fas fa-truck"></i>
-        <h3>200-Mile Radius</h3>
-        <p>We serve the remote ranches and hunting cabins of the Ark-La-Tex that others won't touch. If you have a road, we'll find you.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="est-section" id="estimator">
   <div class="container">
-    <h2>Project Estimate & Booking</h2>
+    <h2>Project Cost Estimator</h2>
     <div class="est-box" id="step1">
-      <div class="cat-title">📡 Starlink Installation</div>
-      <div class="row"><span>Standard Gen 3 Install</span> <input type="number" min="0" class="qty-input" data-price="300" data-name="Gen 3 Install"></div>
-      <div class="row"><span>Starlink Mini / RV Setup</span> <input type="number" min="0" class="qty-input" data-price="350" data-name="Mini/RV Setup"></div>
       
-      <div class="cat-title">⚡ Electrical & Maintenance</div>
-      <div class="row"><span>Light/Fan Install</span> <input type="number" min="0" class="qty-input" data-price="125" data-name="Light/Fan"></div>
-      <div class="row"><span>Hourly Tech Labor</span> <input type="number" min="0" class="qty-input" data-price="100" data-name="Labor Hour"></div>
+      <div class="cat-title">📡 Starlink & Internet</div>
+      <div class="row"><span class="label">Residential Install</span><input type="number" min="0" class="qty-input" data-price="300" data-name="Res Starlink"></div>
+      <div class="row"><span class="label">RV / Mobile Install</span><input type="number" min="0" class="qty-input" data-price="350" data-name="RV Starlink"></div>
+      <div class="row"><span class="label">Uninstall / Relocate</span><input type="number" min="0" class="qty-input" data-price="200" data-name="Uninstall"></div>
 
-      <div style="margin-top: 20px; background: #f1f5f9; padding: 15px; border-radius: 5px;">
-        <label>One-Way Mileage from 75686:</label>
-        <input type="number" id="trip-miles" placeholder="0" style="width: 80px; padding: 5px; margin-left: 10px;">
-        <small style="display: block; margin-top: 5px;">(First 100 miles are free)</small>
+      <div class="cat-title">⚡ Electrical</div>
+      <div class="row"><span class="label">Light Fixture Install</span><input type="number" min="0" class="qty-input" data-price="125" data-name="Light Fixture"></div>
+      <div class="row"><span class="label">Ceiling Fan Install</span><input type="number" min="0" class="qty-input" data-price="175" data-name="Ceiling Fan"></div>
+      <div class="row"><span class="label">Outlet/Switch Repair</span><input type="number" min="0" class="qty-input" data-price="75" data-name="Outlet Repair"></div>
+
+      <div class="cat-title">🚰 Plumbing</div>
+      <div class="row"><span class="label">Faucet Replacement</span><input type="number" min="0" class="qty-input" data-price="120" data-name="Faucet"></div>
+      <div class="row"><span class="label">Toilet Repair/Swap</span><input type="number" min="0" class="qty-input" data-price="150" data-name="Toilet"></div>
+
+      <div class="cat-title">🛠️ General & Labor</div>
+      <div class="row"><span class="label">TV Mounting</span><input type="number" min="0" class="qty-input" data-price="125" data-name="TV Mount"></div>
+      <div class="row"><span class="label">Hourly Labor Rate</span><input type="number" min="0" class="qty-input" data-price="100" data-name="Labor Hour"></div>
+
+      <div style="margin-top: 25px; background: #f1f5f9; padding: 20px; border-radius: 8px;">
+        <label class="label">One-Way Mileage from Pittsburg (75686):</label>
+        <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+            <input type="number" id="trip-miles" placeholder="0" style="width: 100px; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+            <span style="font-size: 0.8rem; color: #666;">(First 100 miles free. $1.50/mi after.)</span>
+        </div>
       </div>
 
-      <button onclick="calculateTotal()" class="btn btn-primary" style="width: 100%; margin-top: 25px;">Calculate & Proceed</button>
+      <button onclick="calculateTotal()" class="btn btn-primary" style="width: 100%; margin-top: 30px; font-size: 1.1rem;">Calculate Total</button>
       
-      <div id="result-area" style="display:none; text-align:center; margin-top:20px; border-top:2px solid var(--accent); padding-top:20px;">
-        <span style="font-weight:bold; color:green;">ESTIMATED TOTAL:</span>
-        <div id="final-price" style="font-size:2.5rem; font-weight:900;">$0.00</div>
-        <button onclick="showContact()" class="btn btn-accent" style="width:100%;">✅ Book This Project</button>
+      <div id="result-area" style="display:none; text-align:center; margin-top:30px; border-top: 3px solid var(--accent); padding-top: 20px;">
+        <span style="font-weight:bold; text-transform: uppercase; color: #15803d; letter-spacing: 1px;">Estimated Total</span>
+        <div id="final-price" style="font-size:3rem; font-weight:900; color: #166534; margin: 10px 0;">$0.00</div>
+        <button onclick="showContact()" class="btn btn-accent" style="width:100%; padding: 15px;">✅ Proceed to Booking</button>
       </div>
     </div>
 
     <div class="est-box" id="step2" style="display:none;">
-      <h3 style="margin-bottom:20px;">Your Information</h3>
-      <input type="text" id="c-name" placeholder="Full Name" style="width:100%; padding:15px; margin-bottom:15px;">
-      <input type="text" id="c-loc" placeholder="Your City" style="width:100%; padding:15px; margin-bottom:15px;">
-      <textarea id="c-msg" placeholder="Any special notes?" style="width:100%; padding:15px; height:100px; margin-bottom:15px;"></textarea>
+      <h3>Finalize Your Request</h3>
+      <p style="text-align: center; color: #666; margin-bottom: 20px;">Review your estimate and send it directly to Dean.</p>
+      <input type="text" id="c-name" placeholder="Full Name" style="width:100%; padding:15px; margin-bottom:15px; border: 1px solid #ddd; border-radius: 5px;">
+      <input type="text" id="c-loc" placeholder="Service City / Address" style="width:100%; padding:15px; margin-bottom:15px; border: 1px solid #ddd; border-radius: 5px;">
+      <textarea id="c-msg" placeholder="Tell me more about the job details..." style="width:100%; padding:15px; height:100px; margin-bottom:15px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+      
+      <div style="background: #f8fafc; padding: 15px; border-left: 4px solid var(--accent); margin-bottom: 20px; font-size: 0.9rem;">
+        <strong>Summary:</strong> <span id="summary-text"></span>
+      </div>
+
       <div style="display:flex; gap:10px;">
         <button onclick="sendVia('email')" class="btn btn-primary" style="flex:1;">Email Dean</button>
         <button onclick="sendVia('text')" class="btn btn-accent" style="flex:1;">Text Dean</button>
       </div>
-      <button onclick="goBack()" style="background:none; border:none; color:gray; width:100%; margin-top:15px; cursor:pointer;">← Edit Items</button>
+      <button onclick="goBack()" style="background:none; border:none; color:gray; width:100%; margin-top:20px; cursor:pointer;">← Edit Project Items</button>
     </div>
   </div>
+</section>
+
+<section class="container tech-row">
+    <div style="flex: 1; min-width: 320px; max-width: 400px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: white;">
+        <div style="background: var(--primary); color: white; padding: 10px; text-align: center; font-weight: bold;">Assistant Chat</div>
+        <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+        <zapier-interfaces-chatbot-embed is-popup='false' chatbot-id='cmla3f83s001hfy8tds4wmpva' height='500px' width='100%'></zapier-interfaces-chatbot-embed>
+    </div>
+
+    <div style="flex: 1; min-width: 320px; max-width: 500px; padding: 30px; background: var(--light); border-radius: 8px; text-align: center;">
+        <h3>Secure Payments</h3>
+        <div class="payment-grid">
+            <a href="https://square.link/u/dO7MQ0kc" target="_blank" class="btn btn-primary" style="font-size:0.8rem;">Square</a>
+            <a href="https://www.venmo.com/u/DeanshandymanserviceLLC" target="_blank" class="btn" style="background:#008CFF; color:white; font-size:0.8rem;">Venmo</a>
+            <a href="https://www.paypal.com/ncp/payment/CVURGTVEWZ96J" target="_blank" class="btn" style="background:#003087; color:white; font-size:0.8rem;">PayPal</a>
+            <a href="https://cash.app/$HandymanDean" target="_blank" class="btn" style="background:#00D632; color:white; font-size:0.8rem;">Cash App</a>
+        </div>
+        <p style="margin-top: 25px; font-weight: bold;">Starlink Referral Offer:</p>
+        <a href="https://starlink.com/residential?referral=RC-2034578-19016-61&app_source=share" style="color: var(--primary-dark); font-size: 0.8rem; word-break: break-all;">Order Here for 2nd Month Free</a>
+    </div>
 </section>
 
 <footer class="site-footer">
@@ -171,19 +186,10 @@
       </div>
       <div>
         <h4>Sitemap</h4>
-        <a href="services.html">Services</a>
-        <a href="starlink-install.html">Starlink Hub</a>
-        <a href="areas.html">Areas Served</a>
-        <a href="gallery.html">Gallery</a>
-      </div>
-      <div>
-        <h4>Payment Options</h4>
-        <a href="https://square.link/u/dO7MQ0kc" target="_blank">Square</a>
-        <a href="https://www.venmo.com/u/DeanshandymanserviceLLC" target="_blank">Venmo</a>
-        <a href="https://cash.app/$HandymanDean" target="_blank">Cash App</a>
+        <a href="services.html">Services</a> | <a href="starlink-install.html">Starlink Hub</a> | <a href="areas.html">Areas</a>
       </div>
     </div>
-    <p style="text-align:center; margin-top:40px; font-size:0.8rem; color:#888;">© 2026 Dean's Handyman Service LLC. All rights reserved.</p>
+    <p style="text-align:center; margin-top:40px; font-size:0.8rem; color:#888;">© 2026 Dean's Handyman Service LLC.</p>
   </div>
 </footer>
 
@@ -192,17 +198,26 @@
     let total = 0; let items = [];
     document.querySelectorAll('.qty-input').forEach(i => {
       const q = parseInt(i.value) || 0;
-      if(q > 0) { total += (q * parseInt(i.dataset.price)); items.push(`${q}x ${i.dataset.name}`); }
+      if(q > 0) { 
+        total += (q * parseInt(i.dataset.price)); 
+        items.push(`${q}x ${i.dataset.name}`); 
+      }
     });
     const m = parseInt(document.getElementById('trip-miles').value) || 0;
-    if(m > 100) { total += (m - 100) * 1.50; items.push(`Trip Fee`); }
+    if(m > 100) { 
+        total += (m - 100) * 1.50; 
+        items.push(`Trip Fee (${m} mi)`); 
+    }
     document.getElementById('final-price').innerText = "$" + total.toFixed(2);
     document.getElementById('result-area').style.display = 'block';
     window.qData = { total: total.toFixed(2), summary: items.join(", ") };
   }
   function showContact() {
+    if(!window.qData || window.qData.summary === "") { alert("Please select at least one item."); return; }
+    document.getElementById('summary-text').innerText = window.qData.summary + " (Est: $" + window.qData.total + ")";
     document.getElementById('step1').style.display = 'none';
     document.getElementById('step2').style.display = 'block';
+    window.scrollTo(0, document.getElementById('estimator').offsetTop);
   }
   function goBack() {
     document.getElementById('step1').style.display = 'block';
@@ -211,8 +226,10 @@
   function sendVia(m) {
     const n = document.getElementById('c-name').value;
     const l = document.getElementById('c-loc').value;
-    const msg = `Hi Dean, I'm ${n} from ${l}. Quote for: ${window.qData.summary} ($${window.qData.total})`;
-    if(m === 'email') window.location.href = `mailto:deanshandymanservice1@gmail.com?subject=New Quote&body=${encodeURIComponent(msg)}`;
+    const notes = document.getElementById('c-msg').value;
+    if(!n || !l) { alert("Please enter your name and location."); return; }
+    const msg = `Hi Dean, I'm ${n} from ${l}.\n\nQuote: ${window.qData.summary}\nEst Total: $${window.qData.total}\n\nNotes: ${notes}`;
+    if(m === 'email') window.location.href = `mailto:deanshandymanservice1@gmail.com?subject=New Quote Request&body=${encodeURIComponent(msg)}`;
     else window.location.href = `sms:2819179914?body=${encodeURIComponent(msg)}`;
   }
 </script>
