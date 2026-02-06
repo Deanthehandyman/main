@@ -1,212 +1,67 @@
 <!DOCTYPE html>
-    <html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <title>Frequently Asked Questions | Dean's Handyman Service LLC</title>
-        <meta name="description" content="Common questions about Starlink installation, electrical repair, and RV service in East Texas.">
-        
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <style>
-            /* --- GLOBAL VARIABLES --- */
-            :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --light: #f8fafc; --white: #ffffff; --dark: #1e293b; }
-            
-            /* --- RESET & TYPOGRAPHY --- */
-            * { box-sizing: border-box; margin: 0; padding: 0; }
-            body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); padding-bottom: 0; }
-            a { text-decoration: none; transition: 0.3s; color: inherit; }
-            
-            /* --- LAYOUT --- */
-            .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-            .section { padding: 80px 0; }
-            
-            /* --- HEADER --- */
-            header { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; height: 80px; display: flex; align-items: center; }
-            .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-            .logo { font-weight: 900; font-size: 1.3rem; color: var(--primary-dark); line-height: 1; text-transform: uppercase; letter-spacing: -0.5px; }
-            .logo span { color: var(--accent); display: block; font-size: 0.7rem; letter-spacing: 2px; margin-top: 3px; }
-            
-            .nav-links { display: flex; align-items: center; gap: 20px; }
-            .nav-links a { font-weight: 700; font-size: 0.85rem; text-transform: uppercase; color: var(--primary-dark); letter-spacing: 0.5px; position: relative; }
-            .nav-links a:hover { color: var(--accent); }
-            
-            .btn { padding: 10px 20px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; border: none; cursor: pointer; display: inline-block; text-align: center; }
-            .btn-primary { background: var(--primary); color: white !important; }
-            .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
-    
-            /* --- PAGE HEADER --- */
-            .page-header { background: var(--primary-dark); color: white; padding: 60px 0; text-align: center; }
-            .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-            .page-header p { color: #cbd5e1; font-size: 1.1rem; }
-    
-            /* --- FAQ STYLES --- */
-            .faq-section { margin-top: -40px; padding-bottom: 60px; }
-            
-            .faq-category { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--accent); margin: 30px 0 15px 0; letter-spacing: 1px; }
-    
-            details { background: white; border-radius: 8px; margin-bottom: 15px; border: 1px solid #e2e8f0; overflow: hidden; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-            details:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--accent); }
-            details[open] { border-left: 5px solid var(--accent); }
-            
-            summary { padding: 20px; cursor: pointer; font-weight: 700; color: var(--primary); display: flex; justify-content: space-between; align-items: center; list-style: none; font-size: 1.05rem; }
-            summary::-webkit-details-marker { display: none; }
-            summary::after { content: '+'; font-size: 1.5rem; color: #cbd5e1; font-weight: 300; }
-            details[open] summary::after { content: '-'; color: var(--primary); }
-            
-            .answer { padding: 0 20px 25px 20px; color: #475569; line-height: 1.6; border-top: 1px solid #f1f5f9; padding-top: 20px; }
-    
-            /* --- FOOTER --- */
-            footer { background: #0f172a; color: #94a3b8; padding: 60px 0; margin-top: auto; }
-            .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-            .footer-col h4 { color: white; margin-bottom: 15px; font-size: 1rem; }
-            .footer-col ul { list-style: none; padding: 0; }
-            .footer-col li { margin-bottom: 10px; font-size: 0.9rem; }
-            .footer-col a:hover { color: var(--accent); }
-    
-            /* --- MOBILE NAV & STICKY FOOTER --- */
-            .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background: white; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 2000; padding: 10px; gap: 10px; display: none; justify-content: center; }
-            .sticky-btn { flex: 1; text-align: center; padding: 10px; font-weight: 800; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; border-radius: 4px; }
-            
-            .mobile-menu-btn { display: none; font-size: 2rem; color: var(--primary); cursor: pointer; }
-            .mobile-nav { position: fixed; top: 80px; left: 0; width: 100%; background: white; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); display: none; flex-direction: column; gap: 15px; border-top: 1px solid #eee; z-index: 999; }
-            .mobile-nav a { font-weight: 700; font-size: 1rem; padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: var(--primary-dark); }
-    
-            @media (max-width: 900px) {
-                .nav-links { display: none; }
-                .mobile-menu-btn { display: block; }
-                .sticky-footer { display: flex; } 
-                .container { padding: 0 20px; }
-            }
-        </style>
-    </head>
-    <body>
-    
-        <header>
-            <div class="container nav-container">
-                <a href="index.html" class="logo">Dean's<span>Handyman Service LLC</span></a>
-                <nav class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="areas.html">Service Area</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="reviews.html">Reviews</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="contact.html" class="btn btn-primary">Get Quote</a>
-                </nav>
-                <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
-            </div>
-        </header>
-    
-        <div class="mobile-nav" id="mobileMenu">
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="areas.html">Service Areas</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="reviews.html">Reviews</a>
-            <a href="blog.html">Blog</a>
-            <a href="contact.html">Get Quote</a>
-        </div>
-    
-        <div class="page-header">
-            <div class="container">
-                <h1 data-aos="fade-down">Common Questions</h1>
-                <p data-aos="fade-up">Straight answers about our services, pricing, and coverage.</p>
-            </div>
-        </div>
-    
-        <div class="container faq-section">
-    
-            <div class="faq-category">📡 Starlink & Internet</div>
-            
-            <details data-aos="fade-up">
-                <summary>Do you sell the Starlink kit?</summary>
-                <div class="answer">No. You must purchase the Starlink kit directly from Starlink.com or authorized retailers like Best Buy. I provide the professional installation, custom mounting hardware, and cable routing services.</div>
-            </details>
-            
-            <details data-aos="fade-up">
-                <summary>Can you install if I have tall trees?</summary>
-                <div class="answer">Yes. This is my specialty in East Texas. I can install tower mounts, tree-toppers, or chimney mounts to clear the canopy and get a signal where others fail. I perform an obstruction test before drilling any holes.</div>
-            </details>
-            
-            <details data-aos="fade-up">
-                <summary>Will you drill holes in my roof?</summary>
-                <div class="answer">I avoid roof penetrations whenever possible by using fascia mounts or cable entry via soffit vents. If a roof penetration is required, I use industrial-grade pitch pads and sealants to guarantee a leak-proof result.</div>
-            </details>
-    
-            <div class="faq-category">⚡ Electrical & Tech</div>
-            
-            <details data-aos="fade-up">
-                <summary>Do you do full panel upgrades?</summary>
-                <div class="answer">No. I focus on "downstream" repairs: outlets, switches, fixtures, fans, and sub-panels for sheds. For a main 200-amp service panel replacement, I recommend hiring a Master Electrician for permitting purposes.</div>
-            </details>
-            
-            <details data-aos="fade-up">
-                <summary>Can you mount a TV above a fireplace?</summary>
-                <div class="answer">Yes. I can drill into brick or stone and use heavy-duty anchors. I also provide in-wall wire concealment so you don't see messy cords hanging down.</div>
-            </details>
-    
-            <div class="faq-category">💼 Payments & Service Area</div>
-            
-            <details data-aos="fade-up">
-                <summary>What is your service area?</summary>
-                <div class="answer">My "No-Fee Zone" is a 100-mile radius around Pittsburg, TX (75686). I travel further (Broken Bow, Shreveport, Dallas) for a standard mileage fee. Check the "Service Area" page for details.</div>
-            </details>
-            
-            <details data-aos="fade-up">
-                <summary>What payment methods do you accept?</summary>
-                <div class="answer">I accept Credit Cards (via Square), Venmo, PayPal, and Cash. Payment is due immediately upon successful completion of the work.</div>
-            </details>
-            
-            <details data-aos="fade-up">
-                <summary>Are you insured?</summary>
-                <div class="answer">Yes, Dean's Handyman Service LLC is fully insured for general liability. I treat your home with the same care and respect as my own.</div>
-            </details>
-    
-        </div>
-    
-        <footer>
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-col">
-                        <h4>Dean's Handyman Service LLC</h4>
-                        <p>Setting the standard for technical installation and fabrication in the Ark-La-Tex.</p>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="services.html">All Services</a></li>
-                            <li><a href="areas.html">Service Areas</a></li>
-                            <li><a href="faqs.html">FAQs</a></li>
-                            <li><a href="gallery.html">Project Gallery</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Contact</h4>
-                        <p>Pittsburg, TX (75686)</p>
-                        <p><a href="tel:2819179914" style="color:var(--accent); font-weight:bold;">(281) 917-9914</a></p>
-                        <div style="margin-top:15px;">
-                            <a href="contact.html" class="btn btn-primary" style="padding:8px 15px; font-size:0.8rem;">Get Quote</a>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top:50px; padding-top:20px; border-top:1px solid #1e293b; font-size:0.85rem;">
-                    © 2026 Dean's Handyman Service LLC. All Rights Reserved.
-                </div>
-            </div>
-        </footer>
-    
-        <div class="sticky-footer" style="z-index: 9999;">
-            <a href="tel:2819179914" class="sticky-btn" style="background:var(--primary); color:white;">📞 Call Dean</a>
-            <a href="contact.html" class="sticky-btn" style="background:var(--accent); color:white;">📅 Get Quote</a>
-        </div>
-    
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init();
-            function toggleMenu() {
-                var m = document.getElementById('mobileMenu');
-                m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
-            }
-        </script>
-    </body>
-    </html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions | Dean's Handyman Service 75686</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #fdfdfd; }
+    :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    .site-header { background: white; box-shadow: 0 2px 20px rgba(0,0,0,0.05); padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
+    .site-header .container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; }
+    .logo a { font-weight: 900; font-size: 1.5rem; text-decoration: none; color: var(--primary-dark); text-transform: uppercase; }
+    .main-nav a { color: var(--primary-dark); text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+    .faq-item { background: white; padding: 20px; border-radius: 8px; border: 1px solid #eee; margin-bottom: 15px; }
+    .faq-item h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.1rem; }
+    .site-footer { background: #005073; color: white; padding: 40px 0; text-align: center; margin-top: 50px; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="logo"><a href="index.html">Dean's Handyman</a></div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="areas.html">Service Areas</a>
+      <a href="faqs.html">FAQs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container" style="padding: 60px 20px;">
+  <h1 style="text-align:center; margin-bottom: 40px;">Common Questions</h1>
+  
+  <div class="faq-item">
+    <h3>Do you really travel 200 miles?</h3>
+    <p>Yes! We specialize in reaching rural homes and ranches that other services won't. Based in Pittsburg (75686), we cover a wide radius across East Texas and into neighboring states.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How do travel fees work?</h3>
+    <p>The first 100 miles of travel from Pittsburg, TX are <strong>completely free</strong>. For distances beyond 100 miles, a small trip fee is added to cover fuel and time, which you can calculate using our estimator on the home page.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Are you an official Starlink employee?</h3>
+    <p>No, we are independent professional installers. We specialize in the physical mounting and network integration of Starlink systems for residential and RV customers.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How do I pay for services?</h3>
+    <p>We accept Square, Venmo, PayPal, and Cash App for your convenience. Payment is typically due upon completion of the job.</p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Dean's Handyman Service LLC | Pittsburg, TX 75686</p>
+  </div>
+</footer>
+
+</body>
+</html>
