@@ -2,18 +2,35 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <title>Gallery | Dean's Handyman Service Pittsburg TX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Gallery | Dean's Handyman Service Pittsburg TX 75686</title>
+  
+  <meta name="description" content="View our recent handyman and Starlink installation projects in Pittsburg, TX and across our 200-mile service radius.">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
   <style>
-    /* Use standard header/footer CSS */
+    /* --- CORE STYLES --- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #fdfdfd; }
-    .site-header { background: white; box-shadow: 0 2px 20px rgba(0,0,0,0.05); padding: 15px 0; }
-    .site-header .container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .logo a { font-weight: 900; font-size: 1.5rem; text-decoration: none; color: #003a54; text-transform: uppercase; }
-    .main-nav a { color: #003a54; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; padding: 40px 0; }
-    .gallery-item { background: #eee; height: 250px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #999; }
-    .site-footer { background: #005073; color: white; padding: 40px 0; text-align: center; }
+    :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; --white: #ffffff; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* --- HEADER --- */
+    .site-header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
+    .site-header .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo a { font-weight: 900; font-size: 1.5rem; text-decoration: none; color: var(--primary-dark); text-transform: uppercase; }
+    .main-nav { display: flex; gap: 15px; }
+    .main-nav a { color: var(--primary-dark); text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+    .main-nav a:hover { color: var(--accent); }
+
+    /* --- GALLERY SECTION --- */
+    .gallery-header { text-align: center; padding: 60px 0 20px; }
+    .gallery-header h1 { font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 10px; }
+    .album-link-box { text-align: center; margin: 30px 0; padding: 20px; background: #f1f5f9; border-radius: 8px; }
+    .btn-album { display: inline-block; padding: 12px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-weight: bold; }
+
+    /* --- FOOTER --- */
+    .site-footer { background: #005073; color: #ffffff; padding: 50px 0; margin-top: 50px; text-align: center; }
   </style>
 </head>
 <body>
@@ -24,32 +41,40 @@
     <nav class="main-nav">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
-      <a href="areas.html">Service Areas</a>
-      <a href="gallery.html">Gallery</a>
+      <a href="starlink-install.html">Starlink</a>
+      <a href="areas.html">Areas</a>
+      <a href="gallery.html" style="color: var(--accent);">Gallery</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
-<div class="container" style="padding: 60px 20px;">
-  <h1 style="text-align:center;">Our Work in 75686 & Beyond</h1>
-  <p style="text-align:center;">Serving Pittsburg and a 200-mile radius with pride.</p>
-  
-  <div class="gallery-grid">
-    <div class="gallery-item">Starlink Install 1</div>
-    <div class="gallery-item">Electrical Repair</div>
-    <div class="gallery-item">Smart Home Setup</div>
-    <div class="gallery-item">Starlink RV Mount</div>
-    <div class="gallery-item">Plumbing Fix</div>
-    <div class="gallery-item">TV Mounting</div>
+<section class="container">
+  <div class="gallery-header" data-aos="fade-up">
+    <h1>Project Gallery</h1>
+    <p>See the quality of our work in Pittsburg and the surrounding 200-mile radius.</p>
   </div>
-</div>
+
+  <div style="margin-top: 40px;" data-aos="fade-up" data-aos-delay="100">
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <div class="elfsight-app-4389146f-c10f-4886-8968-07e376046e7b" data-elfsight-app-lazy></div>
+  </div>
+
+  <div class="album-link-box" data-aos="fade-up">
+    <p style="margin-bottom: 15px;">Having trouble viewing the gallery above?</p>
+    <a href="https://photos.app.goo.gl/ihv1j4HSQZGuD6wD9" target="_blank" class="btn-album">View Full Photo Album on Google</a>
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="container">
-    <p>© 2026 Dean's Handyman Service LLC | Serving 200 Miles Around Pittsburg, TX</p>
+    <p>Dean's Handyman Service LLC | Pittsburg, TX 75686 | (281) 917-9914</p>
+    <p style="margin-top:10px; font-size:0.8rem; opacity: 0.8;">Professional Handyman & Starlink Specialist</p>
   </div>
 </footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
 
 </body>
 </html>
