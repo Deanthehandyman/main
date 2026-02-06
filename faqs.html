@@ -1,67 +1,160 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frequently Asked Questions | Dean's Handyman Service 75686</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #fdfdfd; }
-    :root { --primary: #005073; --primary-dark: #003a54; --accent: #d4af37; }
-    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-    .site-header { background: white; box-shadow: 0 2px 20px rgba(0,0,0,0.05); padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
-    .site-header .container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; }
-    .logo a { font-weight: 900; font-size: 1.5rem; text-decoration: none; color: var(--primary-dark); text-transform: uppercase; }
-    .main-nav a { color: var(--primary-dark); text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
-    .faq-item { background: white; padding: 20px; border-radius: 8px; border: 1px solid #eee; margin-bottom: 15px; }
-    .faq-item h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.1rem; }
-    .site-footer { background: #005073; color: white; padding: 40px 0; text-align: center; margin-top: 50px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions | Dean's Handyman Service LLC | Pittsburg TX</title>
+    
+    <meta name="description" content="Find answers about Starlink installation, travel fees, electrical repairs, and our 200-mile service radius from Pittsburg, TX.">
+    <meta name="geo.region" content="US-TX;US-AR;US-LA;US-OK">
+    <meta name="geo.placename" content="Pittsburg, Tyler, Longview, Texarkana, Shreveport">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* --- RESET & BASICS --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; overflow-x: hidden; }
+        :root {
+            --primary: #008bd2; 
+            --primary-dark: #006fa8;
+            --accent: #f0a500; 
+            --dark: #1e293b;
+            --white: #ffffff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- HEADER --- */
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 100px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo-wrapper { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--dark); }
+        .logo-img { height: 85px; width: auto; }
+        .logo-text { font-weight: 800; font-size: 1.1rem; line-height: 1.1; text-transform: uppercase; }
+        .nav-links a { color: var(--dark); text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .btn-nav { background: var(--primary); color: white !important; padding: 10px 20px; border-radius: 6px; font-weight: bold; }
+
+        /* --- FAQ HERO --- */
+        .hero-mini { background: linear-gradient(135deg, #005a8d 0%, #008bd2 100%); color: white; padding: 60px 0; text-align: center; }
+        .hero-mini h1 { font-size: 2.5rem; margin-bottom: 10px; color: white; }
+
+        /* --- FAQ ITEMS --- */
+        .faq-section { padding: 60px 0; }
+        .faq-item { background: white; padding: 30px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 6px solid var(--primary); transition: 0.3s; }
+        .faq-item:hover { border-left-color: var(--accent); transform: translateX(5px); }
+        .faq-item h3 { color: var(--dark); margin-bottom: 12px; font-size: 1.2rem; font-weight: 800; }
+        .faq-item p { color: #444; font-size: 1rem; }
+        .faq-item strong { color: var(--primary-dark); }
+
+        /* --- FOOTER --- */
+        footer { background: #1a1a1a; color: #aaa; padding: 60px 0; text-align: center; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .logo-text { display: none; }
+            h1 { font-size: 2rem !important; }
+        }
+    </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <div class="logo"><a href="index.html">Dean's Handyman</a></div>
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="areas.html">Service Areas</a>
-      <a href="faqs.html">FAQs</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-wrapper">
+                <img src="https://i.imgur.com/CtBcYkI.png" alt="Dean's Handyman Service" class="logo-img">
+                <div class="logo-text">Dean's<br><span style="color:var(--primary); font-size:0.7rem;">Handyman Service LLC</span></div>
+            </a>
+            <nav class="nav-links">
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="starlink-install.html">Starlink</a>
+                <a href="areas.html">Areas</a>
+                <a href="gallery.html">Work</a>
+                <a href="contact.html" class="btn-nav">Get Quote</a>
+            </nav>
+        </div>
+    </header>
 
-<div class="container" style="padding: 60px 20px;">
-  <h1 style="text-align:center; margin-bottom: 40px;">Common Questions</h1>
-  
-  <div class="faq-item">
-    <h3>Do you really travel 200 miles?</h3>
-    <p>Yes! We specialize in reaching rural homes and ranches that other services won't. Based in Pittsburg (75686), we cover a wide radius across East Texas and into neighboring states.</p>
-  </div>
+    <section class="hero-mini">
+        <div class="container" data-aos="fade-down">
+            <h1>Frequently Asked Questions</h1>
+            <p>Direct Answers About Our Industrial-Grade Handyman Services</p>
+        </div>
+    </section>
 
-  <div class="faq-item">
-    <h3>How do travel fees work?</h3>
-    <p>The first 100 miles of travel from Pittsburg, TX are <strong>completely free</strong>. For distances beyond 100 miles, a small trip fee is added to cover fuel and time, which you can calculate using our estimator on the home page.</p>
-  </div>
+    <div class="container faq-section">
 
-  <div class="faq-item">
-    <h3>Are you an official Starlink employee?</h3>
-    <p>No, we are independent professional installers. We specialize in the physical mounting and network integration of Starlink systems for residential and RV customers.</p>
-  </div>
+        <div class="faq-item" data-aos="fade-up">
+            <h3>Do you really travel a 200-mile radius?</h3>
+            <p>Yes. Based in <strong>Pittsburg, TX (75686)</strong>, we travel across East Texas and into Oklahoma, Arkansas, and Louisiana. We specialize in reaching rural locations and off-grid properties that standard local services won't cover.</p>
+        </div>
 
-  <div class="faq-item">
-    <h3>How do I pay for services?</h3>
-    <p>We accept Square, Venmo, PayPal, and Cash App for your convenience. Payment is typically due upon completion of the job.</p>
-  </div>
-</div>
+        <div class="faq-item" data-aos="fade-up">
+            <h3>How do your travel fees work?</h3>
+            <p>The first <strong>100 miles of travel are FREE</strong>. For jobs beyond 100 miles, a small trip fee is added to cover fuel and equipment transport. You can calculate your exact distance from Pittsburg on our <a href="index.html#estimator">Project Estimator</a>.</p>
+        </div>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>Dean's Handyman Service LLC | Pittsburg, TX 75686</p>
-  </div>
-</footer>
+        <div class="faq-item" data-aos="fade-up">
+            <h3>Do you provide the Starlink hardware?</h3>
+            <p>No. You must order your kit directly from <a href="https://www.starlink.com" target="_blank">Starlink.com</a>. However, if you use our <strong>Referral Link</strong> found on our <a href="starlink-install.html">Starlink Hub</a>, you will receive your <strong>2nd Month of Service for FREE</strong>.</p>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up">
+            <h3>What is included in a Starlink installation?</h3>
+            <p>A professional install includes secure mounting (roof, wall, or pole), industrial-grade cable routing through the structure, interior wall-plate finishing, and network optimization to ensure your Mesh system is providing maximum speed throughout the house.</p>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up">
+            <h3>What makes your service "Industrial-Grade"?</h3>
+            <p>Dean’s professional background is in <strong>heavy construction</strong>, including electrical, hydraulics, pipefitting, and fabrication. We use commercial-grade tools and parts that exceed the standards of typical "big box store" hardware used by average handymen.</p>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up">
+            <h3>Are you licensed and insured?</h3>
+            <p>Yes. We are a fully registered <strong>LLC</strong> and carry professional insurance. In the state of Texas, a specific "handyman license" does not exist, but we operate at a licensed-professional level in our technical trades.</p>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up">
+            <h3>What payment methods do you accept?</h3>
+            <p>We accept all major secure digital payments for your convenience, including <strong>Square, Venmo, PayPal, and Cash App</strong>. You can find direct payment links in the footer of our website.</p>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up">
+            <h3>Do you work on RVs?</h3>
+            <p>Absolutely. Having lived full-time in a 40-foot Forest River Wildwood, Dean is an expert in <strong>RV connectivity and maintenance</strong>. We specialize in Starlink Mini 12V DC conversions and magnetic vehicle mounts for travelers.</p>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up">
+            <h3>Do you do emergency repairs?</h3>
+            <p>While we primarily work by appointment, we do offer emergency troubleshooting for technical trades (electrical/internet) when possible. Call <strong>(281) 917-9914</strong> for immediate availability.</p>
+        </div>
+
+    </div>
+
+    <section style="background: var(--accent); padding: 50px 0; text-align: center;">
+        <div class="container">
+            <h2 style="color: var(--dark); font-weight: 800;">Still have a question?</h2>
+            <p style="margin-bottom: 25px; font-weight: 600;">Ask our AI Assistant or send a direct message.</p>
+            <a href="contact.html" class="btn-nav" style="background: var(--dark); padding: 15px 40px; font-size: 1.1rem; text-decoration: none;">Contact Dean Directly</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>Dean's Handyman Service LLC</strong></p>
+            <p>Pittsburg, TX 75686 | (281) 917-9914</p>
+            <div style="margin-top:20px; opacity: 0.5; font-size:0.8rem;">
+                © 2026 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+
+    <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+    <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmla3f83s001hfy8tds4wmpva'></zapier-interfaces-chatbot-embed>
 
 </body>
 </html>
