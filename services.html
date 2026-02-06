@@ -15,31 +15,57 @@
     <style>
         /* --- RESET & BASICS --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; overflow-x: hidden; }
         :root {
             --primary: #008bd2; 
             --primary-dark: #006fa8;
             --accent: #f0a500; 
-            --dark: #1e293b;
+            --dark: #0f172a; 
+            --text-main: #1a1a1a; 
+            --text-muted: #475569; 
             --white: #ffffff;
-            --light-bg: #f1f5f9;
+            --tech-bg: #1e293b;
         }
 
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-main); background-color: #f9f9f9; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+
+        h1, h2, h3, h4 { color: var(--dark); font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 10px; color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); text-align: center; margin-bottom: 10px; }
+        
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* --- HEADER --- */
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 100px; }
-        .logo-wrapper { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--dark); }
-        .logo-img { height: 85px; width: auto; }
-        .logo-text { font-weight: 800; font-size: 1.1rem; line-height: 1.1; text-transform: uppercase; }
-        .nav-links a { color: var(--dark); text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
-        .btn-nav { background: var(--primary); color: white !important; padding: 10px 20px; border-radius: 6px; font-weight: bold; }
+        /* --- HEADER & NAVIGATION --- */
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 2000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo-wrapper { display: flex; align-items: center; gap: 10px; text-decoration: none; z-index: 2100; }
+        .logo-img { height: 50px; width: auto; }
+        .logo-text { font-weight: 800; font-size: 1rem; line-height: 1; text-transform: uppercase; color: var(--dark); }
+        .logo-text span { color: var(--primary); font-size: 0.7rem; display: block; font-weight: 900; }
+        
+        .nav-links { display: flex; align-items: center; gap: 12px; }
+        .nav-links a { color: var(--dark); text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; white-space: nowrap; transition: 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
 
-        /* --- PAGE HERO --- */
-        .page-hero { background: var(--dark); color: white; padding: 80px 0; text-align: center; }
-        .page-hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
-        .page-hero p { font-size: 1.2rem; color: #cbd5e1; }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2100; padding: 10px; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--dark); border-radius: 3px; transition: 0.3s; }
+
+        @media (max-width: 992px) {
+            .menu-toggle { display: flex; }
+            .nav-links { 
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; 
+                background: var(--white); flex-direction: column; align-items: flex-start; 
+                padding: 100px 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s; 
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 1.1rem; width: 100%; padding: 15px 0; border-bottom: 1px solid #f1f1f1; }
+        }
+
+        /* --- PAGE HERO (SHOP BACKGROUND) --- */
+        .page-hero { 
+            background: linear-gradient(rgba(0, 15, 30, 0.7), rgba(0, 15, 30, 0.7)), url('https://i.imgur.com/MZzro2B.jpg'); 
+            background-size: cover; background-position: center; padding: 100px 0; text-align: center; color: white;
+        }
 
         /* --- SERVICE GRID --- */
         .services-section { padding: 80px 0; }
@@ -49,7 +75,7 @@
         .service-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; display: block; }
         .service-card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--dark); font-weight: 800; }
         .service-card ul { list-style: none; margin-bottom: 25px; }
-        .service-card li { margin-bottom: 10px; padding-left: 30px; position: relative; font-size: 0.95rem; font-weight: 500; }
+        .service-card li { margin-bottom: 10px; padding-left: 30px; position: relative; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); }
         .service-card li::before { content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; left: 0; color: #22c55e; }
         .starting-price { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--primary-dark); letter-spacing: 1px; margin-bottom: 5px; }
 
@@ -62,16 +88,15 @@
         .cta-bar { background: var(--accent); padding: 60px 0; text-align: center; }
         .cta-bar h2 { color: var(--dark); font-weight: 800; margin-bottom: 20px; }
         .btn-dark { background: var(--dark); color: white !important; padding: 15px 35px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold; transition: 0.3s; }
-        .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        /* --- FOOTER --- */
-        footer { background: #1a1a1a; color: #aaa; padding: 60px 0; text-align: center; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            h1 { font-size: 2rem !important; }
-            .logo-text { display: none; }
+        /* --- CALL BUTTON --- */
+        .mobile-fab { 
+            position: fixed; bottom: 20px; left: 20px; background: #28a745; color: white; 
+            width: 60px; height: 60px; border-radius: 50%; display: none; align-items: center; 
+            justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1500; text-decoration: none; 
         }
+
+        @media (max-width: 992px) { .mobile-fab { display: flex; } }
     </style>
 </head>
 <body>
@@ -79,31 +104,38 @@
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo-wrapper">
-                <img src="https://i.imgur.com/CtBcYkI.png" alt="Dean's Handyman Service" class="logo-img">
-                <div class="logo-text">Dean's<br><span style="color:var(--primary); font-size:0.7rem;">Handyman Service LLC</span></div>
+                <img src="https://i.imgur.com/CtBcYkI.png" alt="Dean's Handyman Service Logo" class="logo-img">
+                <div class="logo-text">Dean's<br><span>Handyman Service LLC</span></div>
             </a>
-            <nav class="nav-links">
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </div>
+            <nav class="nav-links" id="nav-menu">
+                <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="services.html">Services</a>
                 <a href="starlink-install.html">Starlink</a>
-                <a href="areas.html">Areas</a>
+                <a href="areas.html">Service Areas</a>
                 <a href="gallery.html">Work</a>
-                <a href="contact.html" class="btn-nav">Get Quote</a>
+                <a href="blog.html">Blog</a>
+                <a href="faqs.html">FAQs</a>
+                <a href="contact.html">Contact</a>
+                <a href="tel:2819179914" class="btn btn-primary" style="padding: 8px 12px;">(281) 917-9914</a>
             </nav>
         </div>
     </header>
 
+    <a href="tel:2819179914" class="mobile-fab">📞</a>
+
     <section class="page-hero">
         <div class="container" data-aos="fade-down">
             <h1>Industrial-Grade Solutions</h1>
-            <p>Providing Expert Installation & Skilled Trades Across the Ark-La-Tex</p>
+            <p style="font-weight: 800; text-shadow: 0 2px 4px black; font-size: 1.2rem;">Expert Installation & Skilled Trades Across the Ark-La-Tex</p>
         </div>
     </section>
 
     <section class="services-section">
         <div class="container">
             <div class="service-grid">
-                
                 <div class="service-card" data-aos="fade-up">
                     <i class="fas fa-satellite-dish"></i>
                     <div class="starting-price">Starting at $300</div>
@@ -142,7 +174,6 @@
                     </ul>
                     <a href="contact.html" class="btn-dark" style="padding: 10px 20px; font-size: 0.9rem;">Request Quote</a>
                 </div>
-
             </div>
         </div>
     </section>
@@ -173,24 +204,38 @@
     <section class="cta-bar">
         <div class="container">
             <h2>Serving Pittsburg & A 200-Mile Radius</h2>
-            <p style="font-weight: 600; margin-bottom: 20px;">Texas • Arkansas • Louisiana • Oklahoma</p>
+            <p style="font-weight: 700; margin-bottom: 20px; color: var(--dark);">Texas • Arkansas • Louisiana • Oklahoma</p>
             <a href="contact.html" class="btn-dark" style="padding: 18px 40px; font-size: 1.1rem;">Start Your Estimate</a>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p><strong>Dean's Handyman Service LLC</strong></p>
-            <p>Professional Tradesman | (281) 917-9914</p>
-            <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.5;">© 2026 All Rights Reserved.</p>
+    <footer style="background: #0a0f1a; color: #cbd5e1; padding: 60px 0;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: left;">
+            <div>
+                <h4 style="color: white; margin-bottom: 15px;">Dean's Handyman Service LLC</h4>
+                <p style="color: #94a3b8; font-weight: 600;">Technical tradesman serving the rural Ark-La-Tex with industrial precision.</p>
+            </div>
+            <div>
+                <h4 style="color: white; margin-bottom: 15px;">Contact Info</h4>
+                <p style="color: #94a3b8; font-weight: 600;">(281) 917-9914<br>deanshandymanservice1@gmail.com</p>
+            </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const spans = menuBtn.getElementsByTagName('span');
+            spans[0].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(5px, 6px)' : 'none';
+            spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
+            spans[2].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(5px, -6px)' : 'none';
+        });
     </script>
-
+    
     <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
     <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmla3f83s001hfy8tds4wmpva'></zapier-interfaces-chatbot-embed>
 
