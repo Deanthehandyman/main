@@ -11,56 +11,88 @@
     <meta name="geo.position" content="32.9997;-94.9675">
     <meta name="ICBM" content="32.9997, -94.9675">
 
+    <meta property="og:title" content="Our 200-Mile Service Area | Dean's Handyman Service LLC">
+    <meta property="og:description" content="Based in Pittsburg, TX. Serving 4 states with industrial-grade technical repairs.">
+    <meta property="og:image" content="https://i.imgur.com/CtBcYkI.png">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* --- RESET & BASICS --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; overflow-x: hidden; }
         :root {
             --primary: #008bd2; 
             --primary-dark: #006fa8;
             --accent: #f0a500; 
-            --dark: #1e293b;
+            --dark: #0f172a; 
+            --text-main: #1a1a1a; 
+            --text-muted: #475569; 
             --white: #ffffff;
+            --tech-bg: #1e293b;
         }
+
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-main); background-color: #f9f9f9; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+
+        h1, h2, h3, h4 { color: var(--dark); font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 10px; color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); text-align: center; margin-bottom: 10px; color: var(--dark); }
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* --- HEADER --- */
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 100px; }
-        .logo-wrapper { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--dark); }
-        .logo-img { height: 85px; width: auto; }
-        .logo-text { font-weight: 800; font-size: 1.1rem; line-height: 1.1; text-transform: uppercase; }
-        .logo-text span { color: var(--primary); display: block; font-size: 0.7rem; letter-spacing: 1px; }
-
-        /* --- HERO --- */
-        .hero-mini { background: linear-gradient(135deg, #005a8d 0%, #008bd2 100%); color: white; padding: 60px 0; text-align: center; }
-        .hero-mini h1 { font-size: 2.5rem; margin-bottom: 10px; color: white; }
+        /* --- HEADER & NAVIGATION --- */
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 2000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo-wrapper { display: flex; align-items: center; gap: 10px; text-decoration: none; z-index: 2100; }
+        .logo-img { height: 50px; width: auto; }
+        .logo-text { font-weight: 800; font-size: 1rem; line-height: 1; text-transform: uppercase; color: var(--dark); }
+        .logo-text span { color: var(--primary); font-size: 0.7rem; display: block; font-weight: 900; }
         
-        /* --- MAP PLACEHOLDER / RADIUS INFO --- */
-        .radius-info { background: var(--white); padding: 40px; border-radius: 12px; margin: -30px auto 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; max-width: 900px; border-top: 6px solid var(--accent); position: relative; z-index: 10; }
-        .radius-info h2 { color: var(--primary-dark); margin-bottom: 15px; }
+        .nav-links { display: flex; align-items: center; gap: 12px; }
+        .nav-links a { color: var(--dark); text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; white-space: nowrap; transition: 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2100; padding: 10px; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--dark); border-radius: 3px; transition: 0.3s; }
+
+        @media (max-width: 992px) {
+            .menu-toggle { display: flex; }
+            .nav-links { 
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; 
+                background: var(--white); flex-direction: column; align-items: flex-start; 
+                padding: 100px 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s; 
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 1.1rem; width: 100%; padding: 15px 0; border-bottom: 1px solid #f1f1f1; }
+        }
+
+        /* --- MAP HERO --- */
+        .map-hero { 
+            background: linear-gradient(rgba(0, 15, 30, 0.7), rgba(0, 15, 30, 0.7)), url('https://i.imgur.com/B9B1v2q.png'); 
+            background-size: cover; background-position: center; padding: 100px 0; text-align: center; color: white;
+        }
+
+        /* --- INFO BOX --- */
+        .radius-info { background: var(--white); padding: 40px; border-radius: 12px; margin: -50px auto 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; max-width: 900px; border-top: 6px solid var(--accent); position: relative; z-index: 10; }
+        .radius-info p { color: var(--text-muted); font-weight: 500; font-size: 1.1rem; }
 
         /* --- SEARCH & GRID --- */
         .search-container { text-align: center; margin-bottom: 40px; }
-        .search-box { width: 100%; max-width: 600px; padding: 18px; border-radius: 50px; border: 2px solid #ddd; font-size: 1.1rem; outline: none; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .search-box:focus { border-color: var(--primary); box-shadow: 0 4px 15px rgba(0, 139, 210, 0.2); }
+        .search-box { width: 100%; max-width: 600px; padding: 18px; border-radius: 50px; border: 2px solid #ddd; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); outline: none; }
+        .search-box:focus { border-color: var(--primary); }
 
         .area-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; padding-bottom: 80px; }
-        .city-tag { background: white; padding: 15px; border-radius: 8px; border: 1px solid #eee; text-align: center; font-size: 0.95rem; font-weight: 600; color: var(--dark); transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .city-tag { background: white; padding: 15px; border-radius: 8px; border: 1px solid #eee; text-align: center; font-size: 0.95rem; font-weight: 700; color: var(--dark); transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .city-tag:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .city-tag::before { content: '📍'; font-size: 0.8rem; opacity: 0.7; }
 
-        /* --- FOOTER --- */
-        footer { background: #1a1a1a; color: #aaa; padding: 60px 0; text-align: center; }
-        .footer-cta { background: var(--accent); padding: 40px 0; text-align: center; margin-top: 40px; }
-
-        @media (max-width: 768px) {
-            .nav-container { height: 80px; }
-            .logo-text { display: none; }
-            h1 { font-size: 2rem !important; }
+        /* --- CALL BUTTON --- */
+        .mobile-fab { 
+            position: fixed; bottom: 20px; left: 20px; background: #28a745; color: white; 
+            width: 60px; height: 60px; border-radius: 50%; display: none; align-items: center; 
+            justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1500; text-decoration: none; 
         }
+
+        @media (max-width: 992px) { .mobile-fab { display: flex; } }
     </style>
 </head>
 <body>
@@ -71,55 +103,78 @@
                 <img src="https://i.imgur.com/CtBcYkI.png" alt="Dean's Handyman Service Logo" class="logo-img">
                 <div class="logo-text">Dean's<br><span>Handyman Service LLC</span></div>
             </a>
-            <nav><a href="index.html" style="text-decoration:none; color:var(--primary); font-weight:bold; text-transform:uppercase; font-size:0.85rem;">← Back to Home</a></nav>
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </div>
+            <nav class="nav-links" id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="starlink-install.html">Starlink</a>
+                <a href="gallery.html">Work</a>
+                <a href="blog.html">Blog</a>
+                <a href="faqs.html">FAQs</a>
+                <a href="contact.html">Contact</a>
+                <a href="tel:2819179914" style="background:var(--primary); color:white; padding: 10px 15px; border-radius:6px; text-decoration:none;">(281) 917-9914</a>
+            </nav>
         </div>
     </header>
 
-    <section class="hero-mini">
+    <a href="tel:2819179914" class="mobile-fab">📞</a>
+
+    <section class="map-hero">
         <div class="container" data-aos="fade-down">
-            <h1>Our Wide Service Radius</h1>
-            <p>Providing Industrial-Grade Tech & Repair Across 4 States</p>
+            <h1>Our Multi-State Service Radius</h1>
+            <p style="font-weight: 800; text-shadow: 0 2px 6px black; font-size: 1.3rem;">Providing Reliable Tech & Repair Across TX, AR, LA, and OK</p>
         </div>
     </section>
 
     <div class="container">
         <div class="radius-info" data-aos="zoom-in">
             <h2>The 200-Mile Ark-La-Tex Reach</h2>
-            <p>Based in <strong>Pittsburg, TX (75686)</strong>, we operate a fully mobile workshop. Unlike local handymen, we specialize in high-tech Starlink installations and complex repairs that require us to travel to rural and remote locations.</p>
-            <div style="margin-top:20px; font-weight:bold; color:var(--primary-dark);">📍 FREE travel for the first 100 miles!</div>
-            
-            
+            <p>Based in <strong>Pittsburg, TX (75686)</strong>, we operate a fully mobile workshop. We specialize in high-tech Starlink installations and complex trades that require us to reach rural and remote locations.</p>
+            <p style="margin-top:20px; font-weight:900; color:var(--primary-dark);">📍 FREE travel for the first 100 miles!</p>
         </div>
 
         <div class="search-container" data-aos="fade-up">
-            <input type="text" id="citySearch" class="search-box" placeholder="Search your city or zip code...">
+            <input type="text" id="citySearch" class="search-box" placeholder="Search your city or state (e.g. Tyler, AR, LA)...">
         </div>
         
         <div class="area-grid" id="areaGrid">
             </div>
     </div>
 
-    <section class="footer-cta">
-        <div class="container">
-            <h2 style="color:var(--dark);">Don't see your city?</h2>
-            <p style="margin-bottom:20px; font-weight:600;">We likely cover it. If you are within 200 miles of Pittsburg, we can help.</p>
-            <a href="contact.html" style="background:var(--dark); color:white; padding:15px 30px; text-decoration:none; border-radius:6px; font-weight:bold; display:inline-block;">Request A Quote Today</a>
+    <footer style="background: #0a0f1a; color: #cbd5e1; padding: 60px 0;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: left;">
+            <div>
+                <h4 style="color: white; margin-bottom: 15px;">Dean's Handyman Service LLC</h4>
+                <p style="color:#94a3b8; font-weight:600;">Technical tradesman serving the rural Ark-La-Tex with industrial precision.</p>
+            </div>
+            <div>
+                <h4 style="color: white; margin-bottom: 15px;">Contact Info</h4>
+                <p style="color:#94a3b8; font-weight:600;">(281) 917-9914<br>deanshandymanservice1@gmail.com</p>
+            </div>
         </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p><strong>Dean's Handyman Service LLC</strong></p>
-            <p>Pittsburg, TX 75686 | (281) 917-9914</p>
-            <div style="margin-top:20px; opacity: 0.5; font-size:0.8rem;">© 2026 All Rights Reserved. Serving TX, AR, LA, OK.</div>
+        <div style="text-align: center; padding-top: 40px; border-top: 1px solid #1e293b; margin-top: 40px; font-size: 0.85rem;">
+            © 2026 Dean's Handyman Service LLC.
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
+        
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const spans = menuBtn.getElementsByTagName('span');
+            spans[0].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(5px, 6px)' : 'none';
+            spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
+            spans[2].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(5px, -6px)' : 'none';
+        });
 
-        const cities = ["Leesburg (TX)","Cason (TX)","Winfield (TX)","Scroggins (TX)","Daingerfield (TX)","Gilmer (TX)","Lone Star (TX)","Mount Pleasant (TX)","Cookville (TX)","Ore City (TX)","Omaha (TX)","Hughes Springs (TX)","Avinger (TX)","Pickton (TX)","Diana (TX)","Naples (TX)","Big Sandy (TX)","Talco (TX)","Saltillo (TX)","Hawkins (TX)","Como (TX)","Dike (TX)","Judson (TX)","White Oak (TX)","Gladewater (TX)","Sulphur Bluff (TX)","Simms (TX)","Yantis (TX)","Linden (TX)","Bogata (TX)","Sulphur Springs (TX)","Harleton (TX)","Annona (TX)","Winona (TX)","Longview (TX)","Cunningham (TX)","Mineola (TX)","Douglassville (TX)","Alba (TX)","Lindale (TX)","De Kalb (TX)","Deport (TX)","Hallsville (TX)","Lodi (TX)","Avery (TX)","Kildare (TX)","Lake Creek (TX)","Woodlawn (TX)","Kilgore (TX)","New Boston (TX)","Laird Hill (TX)","Marshall (TX)","Brashear (TX)","Pattonville (TX)","Emory (TX)","Bivins (TX)","Redwater (TX)","Cumby (TX)","Easton (TX)","Grand Saline (TX)","Cooper (TX)","Queen City (TX)","Enloe (TX)","Detroit (TX)","Arp (TX)","Overton (TX)","Tyler (TX)","Van (TX)","New London (TX)","Hooks (TX)","Mc Leod (TX)","Blossom (TX)","Tatum (TX)","Fruitvale (TX)","Karnack (TX)","Scottsville (TX)","Henderson (TX)","Klondike (TX)","Bloomburg (TX)","Point (TX)","Pecan Gap (TX)","Ben Wheeler (TX)","Edgewood (TX)","Whitehouse (TX)","Lone Oak (TX)","Joinerville (TX)","Selman City (TX)","Rodessa (LA)","Campbell (TX)","Nash (TX)","Ben Franklin (TX)","Commerce (TX)","Vivian (LA)","Haworth (OK)","Idabel (OK)","Beckville (TX)","Roxton (TX)","Bagwell (TX)","Foreman (AR)","Flint (TX)","Oil City (LA)","Brownsboro (TX)","Price (TX)","Waskom (TX)","Doddridge (AR)","Ida (LA)","Brookston (TX)","Elysian Fields (TX)","Wills Point (TX)","Petty (TX)","Hosston (LA)","Powderly (TX)","Fouke (AR)","Mooringsport (LA)","Canton (TX)","Ladonia (TX)","Murchison (TX)","Garvin (OK)","Bullard (TX)","Quinlan (TX)","Troup (TX)","Belcher (LA)","Genoa (AR)","De Berry (TX)","Wolfe City (TX)","Gilliam (LA)","Ashdown (AR)","Valliant (OK)","Greenville (TX)","Sumner (TX)","Millerton (OK)","Blanchard (LA)","Greenwood (LA)","Chicota (TX)","Alleene (AR)","Winthrop (AR)","Swink (OK)","Bethany (LA)","Texarkana (AR)","New Summerfield (TX)","Cuney (TX)","Honey Grove (TX)","Larue (TX)","Ogden (AR)","Windom (TX)","Arthur City (TX)","Long Branch (TX)","Golden (OK)","Laneville (TX)","Elmo (TX)","Caddo Mills (TX)","Wilton (AR)","Gober (TX)","Poynor (TX)","Garland City (AR)","Frankston (TX)","Fort Towson (OK)","Horatio (AR)","Celeste (TX)","Dodd City (TX)","Ben Lomond (AR)","Bradley (AR)","Sawyer (OK)","Mabank (TX)","Mount Enterprise (TX)","Bailey (TX)","Broken Bow (OK)","Plain Dealing (LA)","Wright City (OK)","Gary (TX)","Eagletown (OK)","Leonard (TX)","Eustace (TX)","Reklaw (TX)","Gallatin (TX)","Royse City (TX)","Merit (TX)","Keithville (LA)","Saratoga (AR)","Rufe (OK)","Hugo (OK)","Shreveport (LA)","Terrell (TX)","Josephine (TX)","Benton (LA)","Fulton (AR)","Bossier City (LA)","Farmersville (TX)","Lewisville (AR)","Sacul (TX)","Kaufman (TX)","Bonham (TX)","Lockesburg (AR)","Nevada (TX)","Fate (TX)","Randolph (TX)","Telephone (TX)","Keatchie (LA)","Soper (OK)","Ringold (OK)","Spencerville (OK)","De Queen (AR)","Trenton (TX)","Stonewall (LA)","Columbus (AR)","Neches (TX)","Mineral Springs (AR)","Haughton (LA)","Boswell (OK)","Tenaha (TX)","Barksdale Afb (LA)","Copeville (TX)","Rockwall (TX)","Malakoff (TX)","Cushing (TX)","Maydelle (TX)","Ivanhoe (TX)","Rusk (TX)","Blue Ridge (TX)","Lavon (TX)","Garrison (TX)","Springhill (LA)","Stamps (AR)","Ector (TX)","Gloster (LA)","Trinidad (TX)","Forney (TX)","Timpson (TX)","Cullen (LA)","Gillham (AR)","Montalba (TX)","Sarepta (LA)","Princeton (LA)","Ravenna (TX)","Savoy (TX)","Crandall (TX)","Bennington (OK)","Cotton Valley (LA)","Logansport (LA)","Whitewright (TX)","Westminster (TX)","Longstreet (LA)","Scurry (TX)","Wylie (TX)","Hope (AR)","Palestine (TX)","Frierson (LA)","Buckner (AR)","Joaquin (TX)","Antlers (OK)","Cayuga (TX)","Grannis (AR)","Rowlett (TX)","Douglass (TX)","Sunnyvale (TX)","Alto (TX)","Anna (TX)","Grand Cane (LA)","Albany (OK)","Ozan (AR)","Hendrix (OK)","Rattan (OK)","Sachse (TX)","Melissa (TX)","Rosser (TX)","Kerens (TX)","Nashville (AR)","Tennessee Colony (TX)","Tom Bean (TX)","Mckinney (TX)","Bethel (OK)","Bells (TX)","Shongaloo (LA)","Garland (TX)","Van Alstyne (TX)","Chatfield (TX)","Seagoville (TX)","Dierks (AR)","Kemp (OK)","Elm Grove (LA)","Center (TX)","Pickens (OK)","Wickes (AR)","Mesquite (TX)","Balch Springs (TX)","Bokchito (OK)","Waldo (AR)","Powell (TX)","Doyline (LA)","Battiest (OK)","Martinsville (TX)","Watson (OK)","Achille (OK)","Minden (LA)","Sherman (TX)","Finley (OK)","Emmet (AR)","Moyers (OK)","Elkhart (TX)","Rice (TX)","Mc Caskill (AR)","Ferris (TX)","Weston (TX)","Umpire (AR)","Mansfield (LA)","Nacogdoches (TX)","Plano (TX)","Willisville (AR)","Sibley (LA)","Hutchins (TX)","Wells (TX)","Cove (AR)","Richardson (TX)","Wilmer (TX)","Snow (OK)","Emerson (AR)","Blevins (AR)","Corsicana (TX)","Calera (OK)","Rosston (AR)","Colbert (OK)","Vandervoort (AR)","Ennis (TX)","Heflin (LA)","Magnolia (AR)","Lane (OK)","Fairfield (TX)","Celina (TX)","Smithville (OK)","Cale (AR)","Murfreesboro (AR)","Woden (TX)","Streetman (TX)","Nashoba (OK)","Mc Neil (AR)","Grapeland (TX)","Newhope (AR)","Shelbyville (TX)","Caddo (OK)","Ringgold (LA)","Palmer (TX)","Dallas (TX)","Gunter (TX)","Prosper (TX)","Addison (TX)","Lancaster (TX)","Pollok (TX)","Durant (OK)","Dubberly (LA)","Denison (TX)","Frisco (TX)","Converse (LA)","Chireno (TX)","Hatfield (AR)","Haynesville (LA)","Honobia (OK)","Caney (OK)","Platter (OK)","Cartwright (OK)","Langley (AR)","Delight (AR)","San Augustine (TX)","Carrollton (TX)","Taylor (LA)","Kirby (AR)","Hall Summit (LA)","Pelican (LA)","Southmayd (TX)","Atoka (OK)","The Colony (TX)","Bardwell (TX)","Prescott (AR)","Kirvin (TX)","Richland (TX)","Jamestown (LA)","Desoto (TX)","Latexo (TX)","Coushatta (LA)","Antoine (AR)","Whitesboro (OK)","Mead (OK)","Oakwood (TX)","Kennard (TX)","Stringtown (OK)","Albion (OK)","Pottsboro (TX)","Barry (TX)","Waxahachie (TX)","Kenefic (OK)","Athens (LA)","Stephens (AR)","Little Elm (TX)","Duncanville (TX)","Irving (TX)","Bluff City (AR)","Gibsland (LA)","Pilot Point (TX)","Daisy (OK)","Tuskahoma (OK)","Homer (LA)","Noble (LA)","Coppell (TX)","Collinsville (TX)","Wortham (TX)","Etoile (TX)","Board Camp (AR)","Talihina (OK)","Pleasant Hill (LA)","Grand Prairie (TX)","Lake Dallas (TX)","Kingston (OK)","Muse (OK)","Aubrey (TX)","Apple Springs (TX)","Blooming Grove (TX)","Mena (AR)","Beirne (AR)","Avalon (TX)","Okolona (AR)","Cedar Hill (TX)","Sadler (TX)","Purdon (TX)","Teague (TX)","Hodgen (OK)","Centralia (TX)","Whelen Springs (AR)","Castor (LA)","Mount Holly (AR)","Lufkin (TX)","Zwolle (LA)","Belmont (LA)","Forreston (TX)","Milburn (OK)","Glenwood (AR)","Milam (TX)","Lisbon (LA)","Euless (TX)","Arcadia (LA)","Marthaville (LA)","Ashland (LA)","Gordonville (TX)","Midlothian (TX)","Norman (AR)","Coleman (OK)","Caddo Gap (AR)","Lehigh (OK)","Crockett (TX)","Summerfield (LA)","Italy (TX)","Buffalo (TX)","Madill (OK)","Flower Mound (TX)","Frost (TX)","Alpine (AR)","Chidester (AR)","Gurdon (AR)","Bienville (LA)","Pittsburg (OK)","Blanco (OK)","Dawson (TX)","Tehuacana (TX)","Pennington (TX)","Bedford (TX)","Camden (AR)","Diboll (TX)","Colleyville (TX)","Southlake (TX)","Junction City (AR)","Mexia (TX)","Bronson (TX)","Denton (TX)","Argyle (TX)","Curtis (AR)","Amity (AR)","Donie (TX)","Hartshorne (OK)","Maypearl (TX)","Hurst (TX)","Heavener (OK)","Broaddus (TX)","Powhatan (LA)","Smackover (AR)","Venus (TX)","Simsboro (LA)","Arlington (TX)","Lebanon (OK)","Leflore (OK)","Arkadelphia (AR)","Wapanucka (OK)","Irene (TX)","Louann (AR)","Boles (AR)","Saline (LA)","Oden (AR)","North Richland Hills (TX)","Valley View (TX)","Lillie (LA)","Mertens (TX)","Many (LA)","Bromide (OK)","Milford (TX)","Coalgate (OK)","Wardville (OK)","Sanger (TX)","Kennedale (TX)","Mount Ida (AR)","Lillian (TX)","Gowen (OK)","Negreet (LA)","Wister (OK)","Campti (LA)","Clarita (OK)","Haileyville (OK)","Zavalla (TX)","Haltom City (TX)","Coolidge (TX)","Bonnerdale (AR)","Hubbard (TX)","Brandon (TX)","Kiowa (OK)","Pencil Bluff (AR)","Grambling (LA)","Dubach (LA)","Panola (OK)","Jewett (TX)","Ravia (OK)","Robeline (LA)","Keller (TX)","Howe (OK)","Bernice (LA)","Wilburton (OK)","Malone (TX)","Tishomingo (OK)","Lovelady (TX)","Red Oak (OK)","Norphlet (AR)","Bynum (TX)","El Dorado (AR)","Fanshawe (OK)","Alvarado (TX)","Ponder (TX)","Groveton (TX)","Fisher (LA)","Woodlake (TX)","Pineland (TX)","Krum (TX)","Justin (TX)","Thackerville (OK)","Gainesville (TX)","Savanna (OK)","Mannsville (OK)","Tupelo (OK)","Bismarck (AR)","Groesbeck (TX)","Corrigan (TX)","Hemphill (TX)","Quitman (LA)","Centrahoma (OK)","Fort Worth (TX)","Connerville (OK)","Sims (AR)","Grandview (TX)","Goldonna (LA)","Alderson (OK)","Pearcy (AR)","Ruston (LA)","Leona (TX)","Itasca (TX)","Hodge (LA)","Penelope (TX)","Spearsville (LA)","Prairie Hill (TX)","Burleson (TX)","Trinity (TX)","Clarence (LA)","Era (TX)","Parks (AR)","Marietta (OK)","Haslet (TX)","Krebs (OK)","Brookeland (TX)","Hillsboro (TX)","Marquez (TX)","Sparkman (AR)","Mount Calm (TX)","Friendship (AR)","Bearden (AR)","Calion (AR)","Mill Creek (OK)","Natchitoches (LA)","Myra (TX)","Slidell (TX)","Waldron (AR)","Hartford (AR)","Story (AR)","Mcalester (OK)","Overbrook (OK)","Florien (LA)","Naval Air Station Jrb (TX)","Jonesboro (LA)","Hampton (AR)","Keene (TX)","Donaldson (AR)","Royal (AR)","Cleburne (TX)","Lawson (AR)","Lequire (OK)","Saint Maurice (LA)","Flynn (TX)","Shady Point (OK)","Flora (LA)","Covington (TX)","Rhome (TX)","Calvin (LA)","Newark (TX)","Abbott (TX)","Poteau (OK)","Muenster (TX)","Harvey (AR)","Midway (TX)","Joshua (TX)","Blocker (OK)","Mart (TX)","Kinta (OK)","Normangee (TX)","Axtell (TX)","Kosse (TX)","Mccurtain (OK)","Leroy (TX)","Choudrant (LA)","Gene Autry (OK)","Midland (AR)","Bluffton (AR)","Decatur (TX)","Hornbeck (LA)","Stuart (OK)","Colmesneil (TX)","Onalaska (TX)","Fittstown (OK)","Quinton (OK)","Natchez (LA)","Wiergate (TX)","Dodson (LA)","Allen (OK)","Jasper (TX)","Madisonville (TX)","West (TX)","Riverside (TX)","Gravelly (AR)","Leggett (TX)","Melrose (LA)","Malvern (AR)","Cameron (OK)","Provencal (LA)","Panama (OK)","Rio Vista (TX)","Burneyville (OK)","Azle (TX)","Bokoshe (OK)","Roff (OK)","Mountain Pine (AR)","Anacoco (LA)","Hackett (AR)","Huntington (AR)","Elm Mott (TX)","Carthage (AR)","Crowder (OK)","Harrell (AR)","Blum (TX)","Boyd (TX)","Montgomery (LA)","Thornton (AR)","Ross (TX)","Winnfield (LA)","Doucette (TX)","Dougherty (OK)","Godley (TX)","Strong (AR)","Dodge (TX)","Pointblank (TX)","Riesel (TX)","Fitzhugh (OK)","Downsville (LA)","Atlanta (LA)","Aquilla (TX)","Ardmore (OK)","Jessieville (AR)","Indianola (OK)","Canadian (OK)","Farmerville (LA)","Leon (OK)","Chatham (LA)","Atwood (OK)","Huntsville (TX)","Briggsville (AR)","Kurthwood (LA)","Hot Springs National Park (AR)","Whitney (TX)","Lone Grove (OK)","Eros (LA)","Jersey (AR)","Franklin (TX)","Calhoun (LA)","Whitefield (OK)","Joyce (LA)","Aledo (TX)","Marion (LA)","Fordyce (AR)","Forestburg (TX)","North Zulch (TX)","Saint Jo (TX)","Pocola (OK)","New Baden (TX)","Cloutierville (LA)","Keota (OK)","Spiro (OK)","Alvord (TX)","Weatherford (TX)","Plainview (AR)","Gorum (LA)","Livingston (TX)","Ivan (AR)","Cresson (TX)","Hoyt (OK)","Woodville (TX)","Burkeville (TX)","Booneville (AR)","Springtown (TX)","Francis (OK)","Stigler (OK)","Leola (AR)","Oakhurst (TX)","Huttig (AR)","Marlin (TX)","Mora (LA)","Paradise (TX)","Sikes (LA)","Hanna (OK)","Waco (TX)","Banks (AR)","Rover (AR)","New Llano (LA)","Hot Springs Village (AR)","Eufaula (OK)","Ada (OK)","Holdenville (OK)","Sasakwa (OK)","Bremond (TX)","Porum (OK)","Wilson (OK)","Evans (LA)","West Monroe (LA)","Danville (AR)","Nemo (TX)","Springer (OK)","Slagle (LA)","Hillister (TX)","Bridgeport (TX)","Morgan (TX)","Satin (TX)","Gans (OK)","Kopperl (TX)","Newton (TX)","Reagan (TX)","Magazine (AR)","Poyen (AR)","Dallardsville (TX)","Flatwoods (LA)","Davis (OK)","Arkoma (OK)","Goodrich (TX)","Muldrow (OK)","Traskwood (AR)","Chico (TX)","Lonsdale (AR)","Havana (AR)","Coldspring (TX)","China Spring (TX)","Leesville (LA)","Simpson (LA)","Barling (AR)","Montague (TX)","Bedias (TX)","Kingsland (AR)","Dustin (OK)","Hermitage (AR)","Rainbow (TX)","Fort Smith (AR)","Lena (LA)","Woodway (TX)","Wheelock (TX)","Bowie (TX)","Warren (AR)","Hewitt (TX)","Prattsville (AR)","Shiro (TX)","Colfax (LA)","Blue Mountain (AR)","Laguna Park (TX)","Konawa (OK)","Peaster (TX)","Stratford (OK)","Kirbyville (TX)","Spurger (TX)","Healdton (OK)","New Edinburg (AR)","Belleville (AR)","Monroe (LA)","Poolville (TX)","Wynnewood (OK)","Fort Polk (LA)","Calvert (TX)","Moffett (OK)","New Waverly (TX)","Sterlington (LA)","Granbury (TX)","Georgetown (LA)","Stidham (OK)","Charleston (AR)","Iola (TX)","Rison (AR)","Tullos (LA)","Oscar (OK)","Clifton (TX)","Ratcliff (AR)","Lavaca (AR)","Graham (OK)","Kurten (TX)","Lorena (TX)","Chilton (TX)","Dry Prong (LA)","Checotah (OK)","Ola (AR)","Fairbanks (LA)","Crossett (AR)","Ace (TX)","Nocona (TX)","Wetumka (OK)","Glen Rose (TX)","Grapevine (AR)","Ringling (OK)","Vian (OK)","Terral (OK)","Shepherd (TX)","Asher (OK)","Fred (TX)","Paron (AR)","Paris (AR)","Hennepin (OK)","Dennis (TX)","Olla (LA)","Village Mills (TX)","Warner (OK)","Richards (TX)","Bruceville (TX)","Rosepine (LA)","Sheridan (AR)","Webbers Falls (OK)","Urania (LA)","Van Buren (AR)","Sallisaw (OK)","Grayson (LA)","Ratliff City (OK)","Gore (OK)","Bon Wier (TX)","Rye (TX)","Swartz (LA)","Lott (TX)","Walnut Springs (TX)","Tatums (OK)","Rosebud (TX)","Roans Prairie (TX)","Alma (AR)","Rentiesville (OK)","Tolar (TX)","Crawford (TX)","Hearne (TX)","Romayor (TX)","Pauls Valley (OK)","Bauxite (AR)","Cecil (AR)","Otis (LA)","Millsap (TX)","Clarks (LA)","Bentley (LA)","Boyce (LA)","Votaw (TX)","Whitt (TX)","Dyer (AR)","Valley Mills (TX)","Sieper (LA)","Centerville (AR)","Columbia (LA)","Bastrop (LA)","Perryville (AR)","Eddy (TX)","Paluxy (TX)","Subiaco (AR)","Bowlegs (OK)","Wewoka (OK)","Gardner (LA)","Saint Louis (OK)","Mcgregor (TX)","Henryetta (OK)","Marble City (OK)","Maud (OK)","Dewar (OK)","New Blaine (AR)","Elmore City (OK)","Anderson (TX)","Weleetka (OK)","Casa (AR)","Hineston (LA)","Wilmar (AR)","Willis (TX)","Kelly (LA)","Tussy (OK)","Deridder (LA)","Alexander (AR)","Lipan (TX)","Alix (AR)","Countyline (OK)","Loco (OK)","Bryant (AR)","Fountain Hill (AR)","Byars (OK)","Collinston (LA)","Mumford (TX)","Perrin (TX)","Hitchita (OK)","Council Hill (OK)","Merryville (LA)","Rudy (AR)","Thicket (TX)","Pollock (LA)","Dardanelle (AR)","Wanette (OK)","Bryan (TX)","Seminole (OK)","Trout (LA)","Paoli (OK)","Scranton (AR)","Uniontown (AR)","Ryan (OK)","Pitkin (LA)","Coal Hill (AR)","Delaware (AR)","Gause (TX)","Cedarville (AR)","Troy (TX)","Bluff Dale (TX)","Mulberry (AR)","Elmer (LA)","Moody (TX)","Bellevue (TX)","Cromwell (OK)","Schulter (OK)","Start (LA)","Altus (AR)","Call (TX)","Iredell (TX)","Burlington (TX)","Cranfills Gap (TX)","Mabelvale (AR)","Oktaha (OK)","Mineral Wells (TX)","Kountze (TX)","Velma (OK)","Tioga (LA)","Adona (AR)","Braggs (OK)","Jefferson (AR)","Wainwright (OK)","Ball (LA)","Okemah (OK)","White Hall (AR)","Jacksboro (TX)","Silsbee (TX)","Oglesby (TX)","Foster (OK)","Ozark (AR)","Cookson (OK)","Buna (TX)","Knoxville (AR)","Pendleton (TX)","Wellborn (TX)","Hensley (AR)","Rayville (LA)","Hartman (AR)","Oak Ridge (LA)","Conroe (TX)","Pineville (LA)","Perry (AR)","Mangham (LA)","Boynton (OK)","Muskogee (OK)","Earlsboro (OK)","Maysville (OK)","Macomb (OK)","Alexandria (LA)","Sugartown (LA)","Bunch (OK)","Addington (OK)","Redfield (AR)","Russellville (AR)","Roland (AR)","Singer (LA)","Pottsville (AR)","Dobbin (TX)","Santo (TX)","Natural Dam (AR)","Milano (TX)","London (AR)","Houston (AR)","Wayne (OK)","Chester (AR)","Bonita (LA)","Waurika (OK)","Park Hill (OK)","Millican (TX)","Flat (TX)","Woodson (AR)","Morgan Mill (TX)","Monticello (AR)","Hico (TX)","Mountainburg (AR)","Archibald (LA)","Splendora (TX)","Woodworth (LA)","Libuse (LA)","Star City (AR)","Jena (LA)","Plantersville (TX)","Batson (TX)","Bigelow (AR)","Mer Rouge (LA)","Lexington (OK)","Tecumseh (OK)","Navasota (TX)","Grant (LA)","Evadale (TX)","Glenmora (LA)","Okmulgee (OK)","Morris (OK)","Mound (TX)","Boley (OK)","Heidenheimer (TX)","Taft (OK)","Rogers (TX)","Aimwell (LA)","Buckholts (TX)","Longville (LA)","Lamar (AR)","Palo Pinto (TX)","Duncan (OK)","Wrightsville (AR)","Bluegrove (TX)","Stilwell (OK)","Fort Gibson (OK)","Castle (OK)","Lindsay (OK)","Pine Bluff (AR)","Morrilton (AR)","Henrietta (TX)","Sweet Home (AR)","Shawnee (OK)","Graford (TX)","Maumelle (AR)","Baskin (LA)","Elizabeth (LA)","Comanche (OK)","Sherrill (AR)","Deweyville (TX)","Hardin (TX)","Snook (TX)","Little Rock (AR)","Evansville (AR)","Preston (OK)","Jones (LA)","Wright (AR)","Lumberton (TX)","Paden (OK)","Stephenville (TX)","Enterprise (LA)","Wilmot (AR)","Dry Creek (LA)","Chriesman (TX)","College Station (AR)","Mayflower (AR)","Rhinehart (LA)","New Caney (TX)","Sour Lake (TX)","Forest Hill (LA)","Longleaf (LA)","Fort Necessity (LA)","Deville (LA)","Yorktown (AR)","Montrose (AR)","Gatesville (TX)","Clarksville (AR)","Atkins (AR)","North Little Rock (AR)","Welling (OK)","Bryson (TX)","Haskell (OK)","Gordon (TX)","Hull (TX)","Starks (LA)","Little River Academy (TX)","Tucker (AR)","Moscow (AR)","Caldwell (TX)","Hagarville (AR)","Canehill (AR)","Byers (TX)","Winnsboro (LA)","Prague (OK)","Jigger (LA)","Somerville (TX)","Okay (OK)","Jermyn (TX)","Spring (TX)","Parkdale (AR)","Purcell (OK)"];
+        const cities = ["Leesburg (TX)","Cason (TX)","Winfield (TX)","Scroggins (TX)","Daingerfield (TX)","Gilmer (TX)","Lone Star (TX)","Mount Pleasant (TX)","Cookville (TX)","Ore City (TX)","Omaha (TX)","Hughes Springs (TX)","Avinger (TX)","Pickton (TX)","Diana (TX)","Naples (TX)","Big Sandy (TX)","Talco (TX)","Saltillo (TX)","Hawkins (TX)","Como (TX)","Dike (TX)","Judson (TX)","White Oak (TX)","Gladewater (TX)","Sulphur Bluff (TX)","Simms (TX)","Yantis (TX)","Linden (TX)","Bogata (TX)","Sulphur Springs (TX)","Harleton (TX)","Annona (TX)","Winona (TX)","Longview (TX)","Cunningham (TX)","Mineola (TX)","Douglassville (TX)","Alba (TX)","Lindale (TX)","De Kalb (TX)","Deport (TX)","Hallsville (TX)","Lodi (TX)","Avery (TX)","Kildare (TX)","Lake Creek (TX)","Woodlawn (TX)","Kilgore (TX)","New Boston (TX)","Laird Hill (TX)","Marshall (TX)","Brashear (TX)","Pattonville (TX)","Emory (TX)","Bivins (TX)","Redwater (TX)","Cumby (TX)","Easton (TX)","Grand Saline (TX)","Cooper (TX)","Queen City (TX)","Enloe (TX)","Detroit (TX)","Arp (TX)","Overton (TX)","Tyler (TX)","Van (TX)","New London (TX)","Hooks (TX)","Mc Leod (TX)","Blossom (TX)","Tatum (TX)","Fruitvale (TX)","Karnack (TX)","Scottsville (TX)","Henderson (TX)","Klondike (TX)","Bloomburg (TX)","Point (TX)","Pecan Gap (TX)","Ben Wheeler (TX)","Edgewood (TX)","Whitehouse (TX)","Lone Oak (TX)","Joinerville (TX)","Selman City (TX)","Rodessa (LA)","Campbell (TX)","Nash (TX)","Ben Franklin (TX)","Commerce (TX)","Vivian (LA)","Haworth (OK)","Idabel (OK)","Beckville (TX)","Roxton (TX)","Bagwell (TX)","Foreman (AR)","Flint (TX)","Oil City (LA)","Brownsboro (TX)","Price (TX)","Waskom (TX)","Doddridge (AR)","Ida (LA)","Brookston (TX)","Elysian Fields (TX)","Wills Point (TX)","Petty (TX)","Hosston (LA)","Powderly (TX)","Fouke (AR)","Mooringsport (LA)","Canton (TX)","Ladonia (TX)","Murchison (TX)","Garvin (OK)","Bullard (TX)","Quinlan (TX)","Troup (TX)","Belcher (LA)","Genoa (AR)","De Berry (TX)","Wolfe City (TX)","Gilliam (LA)","Ashdown (AR)","Valliant (OK)","Greenville (TX)","Sumner (TX)","Millerton (OK)","Blanchard (LA)","Greenwood (LA)","Chicota (TX)","Alleene (AR)","Winthrop (AR)","Swink (OK)","Bethany (LA)","Texarkana (AR)","New Summerfield (TX)","Cuney (TX)","Honey Grove (TX)","Larue (TX)","Ogden (AR)","Windom (TX)","Arthur City (TX)","Long Branch (TX)","Golden (OK)","Laneville (TX)","Elmo (TX)","Caddo Mills (TX)","Wilton (AR)","Gober (TX)","Poynor (TX)","Garland City (AR)","Frankston (TX)","Fort Towson (OK)","Horatio (AR)","Celeste (TX)","Dodd City (TX)","Ben Lomond (AR)","Bradley (AR)","Sawyer (OK)","Mabank (TX)","Mount Enterprise (TX)","Bailey (TX)","Broken Bow (OK)","Plain Dealing (LA)","Wright City (OK)","Gary (TX)","Eagletown (OK)","Leonard (TX)","Eustace (TX)","Reklaw (TX)","Gallatin (TX)","Royse City (TX)","Merit (TX)","Keithville (LA)","Saratoga (AR)","Rufe (OK)","Hugo (OK)","Shreveport (LA)","Terrell (TX)","Josephine (TX)","Benton (LA)","Fulton (AR)","Bossier City (LA)","Farmersville (TX)","Lewisville (AR)","Sacul (TX)","Kaufman (TX)","Bonham (TX)","Lockesburg (AR)","Nevada (TX)","Fate (TX)","Randolph (TX)","Telephone (TX)","Keatchie (LA)","Soper (OK)","Ringold (OK)","Spencerville (OK)","De Queen (AR)","Trenton (TX)","Stonewall (LA)","Columbus (AR)","Neches (TX)","Mineral Springs (AR)","Haughton (LA)","Boswell (OK)","Tenaha (TX)","Barksdale Afb (LA)","Copeville (TX)","Rockwall (TX)","Malakoff (TX)","Cushing (TX)","Maydelle (TX)","Ivanhoe (TX)","Rusk (TX)","Blue Ridge (TX)","Lavon (TX)","Garrison (TX)","Springhill (LA)","Stamps (AR)","Ector (TX)","Gloster (LA)","Trinidad (TX)","Forney (TX)","Timpson (TX)","Cullen (LA)","Gillham (AR)","Montalba (TX)","Sarepta (LA)","Princeton (LA)","Ravenna (TX)","Savoy (TX)","Crandall (TX)","Bennington (OK)","Cotton Valley (LA)","Logansport (LA)","Whitewright (TX)","Westminster (TX)","Longstreet (LA)","Scurry (TX)","Wylie (TX)","Hope (AR)","Palestine (TX)","Frierson (LA)","Buckner (AR)","Joaquin (TX)","Antlers (OK)","Cayuga (TX)","Grannis (AR)","Rowlett (TX)","Douglass (TX)","Sunnyvale (TX)","Alto (TX)","Anna (TX)","Grand Cane (LA)","Albany (OK)","Ozan (AR)","Hendrix (OK)","Rattan (OK)","Sachse (TX)","Melissa (TX)","Rosser (TX)","Kerens (TX)","Nashville (AR)","Tennessee Colony (TX)","Tom Bean (TX)","Mckinney (TX)","Bethel (OK)","Bells (TX)","Shongaloo (LA)","Garland (TX)","Van Alstyne (TX)","Chatfield (TX)","Seagoville (TX)","Dierks (AR)","Kemp (OK)","Elm Grove (LA)","Center (TX)","Pickens (OK)","Wickes (AR)","Mesquite (TX)","Balch Springs (TX)","Bokchito (OK)","Waldo (AR)","Powell (TX)","Doyline (LA)","Battiest (OK)","Martinsville (TX)","Watson (OK)","Achille (OK)","Minden (LA)","Sherman (TX)","Finley (OK)","Emmet (AR)","Moyers (OK)","Elkhart (TX)","Rice (TX)","Mc Caskill (AR)","Ferris (TX)","Weston (TX)","Umpire (AR)","Mansfield (LA)","Nacogdoches (TX)","Plano (TX)","Willisville (AR)","Sibley (LA)","Hutchins (TX)","Wells (TX)","Cove (AR)","Richardson (TX)","Wilmer (TX)","Snow (OK)","Emerson (AR)","Blevins (AR)","Corsicana (TX)","Calera (OK)","Rosston (AR)","Colbert (OK)","Vandervoort (AR)","Ennis (TX)","Heflin (LA)","Magnolia (AR)","Lane (OK)","Fairfield (TX)","Celina (TX)","Smithville (OK)","Cale (AR)","Murfreesboro (AR)","Woden (TX)","Streetman (TX)","Nashoba (OK)","Mc Neil (AR)","Grapeland (TX)","Newhope (AR)","Shelbyville (TX)","Caddo (OK)","Ringgold (LA)","Palmer (TX)","Dallas (TX)","Gunter (TX)","Prosper (TX)","Addison (TX)","Lancaster (TX)","Pollok (TX)","Durant (OK)","Dubberly (LA)","Denison (TX)","Frisco (TX)","Converse (LA)","Chireno (TX)","Hatfield (AR)","Haynesville (LA)","Honobia (OK)","Caney (OK)","Platter (OK)","Cartwright (OK)","Langley (AR)","Delight (AR)","San Augustine (TX)","Carrollton (TX)","Taylor (LA)","Kirby (AR)","Hall Summit (LA)","Pelican (LA)","Southmayd (TX)","Atoka (OK)","The Colony (TX)","Bardwell (TX)","Prescott (AR)","Kirvin (TX)","Richland (TX)","Jamestown (LA)","Desoto (TX)","Latexo (TX)","Coushatta (LA)","Antoine (AR)","Whitesboro (OK)","Mead (OK)","Oakwood (TX)","Kennard (TX)","Stringtown (OK)","Albion (OK)","Pottsboro (TX)","Barry (TX)","Waxahachie (TX)","Kenefic (OK)","Athens (LA)","Stephens (AR)","Little Elm (TX)","Duncanville (TX)","Irving (TX)","Bluff City (AR)","Gibsland (LA)","Pilot Point (TX)","Daisy (OK)","Tuskahoma (OK)","Homer (LA)","Noble (LA)","Coppell (TX)","Collinsville (TX)","Wortham (TX)","Etoile (TX)","Board Camp (AR)","Talihina (OK)","Pleasant Hill (LA)","Grand Prairie (TX)","Lake Dallas (TX)","Kingston (OK)","Muse (OK)","Aubrey (TX)","Apple Springs (TX)","Blooming Grove (TX)","Mena (AR)","Beirne (AR)","Avalon (TX)","Okolona (AR)","Cedar Hill (TX)","Sadler (TX)","Purdon (TX)","Purcell (OK)"];
         
         const grid = document.getElementById('areaGrid');
         const searchInput = document.getElementById('citySearch');
@@ -136,7 +191,7 @@
             filtered.forEach(city => {
                 const div = document.createElement('div');
                 div.className = 'city-tag';
-                div.innerText = city;
+                div.innerText = '📍 ' + city;
                 grid.appendChild(div);
             });
         }
