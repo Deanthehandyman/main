@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dean's Handyman Service LLC | Pittsburg, TX | Starlink & Tech Expert</title>
-
-    <meta name="description" content="Dean's Handyman Service LLC: Industrial-grade home repair and Starlink installation. Serving Pittsburg, TX and a 200-mile radius. Fully insured professional craftsmanship.">
-    <meta name="keywords" content="75686 Handyman, Starlink Installer Texas, Pittsburg TX home repair, Starlink Mini RV mount, electrical repair Pittsburg">
-    <meta name="geo.region" content="US-TX">
-    <meta name="geo.placename" content="Pittsburg">
+    <title>Dean's Handyman Service LLC | 200-Mile Tech & Repair Expert | TX, AR, LA, OK</title>
+    
+    <meta name="description" content="Industrial-grade handyman and Starlink installation serving a 200-mile radius from Pittsburg, TX. Professional service across East Texas, Arkansas, Louisiana, and Oklahoma.">
+    <meta name="geo.region" content="US-TX;US-AR;US-LA;US-OK">
+    <meta name="geo.placename" content="Pittsburg, Tyler, Longview, Texarkana, Shreveport">
     <meta name="geo.position" content="32.9997;-94.9675">
     <meta name="ICBM" content="32.9997, -94.9675">
 
@@ -32,10 +31,9 @@
             --venmo-blue: #008CFF;
         }
 
-        /* --- TYPOGRAPHY --- */
         h1, h2, h3, h4 { color: var(--dark); font-weight: 700; }
-        h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; }
-        h2 { font-size: 2.2rem; text-align: center; margin-bottom: 10px; }
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; }
+        h2 { font-size: 2rem; text-align: center; margin-bottom: 10px; }
         .section-sub { text-align: center; color: #666; margin-bottom: 40px; }
         
         /* --- BUTTONS --- */
@@ -55,38 +53,36 @@
         .logo-img { height: 85px; width: auto; display: block; }
         .logo-text { font-weight: 800; font-size: 1.1rem; line-height: 1.1; text-transform: uppercase; }
         .nav-links { display: flex; align-items: center; }
-        .nav-links a { color: var(--dark); text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
-        .nav-pay-btn { background: var(--venmo-blue); color: white !important; padding: 8px 16px; border-radius: 4px; }
-
+        .nav-links a { color: var(--dark); text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+        
         /* --- HERO --- */
-        .hero { background: linear-gradient(135deg, #005a8d 0%, #008bd2 100%); color: var(--white); padding: 100px 0; text-align: center; }
-        .hero h1 { color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
+        .hero { background: linear-gradient(135deg, #005a8d 0%, #008bd2 100%); color: var(--white); padding: 80px 0; }
+        .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { color: var(--white); text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
+        .hero-text ul { list-style: none; margin-bottom: 30px; }
+        .hero-text li { margin-bottom: 12px; font-size: 1.1rem; display: flex; align-items: center; }
+        .hero-text li::before { content: "✓"; color: var(--accent); margin-right: 12px; font-weight: bold; }
+        
+        .lead-card { background: var(--white); padding: 30px; border-radius: 8px; width: 100%; max-width: 420px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); color: var(--dark); border-top: 6px solid var(--accent); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 6px; font-size: 0.9rem; font-weight: 700; color: #555; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; }
 
-        /* --- OFFERS BAR --- */
-        .offers-banner { background: #fff3cd; border-bottom: 2px solid #ffeeba; padding: 15px 0; text-align: center; font-weight: 700; color: #856404; }
+        /* --- PAYMENTS --- */
+        .payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-top: 20px; }
+        .pay-link { text-decoration: none; color: white; padding: 12px; border-radius: 6px; text-align: center; font-weight: bold; font-size: 0.85rem; }
 
-        /* --- FULL SIZE ESTIMATOR --- */
-        .estimator-section { background: var(--light); border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
-        .est-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto; border-top: 8px solid var(--accent); }
-        .cat-title { background: #f8fafc; padding: 12px; font-weight: 800; color: var(--primary); text-transform: uppercase; font-size: 0.85rem; margin-top: 25px; border-radius: 4px; border-left: 4px solid var(--accent); }
-        .est-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #eee; }
-        .qty-input { width: 80px; padding: 10px; text-align: center; border: 1px solid #ddd; border-radius: 5px; font-weight: bold; }
+        /* --- SERVICES --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: var(--white); padding: 35px; border-radius: 8px; border: 1px solid #eee; transition: 0.3s; position: relative; overflow: hidden; }
+        .service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--primary); }
+        .icon-box { width: 60px; height: 60px; background: #eaf4ff; color: var(--primary); display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-bottom: 25px; font-size: 1.8rem; }
 
-        /* --- VIRTUAL & PAYMENTS --- */
-        .virtual-section { background-color: var(--tech-bg); color: white; }
-        .virtual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .virtual-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
-        .payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 20px; }
-
-        /* --- FOOTER --- */
-        footer { background: #1a1a1a; color: #aaa; padding: 60px 0; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
-        .footer-grid a { color: #ccc; text-decoration: none; display: block; margin-bottom: 10px; }
-        .footer-grid a:hover { color: var(--accent); }
-
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .nav-links { display: none; }
-            h1 { font-size: 2rem; }
+            .hero-layout { flex-direction: column; text-align: center; }
+            .hero-text ul { display: inline-block; text-align: left; }
         }
     </style>
 </head>
@@ -95,194 +91,140 @@
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo-wrapper">
-                <img src="https://i.imgur.com/CtBcYkI.png" alt="Dean's Handyman Service" class="logo-img">
-                <div class="logo-text">Dean's<br><span style="color:var(--primary); font-size:0.7rem;">Handyman Service LLC</span></div>
+                <img src="https://i.imgur.com/CtBcYkI.png" alt="Dean's Handyman Service Logo" class="logo-img">
+                <div class="logo-text">Dean's<br><span>Handyman Service LLC</span></div>
             </a>
+            
             <nav class="nav-links">
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
                 <a href="starlink-install.html">Starlink</a>
-                <a href="areas.html">Areas</a>
+                <a href="areas.html">Service Areas</a>
                 <a href="gallery.html">Work</a>
-                <a href="reviews.html">Reviews</a>
                 <a href="blog.html">Blog</a>
                 <a href="faqs.html">FAQs</a>
                 <a href="contact.html">Contact</a>
-                <a href="https://venmo.com/u/DeanshandymanserviceLLC" class="nav-pay-btn" target="_blank">Pay</a>
+                <a href="tel:2819179914" class="btn btn-primary" style="margin-left: 10px; padding: 8px 15px;">(281) 917-9914</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="container" data-aos="zoom-in">
-            <h1>Industrial-Grade Service For Your Home</h1>
-            <p style="font-size:1.3rem; margin-bottom:30px;">Serving Pittsburg, TX and a 200-Mile Radius with Expert Precision.</p>
-            <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
-                <a href="#estimator" class="btn btn-accent">Get Instant Quote</a>
-                <a href="tel:2819179914" class="btn btn-primary">Call (281) 917-9914</a>
+        <div class="container hero-layout">
+            <div class="hero-text" data-aos="fade-right">
+                <h1>200-Mile Professional Service Radius</h1>
+                <p style="font-size: 1.25rem; margin-bottom: 25px; color: #eef;">Starlink Installation, Electrical, and Skilled Repair across TX, AR, LA, and OK.</p>
+                <ul>
+                    <li>Serving Pittsburg, Tyler, Texarkana, Shreveport & Beyond</li>
+                    <li>First 100 Miles of Travel are FREE</li>
+                    <li>Industrial-Grade Tools & Mobile Workshop</li>
+                    <li>Starlink Gen 3 & Mini Expert Installer</li>
+                </ul>
             </div>
-        </div>
-    </section>
-
-    <div class="offers-banner">
-        <div class="container">
-            📍 FREE Travel for the first 100 miles! &nbsp; | &nbsp; 🛰️ 2nd Month of Starlink FREE using my Referral Link!
-        </div>
-    </div>
-
-    <section class="section estimator-section" id="estimator">
-        <div class="container">
-            <h2 data-aos="fade-up">Project Cost Estimator</h2>
-            <p class="section-sub" data-aos="fade-up">Get a transparent labor estimate in seconds.</p>
             
-            <div class="est-box" id="step1" data-aos="fade-up">
-                <div class="cat-title">📡 Starlink & Internet</div>
-                <div class="est-row"><span>Standard Residential Install</span><input type="number" min="0" class="qty-input" data-price="300" data-name="Res Starlink"></div>
-                <div class="est-row"><span>RV / Mobile / High Mount</span><input type="number" min="0" class="qty-input" data-price="350" data-name="RV/High Starlink"></div>
-                <div class="est-row"><span>Relocate / Troubleshooting</span><input type="number" min="0" class="qty-input" data-price="200" data-name="Starlink Support"></div>
-
-                <div class="cat-title">⚡ Electrical & Fixtures</div>
-                <div class="est-row"><span>Light Fixture / Outlet Install</span><input type="number" min="0" class="qty-input" data-price="125" data-name="Electrical Fixture"></div>
-                <div class="est-row"><span>Ceiling Fan Install</span><input type="number" min="0" class="qty-input" data-price="175" data-name="Ceiling Fan"></div>
-
-                <div class="cat-title">🛠️ General Labor</div>
-                <div class="est-row"><span>TV Mounting (Standard)</span><input type="number" min="0" class="qty-input" data-price="125" data-name="TV Mount"></div>
-                <div class="est-row"><span>Hourly Skilled Labor Rate</span><input type="number" min="0" class="qty-input" data-price="100" data-name="Labor Hour"></div>
-
-                <div style="margin-top: 25px; background: #f8fafc; padding: 20px; border-radius: 8px;">
-                    <label style="font-weight:bold;">One-Way Mileage from Pittsburg (75686):</label>
-                    <div style="display:flex; align-items:center; gap:15px; margin-top:10px;">
-                        <input type="number" id="trip-miles" placeholder="0" class="qty-input" style="width:100px;">
-                        <span style="font-size:0.8rem; color:#666;">(First 100 miles free. $1.50/mi after.)</span>
+            <div class="lead-card" id="contact" data-aos="fade-left">
+                <h3>Get A Free Quote</h3>
+                <form id="quoteForm">
+                    <div class="form-group">
+                        <label>Service Needed</label>
+                        <select id="service" name="service">
+                            <option>Starlink / Satellite Install</option>
+                            <option>Handyman / General Repair</option>
+                            <option>Electrical / Wiring</option>
+                            <option>Carpentry / Fabrication</option>
+                            <option>Virtual / Video Consultation</option>
+                        </select>
                     </div>
-                </div>
-
-                <button onclick="calculateTotal()" class="btn btn-primary" style="width: 100%; margin-top: 30px; font-size: 1.1rem;">Calculate Estimate</button>
-                
-                <div id="result-area" style="display:none; text-align:center; margin-top:30px; border-top: 4px solid var(--accent); padding-top: 20px;">
-                    <span style="font-weight:bold; text-transform:uppercase; color:#15803d;">Estimated Total</span>
-                    <div id="final-price" style="font-size:3.5rem; font-weight:900; color:#166534; margin:10px 0;">$0.00</div>
-                    <button onclick="showContact()" class="btn btn-accent" style="width:100%; padding:20px;">✅ Proceed to Booking</button>
-                </div>
-            </div>
-
-            <div class="est-box" id="step2" style="display:none;">
-                <h3>Finalize Your Booking</h3>
-                <p style="text-align:center; color:#666; margin-bottom:20px;">Send this estimate directly to Dean.</p>
-                <input type="text" id="c-name" placeholder="Full Name" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:5px;">
-                <input type="text" id="c-loc" placeholder="Service Address / City" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:5px;">
-                <textarea id="c-msg" placeholder="Job details / Specifics..." style="width:100%; padding:15px; height:100px; margin-bottom:15px; border:1px solid #ddd; border-radius:5px;"></textarea>
-                
-                <div style="background:#f8fafc; padding:15px; border-left:4px solid var(--accent); margin-bottom:20px;">
-                    <strong>Summary:</strong> <span id="summary-text"></span>
-                </div>
-
-                <div style="display:flex; gap:10px;">
-                    <button onclick="sendVia('email')" class="btn btn-primary" style="flex:1;">Email Dean</button>
-                    <button onclick="sendVia('text')" class="btn btn-accent" style="flex:1;">Text Dean</button>
-                </div>
-                <button onclick="goBack()" style="background:none; border:none; color:gray; width:100%; margin-top:20px; cursor:pointer;">← Edit Project Items</button>
+                    <div class="form-group">
+                        <label>Project Details</label>
+                        <textarea id="details" name="details" rows="2" placeholder="Tell me about the job..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>City & State</label>
+                        <input type="text" id="address" name="address" placeholder="e.g. Texarkana, AR" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+                    </div>
+                    <button type="submit" class="btn btn-accent" style="width:100%;" id="submitBtn">Check Availability</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <section class="section virtual-section">
+    <section class="section" id="starlink">
         <div class="container">
-            <div style="display:flex; flex-wrap:wrap; gap:50px;">
-                <div style="flex:1; min-width:320px;">
-                    <h2>AI Assistant & Support</h2>
-                    <div class="virtual-card">
-                        <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
-                        <zapier-interfaces-chatbot-embed is-popup='false' chatbot-id='cmla3f83s001hfy8tds4wmpva' height='500px' width='100%'></zapier-interfaces-chatbot-embed>
-                    </div>
+            <h2>Industrial Craftsmanship Anywhere</h2>
+            <p class="section-sub">We specialize in remote and technical installs across the Ark-La-Tex region.</p>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="icon-box">📡</div>
+                    <h3>Starlink Specialist</h3>
+                    <p>From residential roof mounts to RV setups. We provide clear-view optimization and professional network cabling.</p>
                 </div>
-                <div style="flex:1; min-width:320px; text-align:center;">
-                    <h2>Secure Payments</h2>
-                    <p style="margin-bottom:30px;">Ready to pay an invoice or deposit?</p>
-                    <div class="payment-grid">
-                        <a href="https://square.link/u/dO7MQ0kc" target="_blank" class="btn btn-primary">Square</a>
-                        <a href="https://www.venmo.com/u/DeanshandymanserviceLLC" target="_blank" class="btn" style="background:var(--venmo-blue); color:white;">Venmo</a>
-                        <a href="https://www.paypal.com/ncp/payment/CVURGTVEWZ96J" target="_blank" class="btn" style="background:#003087; color:white;">PayPal</a>
-                        <a href="https://cash.app/$HandymanDean" target="_blank" class="btn" style="background:#00D632; color:white;">CashApp</a>
-                    </div>
-                    <div style="margin-top:40px; padding:20px; background:rgba(255,255,255,0.05); border-radius:8px;">
-                        <p><strong>Starlink Referral Link:</strong></p>
-                        <a href="https://starlink.com/residential?referral=RC-2034578-19016-61&app_source=share" style="color:var(--accent); font-size:0.9rem;">Order Here for 2nd Month Free</a>
-                    </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box">⚡</div>
+                    <h3>Technical Trades</h3>
+                    <p>Expert electrical, hydraulic, and pipefitting repairs. We tackle the complex builds that standard handymen avoid.</p>
                 </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box">🚚</div>
+                    <h3>Mobile Workshop</h3>
+                    <p>We arrive fully equipped with commercial-grade power and tools, ready to work on-site regardless of your location.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--tech-bg); color: white; text-align: center;">
+        <div class="container">
+            <h2>Secure Payment Links</h2>
+            <p style="color: #ccc; margin-bottom: 30px;">Direct links for deposits and invoice payments.</p>
+            <div class="payment-grid">
+                <a href="https://square.link/u/dO7MQ0kc" target="_blank" class="pay-link" style="background: var(--primary);">Square</a>
+                <a href="https://venmo.com/u/DeanshandymanserviceLLC" target="_blank" class="pay-link" style="background: var(--venmo-blue);">Venmo</a>
+                <a href="https://www.paypal.com/ncp/payment/CVURGTVEWZ96J" target="_blank" class="pay-link" style="background: #003087;">PayPal</a>
+                <a href="https://cash.app/$HandymanDean" target="_blank" class="pay-link" style="background: #00D632;">Cash App</a>
+            </div>
+            <div style="margin-top: 40px;">
+                <p>Order Starlink via my Referral for a <strong>2nd Month FREE:</strong></p>
+                <a href="https://starlink.com/residential?referral=RC-2034578-19016-61&app_source=share" target="_blank" style="color: var(--accent); font-weight: bold;">Click Here to Order</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>Dean's Handyman Service</h4>
-                    <p>Pittsburg, TX 75686</p>
-                    <p>(281) 917-9914</p>
-                </div>
-                <div>
-                    <h4>Navigation</h4>
-                    <a href="about.html">About</a>
-                    <a href="services.html">Services</a>
-                    <a href="starlink-install.html">Starlink Hub</a>
-                    <a href="areas.html">Service Areas</a>
-                </div>
-                <div>
-                    <h4>More</h4>
-                    <a href="blog.html">Blog</a>
-                    <a href="faqs.html">FAQs</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="sitemap.xml">Sitemap</a>
-                </div>
+        <div class="container footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 60px 0;">
+            <div>
+                <h4 style="color: white; margin-bottom: 20px;">Dean's Handyman Service LLC</h4>
+                <p style="color: #aaa;">Serving a 200-mile radius from Pittsburg, TX 75686. Fully insured and industrial-trained.</p>
             </div>
-            <p style="text-align:center; margin-top:50px; font-size:0.8rem; color:#555;">© 2026 Dean's Handyman Service LLC.</p>
+            <div>
+                <h4 style="color: white; margin-bottom: 20px;">Navigation</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="services.html" style="color: #aaa; text-decoration: none;">Services</a></li>
+                    <li><a href="areas.html" style="color: #aaa; text-decoration: none;">Service Areas</a></li>
+                    <li><a href="blog.html" style="color: #aaa; text-decoration: none;">Blog</a></li>
+                    <li><a href="contact.html" style="color: #aaa; text-decoration: none;">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: white; margin-bottom: 20px;">Contact</h4>
+                <p style="color: #aaa;">Phone: (281) 917-9914</p>
+                <p style="color: #aaa;">Email: deanshandymanservice1@gmail.com</p>
+            </div>
+        </div>
+        <div style="text-align: center; color: #555; padding: 20px; border-top: 1px solid #333;">
+            © 2026 Dean's Handyman Service LLC. All rights reserved.
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
+    <script>AOS.init({ duration: 800, once: true });</script>
+    
+    <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+    <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmla3f83s001hfy8tds4wmpva'></zapier-interfaces-chatbot-embed>
 
-        function calculateTotal() {
-            let total = 0; let items = [];
-            document.querySelectorAll('.qty-input').forEach(i => {
-                const q = parseInt(i.value) || 0;
-                if(q > 0 && i.dataset.price) { 
-                    total += (q * parseInt(i.dataset.price)); 
-                    items.push(`${q}x ${i.dataset.name}`); 
-                }
-            });
-            const m = parseInt(document.getElementById('trip-miles').value) || 0;
-            if(m > 100) { total += (m - 100) * 1.50; items.push(`Trip Fee (${m} mi)`); }
-            
-            document.getElementById('final-price').innerText = "$" + total.toFixed(2);
-            document.getElementById('result-area').style.display = 'block';
-            window.qData = { total: total.toFixed(2), summary: items.join(", ") };
-        }
-
-        function showContact() {
-            if(!window.qData || window.qData.summary === "") { alert("Please select an item."); return; }
-            document.getElementById('summary-text').innerText = window.qData.summary + " ($" + window.qData.total + ")";
-            document.getElementById('step1').style.display = 'none';
-            document.getElementById('step2').style.display = 'block';
-        }
-
-        function goBack() {
-            document.getElementById('step1').style.display = 'block';
-            document.getElementById('step2').style.display = 'none';
-        }
-
-        function sendVia(m) {
-            const n = document.getElementById('c-name').value;
-            const l = document.getElementById('c-loc').value;
-            const notes = document.getElementById('c-msg').value;
-            if(!n || !l) { alert("Please enter name and location."); return; }
-            const msg = `Handyman Quote Request:\nName: ${n}\nLocation: ${l}\nProject: ${window.qData.summary}\nEst Total: $${window.qData.total}\nNotes: ${notes}`;
-            if(m === 'email') window.location.href = `mailto:deanshandymanservice1@gmail.com?subject=New Job Request&body=${encodeURIComponent(msg)}`;
-            else window.location.href = `sms:2819179914?body=${encodeURIComponent(msg)}`;
-        }
-    </script>
 </body>
 </html>
