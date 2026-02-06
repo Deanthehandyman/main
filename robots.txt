@@ -1,5 +1,10 @@
+# Dean's Handyman Service LLC - Robots.txt
+# Optimized for SEO/AEO/GEO in 2026
+
 User-agent: *
 Allow: /
+Disallow: /ideas.txt
+Disallow: /404.html
 
-Sitemap: https://deanthehandyman.github.io/sitemap.xml
-Sitemap: https://deanthehandyman.github.io/sitemap_blogs.xml
+# Sitemaps help search engines find your 200-mile service radius faster
+Sitemap: https://deanshandymanservice.com/sitemap.xml
