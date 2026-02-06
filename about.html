@@ -15,34 +15,64 @@
     <style>
         /* --- RESET & BASICS --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; overflow-x: hidden; }
         :root {
             --primary: #008bd2; 
             --primary-dark: #006fa8;
             --accent: #f0a500; 
-            --dark: #111;
-            --light: #f4f7f6;
+            --dark: #0f172a; 
+            --text-main: #1a1a1a; 
+            --text-muted: #475569; 
             --white: #ffffff;
+            --tech-bg: #1e293b;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-main); background-color: #f9f9f9; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
 
-        /* --- HEADER --- */
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 100px; }
-        .logo-wrapper { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--dark); }
-        .logo-img { height: 85px; width: auto; }
-        .logo-text { font-weight: 800; font-size: 1.1rem; line-height: 1.1; text-transform: uppercase; }
+        h1, h2, h3, h4 { color: var(--dark); font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 10px; color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); text-align: center; margin-bottom: 10px; color: var(--dark); }
         
-        .nav-links { display: flex; align-items: center; }
-        .nav-links a { color: var(--dark); text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
-        .btn-primary { background: var(--primary); color: white !important; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- HEADER & NAVIGATION --- */
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 2000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo-wrapper { display: flex; align-items: center; gap: 10px; text-decoration: none; z-index: 2100; }
+        .logo-img { height: 50px; width: auto; }
+        .logo-text { font-weight: 800; font-size: 1rem; line-height: 1; text-transform: uppercase; color: var(--dark); }
+        .logo-text span { color: var(--primary); font-size: 0.7rem; display: block; font-weight: 900; }
+        
+        .nav-links { display: flex; align-items: center; gap: 12px; }
+        .nav-links a { color: var(--dark); text-decoration: none; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; white-space: nowrap; transition: 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2100; padding: 10px; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--dark); border-radius: 3px; transition: 0.3s; }
+
+        @media (max-width: 992px) {
+            .menu-toggle { display: flex; }
+            .nav-links { 
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; 
+                background: var(--white); flex-direction: column; align-items: flex-start; 
+                padding: 100px 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s; 
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 1.1rem; width: 100%; padding: 15px 0; border-bottom: 1px solid #f1f1f1; }
+        }
+
+        /* --- ABOUT HERO (SHOP BACKGROUND) --- */
+        .page-hero { 
+            background: linear-gradient(rgba(0, 15, 30, 0.7), rgba(0, 15, 30, 0.7)), url('https://i.imgur.com/MZzro2B.jpg'); 
+            background-size: cover; background-position: center; background-attachment: fixed; padding: 80px 0; text-align: center; color: white;
+        }
 
         /* --- BIOGRAPHY SECTION --- */
         .bio-section { padding: 80px 0; }
         .bio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; align-items: center; }
-        .bio-text h1 { font-size: 2.5rem; color: var(--dark); margin-bottom: 20px; }
-        .heritage-card { background: var(--dark); color: white; padding: 30px; border-radius: 12px; border-left: 6px solid var(--accent); margin-top: 30px; }
+        .bio-text p { font-weight: 500; color: var(--text-muted); margin-bottom: 20px; }
+        .heritage-card { background: var(--tech-bg); color: white; padding: 30px; border-radius: 12px; border-left: 6px solid var(--accent); margin-top: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .heritage-card p { color: #cbd5e1; margin-bottom: 0; }
         
         .profile-img { 
             width: 100%; 
@@ -52,23 +82,24 @@
             border: 4px solid var(--white);
         }
 
-        /* --- ICON BOXES --- */
+        /* --- LEGACY GRID --- */
         .legacy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 50px; }
-        .legacy-item { text-align: center; padding: 30px; background: white; border: 1px solid #eee; border-radius: 8px; transition: 0.3s; }
-        .legacy-item:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .legacy-item { text-align: center; padding: 30px; background: white; border: 1px solid #e2e8f0; border-radius: 8px; transition: 0.3s; }
+        .legacy-item:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         .legacy-item i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+        .legacy-item p { font-weight: 600; color: var(--text-muted); font-size: 0.9rem; }
 
-        /* --- CALL TO ACTION --- */
-        .cta-section { background: var(--accent); padding: 50px 0; text-align: center; }
-        .cta-section h2 { color: var(--dark); font-size: 2rem; margin-bottom: 15px; }
+        /* --- CALL BUTTON --- */
+        .mobile-fab { 
+            position: fixed; bottom: 20px; left: 20px; background: #28a745; color: white; 
+            width: 60px; height: 60px; border-radius: 50%; display: none; align-items: center; 
+            justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1500; text-decoration: none; 
+        }
 
-        /* --- FOOTER --- */
-        footer { background: #1a1a1a; color: #aaa; padding: 60px 0; font-size: 0.95rem; text-align: center; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
+        @media (max-width: 992px) { 
+            .mobile-fab { display: flex; } 
+            .page-hero { background-attachment: scroll; }
             .bio-text { text-align: center; }
-            h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -77,38 +108,50 @@
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo-wrapper">
-                <img src="https://i.imgur.com/CtBcYkI.png" alt="Dean's Handyman Service" class="logo-img">
-                <div class="logo-text">Dean's<br><span style="color:var(--primary); font-size:0.7rem;">Handyman Service LLC</span></div>
+                <img src="https://i.imgur.com/CtBcYkI.png" alt="Dean's Handyman Service Logo" class="logo-img">
+                <div class="logo-text">Dean's<br><span>Handyman Service LLC</span></div>
             </a>
-            <nav class="nav-links">
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </div>
+            <nav class="nav-links" id="nav-menu">
                 <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
                 <a href="starlink-install.html">Starlink</a>
                 <a href="areas.html">Areas</a>
                 <a href="gallery.html">Work</a>
                 <a href="contact.html">Contact</a>
-                <a href="tel:2819179914" class="btn-primary" style="margin-left:15px;">(281) 917-9914</a>
+                <a href="tel:2819179914" style="background:var(--primary); color:white; padding: 10px 15px; border-radius:6px; text-decoration:none;">(281) 917-9914</a>
             </nav>
         </div>
     </header>
+
+    <a href="tel:2819179914" class="mobile-fab">📞</a>
+
+    <section class="page-hero">
+        <div class="container" data-aos="fade-down">
+            <h1>Hi, I'm Dean</h1>
+            <p style="font-weight: 800; text-shadow: 0 2px 4px black; font-size: 1.2rem;">4 Generations of Industrial Craftsmanship</p>
+        </div>
+    </section>
 
     <section class="bio-section">
         <div class="container">
             <div class="bio-grid">
                 <div class="bio-text" data-aos="fade-right">
-                    <h1>Hi, I'm Dean</h1>
-                    <p style="font-size: 1.15rem; margin-bottom: 20px;">I own and operate <strong>Dean's Handyman Service LLC</strong> out of Pittsburg, Texas. I see myself as a technical problem solver with four generations of industrial grit behind me.</p>
+                    <h2 style="text-align: left; margin-bottom: 20px;">Technical Problem Solving</h2>
+                    <p style="font-size: 1.1rem;">I own and operate <strong>Dean's Handyman Service LLC</strong> out of Pittsburg, Texas. I see myself as a technical problem solver with four generations of industrial grit behind me.</p>
                     
                     <p>I operate a mobile workshop that travels a <strong>200-mile radius</strong> across the Ark-La-Tex. I specialize in the complex tech that modern rural living requires—like <strong>Starlink Gen 3 and Mini</strong> systems—while maintaining the traditional mechanical skills needed to keep a home or shop running smoothly.</p>
 
                     <div class="heritage-card">
-                        <h3 style="color: var(--accent); margin-bottom: 10px;">The Family Heritage</h3>
+                        <h3 style="color: var(--accent); margin-bottom: 10px; text-align: left;">The Family Heritage</h3>
                         <p>Craftsmanship is in my DNA. My father was a master welder, my mother a locksmith, and my grandfathers were experts in mechanics, oil rig operation, and concrete. I was raised to build things that last and fix things that others throw away.</p>
                     </div>
                 </div>
                 
                 <div class="bio-image" style="text-align: center;" data-aos="fade-left">
-                    <img src="https://i.imgur.com/uH5Sk9Y.jpeg" alt="Dean Elkins - Dean's Handyman Service" class="profile-img">
+                    <img src="https://i.imgur.com/uH5Sk9Y.jpeg" alt="Dean Elkins" class="profile-img">
                 </div>
             </div>
 
@@ -116,50 +159,66 @@
                 <div class="legacy-item" data-aos="fade-up" data-aos-delay="100">
                     <i class="fas fa-fire"></i>
                     <h4>Welding Roots</h4>
-                    <p style="font-size: 0.9rem; color: #666;">Precision and structural integrity learned from generations of industrial welding.</p>
+                    <p>Precision and structural integrity learned from generations of industrial welding.</p>
                 </div>
                 <div class="legacy-item" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-key"></i>
                     <h4>Locksmithing</h4>
-                    <p style="font-size: 0.9rem; color: #666;">Security and mechanical detail passed down through my family’s expertise.</p>
+                    <p>Security and mechanical detail passed down through my family’s expertise.</p>
                 </div>
                 <div class="legacy-item" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-oil-can"></i>
                     <h4>Industrial Grit</h4>
-                    <p style="font-size: 0.9rem; color: #666;">Oil rig and concrete experience guides my approach to heavy labor and fabrication.</p>
+                    <p>Oil rig and concrete experience guides my approach to heavy labor and fabrication.</p>
                 </div>
                 <div class="legacy-item" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-satellite"></i>
                     <h4>Modern Tech</h4>
-                    <p style="font-size: 0.9rem; color: #666;">Specializing in 2026's cutting-edge satellite internet and smart home infrastructure.</p>
+                    <p>Specializing in 2026's cutting-edge satellite internet and smart infrastructure.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
+    <section style="background: var(--accent); padding: 60px 0; text-align: center;">
         <div class="container">
-            <h2>Ready to put generations of skill to work?</h2>
-            <p style="margin-bottom: 25px; font-weight: 600;">Serving Texas, Arkansas, Louisiana, and Oklahoma.</p>
-            <a href="index.html#contact" class="btn-primary" style="background: var(--dark); padding: 15px 40px; font-size: 1.1rem;">Get A Free Quote</a>
+            <h2 style="color: var(--dark); font-weight: 800;">Ready to put these skills to work?</h2>
+            <p style="margin-bottom: 25px; font-weight: 600; color: var(--dark);">Serving Texas, Arkansas, Louisiana, and Oklahoma.</p>
+            <a href="index.html#contact" style="background: var(--dark); color: white; padding: 15px 40px; font-size: 1.1rem; text-decoration: none; border-radius: 6px; font-weight: 800; display: inline-block;">Request Your Quote</a>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p><strong>Dean's Handyman Service LLC</strong></p>
-            <p>Pittsburg, TX 75686 | (281) 917-9914</p>
-            <div style="margin-top: 20px; opacity: 0.6; font-size: 0.8rem;">
-                © 2026 All Rights Reserved.
+    <footer style="background: #0a0f1a; color: #cbd5e1; padding: 60px 0;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: left;">
+            <div>
+                <h4 style="color: white; margin-bottom: 15px;">Dean's Handyman Service LLC</h4>
+                <p style="color: #94a3b8; font-weight: 600;">Industrial precision for residential tech and skilled trades.</p>
             </div>
+            <div>
+                <h4 style="color: white; margin-bottom: 15px;">Contact</h4>
+                <p style="color: #94a3b8; font-weight: 600;">(281) 917-9914<br>deanshandymanservice1@gmail.com</p>
+            </div>
+        </div>
+        <div style="text-align: center; padding-top: 40px; border-top: 1px solid #1e293b; margin-top: 40px; font-size: 0.85rem;">
+            © 2026 Dean's Handyman Service LLC. All rights reserved.
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
+        
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const spans = menuBtn.getElementsByTagName('span');
+            spans[0].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(5px, 6px)' : 'none';
+            spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
+            spans[2].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(5px, -6px)' : 'none';
+        });
     </script>
-
+    
     <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
     <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmla3f83s001hfy8tds4wmpva'></zapier-interfaces-chatbot-embed>
 
